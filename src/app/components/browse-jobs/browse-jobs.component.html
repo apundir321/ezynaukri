@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<app-header></app-header>
+<div style="clear:both"></div>
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="inner-header">
+                    <h3>Browse Job</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+    <section class="job-browse section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12">
+                    <div class="job-search-form bg-cyan job-featured-search">
+                        <!-- <form [formGroup]="browseForm" (ngSubmit)="onSubmit()"> -->
+                            <div class="row justify-content-center">
+                                <div class="col-lg-5 col-md-5 col-xs-12">
+                                    <div class="form-group">
+                                        <!-- <input class="form-control" type="text" placeholder="Job Title or Company Name"> -->
+                                        <mat-form-field class="example-chip-list" style="width: 100%;">
+                                            <mat-label>Job Tags</mat-label>
+                                            <mat-chip-list #chipList aria-label="Fruit selection">
+                                                <mat-chip *ngFor="let jobTag of jobTags" [selectable]="selectable"
+                                                    [removable]="removable" (removed)="remove(jobTag)">
+                                                    {{jobTag.name}}
+                                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                                </mat-chip>
+                                                <input placeholder="Add Job Tags..." [matChipInputFor]="chipList"
+                                                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                    [matChipInputAddOnBlur]="addOnBlur"
+                                                    (matChipInputTokenEnd)="add($event)">
+                                            </mat-chip-list>
+                                        </mat-form-field>
+                                        <i class="fa fa-tasks" aria-hidden="true" style="color: #a51d2b;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="search-category-container">
+                                            <!-- <label class="styled-select">
+                                                <select (click)="autoComplete()">
+                                                    <option value="">Locations</option>
+                                                    <option *ngFor="let location of locations" value="location.location">{{location.location}}</option>
+                                                    
+                                                </select>
+                                            </label> -->
+            
+                                            <mat-form-field style="width: 100%;">
+                                              <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" multiple>
+                                                <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
+                                              </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-xs-12">
+                                    <button type="submit" class="btn btn-common" (click)="onSubmit()"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Filter</button>
+                                </div>
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+                <div *ngIf="loading; else elseBlock" class="col-lg-12 col-md-12 col-xs-12" style="padding-top: 20px;">
+                    <div class="d-flex align-items-center">
+                        <!-- <strong>Loading...</strong>
+                        <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                        </div> -->
+
+                        <a class="job-listings" href="job-details.html">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-xs-12">
+                                    <div class="job-company-logo" style="width: 100%;">
+                                        <!-- <img src="img/features/img1.png" alt=""> -->
+                                        <strong style="font-size: 18px;font-weight: 500;">Loading Jobs...</strong>
+                                    </div>
+                                    <div class="job-details">
+                                        <h3></h3>
+                                        <span class="company-neme">
+
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+                                    <!-- <span class="btn-open">
+                                7 Open Jobs
+                            </span> -->
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                    <!-- <div class="location">
+                                <i class="lni-map-marker"></i> New Yourk, US
+                            </div> -->
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                    <!-- <span class="btn-full-time">Full Time</span> -->
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    
+                </div>
+                <ng-template #elseBlock>
+                
+            </ng-template>
+            </div>
+        </div>
+
+
+    </section>
+
+
+    <section id="featured" class="section bg-cyan">
+        <div class="container">
+
+            <div class="filter"> <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#mobile-filter" aria-expanded="false" aria-controls="mobile-filter">Filters<span class="fa fa-filter pl-1"></span></button>
+            </div>
+            
+            <section id="sidebar" class="job-featured" style="margin-top: 2%;">
+                <div>
+                    <h6 class="p-1 border-bottom">Job Location</h6>
+                    <section class="example-section">
+                        <span class="example-list-section">
+                          <!-- <ul>
+                            <li *ngFor="let subtask of places.subtasks">
+                              <mat-checkbox [(ngModel)]="subtask.completed"
+                                            [color]="subtask.color"
+                                            (ngModelChange)="updateLocation(subtask.name)">
+                                {{subtask.name}}
+                              </mat-checkbox>
+                            </li>
+                          </ul> -->
+                          <div>
+                          <mat-form-field style="width: 100%;">
+                            <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" multiple>
+                              <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                      </div>
+                      
+                        </span>
+                      </section>
+                </div>
+                <div>
+                    <h6 class="p-1 border-bottom">Filter By</h6>
+                    <p class="mb-2">Experience</p>
+                    <section class="example-section">
+                        <span class="example-list-section">
+                            
+                          <!-- <ul>
+                            <li *ngFor="let subtask of categories.subtasks">
+                              <mat-checkbox [(ngModel)]="subtask.completed"
+                                            [color]="subtask.color"
+                                            (ngModelChange)="updateCategory(subtask.name)">
+                                {{subtask.name}}
+                              </mat-checkbox>
+                            </li>
+                          </ul> -->
+                        </span>
+                      </section>
+                      <p class="mb-2">Experience</p>
+                      <section class="example-section">
+                        <mat-form-field class="example-margin">
+                          <mat-label>Min Experience</mat-label>
+                          <input matInput type="number" [(ngModel)]="min">
+                        </mat-form-field>
+                        <mat-form-field class="example-margin">
+                          <mat-label>Max Experience</mat-label>
+                          <input matInput type="number" [(ngModel)]="max">
+                        </mat-form-field>
+                      </section>
+
+                      <!-- <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider> -->
+                </div>
+
+                <div>
+                    <p class="mb-2">Salary (in lakhs)</p>
+                    <section class="example-section">
+                        <span class="example-list-section">
+                            <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
+                        </span>
+                      </section>
+                </div>
+
+                <div style="padding-top: 10%;">
+                    <p class="mb-2">Categories</p>
+                    <section class="example-section">
+                        <span class="example-list-section">
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select Category</mat-label>
+                                <mat-select [(ngModel)]="selectedCategory">
+                                  <mat-option *ngFor="let category of categories" [value]="category.name">
+                                    {{category.name}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </span>
+                      </section>
+                </div>
+
+                <div >
+                    <p class="mb-2">Organization</p>
+                    <section class="example-section">
+                        <span class="example-list-section">
+                            <mat-form-field style="width: 100%;">
+                                <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" multiple>
+                                  <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </span>
+                      </section>
+                </div>  
+
+
+                
+                
+                <div class="col-12 text-center mt-4">
+                    <a class="btn btn-common" (click)="submit()">Refine</a>
+                </div>
+            </section>
+            <section id="products">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12">
+                            <div *ngFor="let job of jobData | paginate: config" class="job-listings">
+                                <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-xs-12">
+                                        <div class="job-company-logo">
+                                            <img src="/assets/images/find-job.png" alt="">
+                                        </div>
+                                        <div class="job-details">
+                                            <h3>{{job.jobName}}</h3>
+                                            <span class="company-neme">
+                                               {{job.organization.name}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+                                        <span class="btn-open" style="padding: 7px 10px;">
+                                            {{job.noOfvacancies}} Open Jobs
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                        <div class="location">
+                                            <i class="lni lni-map-marker"></i> {{job.jobLocation}}
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                        <span class="btn-full-time">Full Time</span>
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                        <span class="btn-apply" style="padding: 7px 10px;">Apply Now</span>
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                        </div>
+                        <div class="col-12 text-center mt-4">
+                            <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+                        </div>
+
+                    </div> 
+                </div>
+            </section>				                            
+            
+
+             
+        </div>
+    </section>
+
+</body>
+
+<app-footer></app-footer>
+<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }), _trfd.push({ 'ap': 'cpsh' }, { 'server': 'sg3plcpnl0184' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+
+</html>

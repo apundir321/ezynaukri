@@ -1,0 +1,90 @@
+﻿import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { User } from '../_models';
+import { environment } from 'src/environments/environment';
+
+@Injectable({ providedIn: 'root' })
+export class JobService {
+
+    constructor(private http: HttpClient) { }
+
+    getAll() {
+        return this.http.get<any>(environment.apiUrl+`getAllJobs?pageItem=0&pageSize=6`);
+    }
+
+    // delete(id: number) {
+    //     return this.http.delete(`http://localhost:8080/users/${id}`);
+    // }
+
+    applyJob(jobId:string,userId:any)
+    {
+        return this.http.get('http://localhost:8080/applyJob?jobId='+jobId+'&userId='+userId);
+    }
+
+    getSavedJobs(userId:any)
+    {
+        return this.http.get(environment.apiUrl+'getSavedJobs?userId='+userId);
+    }
+
+
+    postJob(job: any,userId: number,categoryId: number,organizationId: number)
+    {
+        // let headers = new HttpHeaders()
+        // headers = headers.set('content-type','multipart/form-data')
+        return this.http.post(environment.apiUrl+'postJob?userId='+userId+"&organizationId="+organizationId+"&categoryId="+categoryId,job);
+    }
+
+    getAppliedJobs(userId: number)
+    {
+        return this.http.get(environment.apiUrl+'getAppliedJobs?userId='+userId+"&pageItem=0&pageSize=10000");
+    }
+
+    getJobDetail(jobId: number)
+    {
+        return this.http.get(environment.apiUrl+'getJobDetail?jobId='+jobId);
+    }
+
+    getJobsById(postData:any)
+    {
+        let headers = new HttpHeaders()
+        headers=headers.set('content-type','application/json')
+        return this.http.post(environment.apiUrl+'getJobs',postData,{headers:headers});
+    }
+
+    getFilterByTags(postData:any)
+    {
+        let headers = new HttpHeaders()
+        headers=headers.set('content-type','application/json')
+        return this.http.post(environment.apiUrl+'getFilterJobs',postData,{ 'headers': headers });
+    }
+
+    getUserProfile(userId: number)
+    {
+        return this.http.get(environment.apiUrl+'getProfile?userId='+userId);
+    }
+
+    getCategories()
+    {
+        return this.http.get(environment.apiUrl+'getCategories');
+    }
+
+    getOrgs()
+    {
+        return this.http.get(environment.apiUrl+'getOrganizations');
+    }
+
+    postOrganization(orgData:any)
+    {
+        // let headers = new HttpHeaders()
+        // headers=headers.set('content-type','application/json')
+        return this.http.post(environment.apiUrl+'addOrganization',orgData);
+    }
+
+    getOrgsByCriteria(orgData:any)
+    {
+        let headers = new HttpHeaders()
+        headers=headers.set('content-type','application/json')
+        return this.http.post(environment.apiUrl+'getOrgsByCriteria',orgData,{headers:headers});
+    }
+}

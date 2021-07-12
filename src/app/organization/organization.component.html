@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<app-header></app-header>
+
+    <body>
+    <div class="page-header">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div class="inner-header">
+<h3>Add Organization</h3>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <section class="section">
+        
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9 col-md-12 col-xs-12">
+                    <div class="post-job box">
+                        
+                        <form [formGroup]="orgForm" (ngSubmit)="onOrgSubmit()">
+                            <div class="form-group">
+                                <label class="control-label">Company Name</label>
+                                <!-- <input type="text" class="form-control" placeholder="Enter the name of the company"> -->
+                                <input type="text" formControlName="organizationName" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.organizationName.errors }" placeholder="Enter the name of the company" />
+                            <div *ngIf="submitted && f.organizationName.errors" class="invalid-feedback">
+                                <div *ngIf="f.organizationName.errors.required">Company Name is required</div>
+                            </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Website <span>(optional)</span></label>
+                                <input type="text" formControlName="website" class="form-control"
+                                 placeholder="Enter the website url of the company" />
+                            
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Tagline <span>(optional)</span></label>
+                                <section id="editor">
+                                    <div id="summernote">
+                                        <textarea  class="form-control" placeholder="Company Description.." formControlName="organizationDescription"></textarea>
+                                    </div>
+                                </section>
+                            </div>
+                            <div class="custom-file mb-3">
+                                <input type="file" class="custom-file-input" id="validatedCustomFile" (change)="onFileSelect($event)">
+                                <label class="custom-file-label form-control" for="validatedCustomFile">Choose
+                                    Company profile image..</label>
+                                
+                            </div>
+                            <div class="form-group">
+                                <button [disabled]="loading" class="btn btn-common log-btn mt-3">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                    Add Organization</button>
+                                </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+<app-footer></app-footer>
+<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }), _trfd.push({ 'ap': 'cpsh' }, { 'server': 'sg3plcpnl0184' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+
+</html>

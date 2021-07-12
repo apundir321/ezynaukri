@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+    <app-recruiter-header></app-recruiter-header>
+
+<body>
+
+
+
+    <div style="clear:both"></div>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-6 col-xs-12">
+                    <div class="breadcrumb-wrapper">
+                        <div class="job-company-logo">
+                            <!-- <img src="/assets/images/blog/img2.jpg" alt=""> -->
+              
+                            <label class="hoverable" for="fileInput">
+                              <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'"> 
+                              <!-- <div class="hover-text">
+                                Choose file
+                                <h4 class="success-message" *ngIf="url"> Uploaded Successfully </h4>
+                                </div> -->
+                              <div class="background"></div>
+                            </label>
+                            <br/>
+                            <!-- <input id="fileInput" type='file' (change)="onSelectFile($event)"> -->
+                          </div>
+                        <div class="content" *ngIf="user">
+                            <h3 class="product-title">{{user.firstName}} {{user.lastName}}</h3>
+                            <!-- <div class="tags"><i class="fa fa-building-o" aria-hidden="true"></i>{{user.recruiterProfile.currentOrganization}}</div> -->
+                            <div class="tags">
+                                <span><i class="lni lni-apartment"></i>{{userProfile.currentOrganization}}</span>
+                            </div>
+
+                            <div class="tags">
+                                <span><i class="lni lni-phone"></i>+(91)9873567279</span>
+                                <span><i class="lni lni-book"></i>Work Experience : {{userProfile.workExperience}} years</span>
+                            </div>
+
+                            
+                            
+                            <div class="tags">
+                                <span><i class="lni lni-briefcase"></i>{{userProfile.currentJobRole}}</span>
+                                <span><i class="lni lni-customer"></i>Current CTC : {{userProfile.currentCtc}}</span>
+                            </div>
+                            <div class="tags">
+                                <span><i class="lni lni-map-marker"></i> Gurgaon</span>
+                                <span><i class="lni lni-calendar"></i> Last Active:  &nbsp;Wednesday, May 26, 2021</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="month-price">
+                        <span class="year">Download CV</span>
+                        
+                    </div>
+                    <!-- <ul class="mt-3 footer-social">
+                        <li><a class="facebook" href="#"><i class="lni lni-facebook-filled"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="lni lni-twitter-filled"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="job-detail section">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-lg-8 col-md-12 col-xs-12">
+                    <div class="content-area" *ngIf="user">
+                        <h4>Profile Description</h4>
+                        <p>{{userProfile.aboutMe}}</p>
+
+                        <h5>Skills</h5>
+                        <ul>
+                            <!-- <li *ngFor="let tag of job.tags">- {{tag.name}}</li> -->
+                            <li *ngFor="let tag of user.userProfile.tags">- {{tag.name}}</li>
+                        </ul>
+
+                        <div class="work-experence item">
+                            <h5>Work Experience</h5>
+                            <div *ngIf="workExperiences; else workExperienceTemplate">
+                                <div *ngFor="let workExperience of workExperiences">
+                                     <h5><i class="lni lni-apartment"></i> {{workExperience.jobDesignation}}</h5>
+                                    <h5>{{workExperience.companyName}}</h5>
+                                    <span class="date"><i class="lni lni-briefcase"></i> {{workExperience.startDate |
+                                        date:'fullDate'}}   -   {{workExperience.endDate | date:'fullDate'}}</span>
+                                    <br/>
+                                        <p>{{workExperience.description}}</p>
+                                    <br>
+                                </div>
+                            </div>
+                            <ng-template #workExperienceTemplate>
+                                <p>No work experience configured yet</p>
+                            </ng-template>
+
+
+
+
+                        </div>
+                        <div class="education item">
+                            <h5>Education</h5>
+                            <div *ngIf="educations; else educationTemplate">
+                                <div *ngFor="let education of educations">
+                                    <h5>{{education.universityName}}</h5>
+                                    <p>{{education.degree}}</p>
+                                    <span class="date">{{education.startYear |
+                                        date:'fullDate'}}-{{education.endYear |
+                                        date:'fullDate'}}</span>
+                                </div>
+                            </div>
+                            <ng-template #educationTemplate>
+                                <p>No Education configured yet</p>
+                            </ng-template>
+                            <br>
+
+                        </div>
+                        <!-- <h5>How To Apply</h5>
+        <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.</p>
+        <a href="#" class="btn btn-common">Apply job</a> -->
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-xs-12">
+                    <div class="sideber">
+                        <div class="widghet">
+                            <h3>Current Location</h3>
+                            <div class="maps">
+                                <div id="map" class="map-full">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d405691.57240383344!2d-122.3212843181106!3d37.40247298383319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb68ad0cfc739%3A0x7eb356b66bd4b50e!2sSilicon+Valley%2C+CA%2C+USA!5e0!3m2!1sen!2sbd!4v1538319316724"
+                                        allowfullscreen=""></iframe>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="widghet">
+                            <h3>Share This Job</h3>
+                            <div class="share-job">
+                                <form method="post" class="subscribe-form">
+                                    <div class="form-group">
+                                        <input type="email" name="Email" class="form-control" placeholder="email"
+                                            required>
+                                        <button type="submit" name="subscribe" class="btn btn-common sub-btn"><i
+                                                class="lni lni-files"></i></button>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </form>
+                                <ul class="mt-3 footer-social">
+                                    <li><a class="facebook" href="#"><i class="lni lni-facebook-filled"></i></a></li>
+                                    <li><a class="twitter" href="#"><i class="lni lni-twitter-filled"></i></a></li>
+                                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                                <!-- <div class="meta-tag">
+                                    <span class="meta-part"><a href="#"><i class="lni lni-star"></i> Write a
+                                            Review</a></span>
+                                    <span class="meta-part"><a href="#"><i class="lni lni-warning"></i> Reports</a></span>
+                                    <span class="meta-part"><a href="#"><i class="lni lni-share"></i> Share</a></span>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="featured" class="section bg-gray pb-45">
+        <div class="container">
+            <h4 class="small-title text-left">Similar Jobs</h4>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="job-featured">
+                        <div class="icon">
+                            <img src="/assets/images/features/img1.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3><a href="job-page.html">Software Engineer</a></h3>
+                            <p class="brand">MizTech</p>
+                            <div class="tags">
+                                <span><i class="lni lni-map-marker"></i> New York</span>
+                                <span><i class="lni lni-user"></i>John Smith</span>
+                            </div>
+                            <span class="full-time">Full Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="job-featured">
+                        <div class="icon">
+                            <img src="/assets/images/features/img2.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3><a href="job-page.html">Graphic Designer</a></h3>
+                            <p class="brand">Hunter Inc.</p>
+                            <div class="tags">
+                                <span><i class="lni lni-map-marker"></i> New York</span>
+                                <span><i class="lni lni-user"></i>John Smith</span>
+                            </div>
+                            <span class="part-time">Part Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="job-featured">
+                        <div class="icon">
+                            <img src="/assets/images/features/img3.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3><a href="job-page.html">Managing Director</a></h3>
+                            <p class="brand">MagNews</p>
+                            <div class="tags">
+                                <span><i class="lni lni-map-marker"></i> New York</span>
+                                <span><i class="lni lni-user"></i>John Smith</span>
+                            </div>
+                            <span class="full-time">Full Time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<app-footer></app-footer>
+
+<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }), _trfd.push({ 'ap': 'cpsh' }, { 'server': 'sg3plcpnl0184' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>

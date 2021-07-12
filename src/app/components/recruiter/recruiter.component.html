@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<app-header></app-header>
+
+<body>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-header">
+                        <h3>Find Your Recruiter</h3>
+                    </div>
+                    <div class="job-search-form bg-cyan job-featured-search">
+                        <form>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-5 col-md-5 col-xs-12">
+                                    <div class="form-group">
+                                        <!-- <input class="form-control" type="text" placeholder="Job Title or Company Name"> -->
+                                        <mat-form-field class="example-chip-list" style="width: 100%;">
+                                            <mat-label>Job Tags</mat-label>
+                                            <mat-chip-list #chipList aria-label="Fruit selection">
+                                                <mat-chip *ngFor="let jobTag of jobTags" [selectable]="selectable"
+                                                    [removable]="removable" (removed)="remove(jobTag)">
+                                                    {{jobTag.name}}
+                                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                                </mat-chip>
+                                                <input placeholder="Add Job Tags..." [matChipInputFor]="chipList"
+                                                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                    [matChipInputAddOnBlur]="addOnBlur"
+                                                    (matChipInputTokenEnd)="add($event)">
+                                            </mat-chip-list>
+                                        </mat-form-field>
+                                          <i class="fa fa-tasks" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="search-category-container">
+                                            <!-- <label class="styled-select">
+                                                <select (click)="autoComplete()">
+                                                    <option value="">Locations</option>
+                                                    <option *ngFor="let location of locations" value="location.location">{{location.location}}</option>
+                                                    
+                                                </select>
+                                            </label> -->
+
+                                            <mat-form-field style="width: 100%;">
+                                                <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" multiple>
+                                                  <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-xs-12">
+                                    <button type="submit" class="btn btn-common" (click)="filterProfiles()">Filter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="featured" class="section bg-cyan">
+        <div class="container">
+
+            <div class="filter"> <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#mobile-filter" aria-expanded="false" aria-controls="mobile-filter">Filters<span class="fa fa-filter pl-1"></span></button>
+            </div>
+            
+            <section id="sidebar" class="job-featured" style="margin-top: 2%;">
+                <div>
+                    <h6 class="p-1 border-bottom">Recruiter Location</h6>
+                    <section class="example-section">
+                        <span class="example-list-section">
+                          <ul>
+                            <li *ngFor="let subtask of places.subtasks">
+                              <mat-checkbox [(ngModel)]="subtask.completed"
+                                            [color]="subtask.color"
+                                            (ngModelChange)="updateLocation(subtask.name)">
+                                {{subtask.name}}
+                              </mat-checkbox>
+                            </li>
+                          </ul>
+                        </span>
+                      </section>
+                </div>
+                <div>
+                    <h6 class="p-1 border-bottom">Filter By</h6>
+                    <p class="mb-2">Categories</p>
+                    <section class="example-section">
+                        <span class="example-list-section">
+                          <ul>
+                            <li *ngFor="let subtask of categories.subtasks">
+                              <mat-checkbox [(ngModel)]="subtask.completed"
+                                            [color]="subtask.color"
+                                            (ngModelChange)="updateCategory(subtask.name)">
+                                {{subtask.name}}
+                              </mat-checkbox>
+                            </li>
+                          </ul>
+                        </span>
+                      </section>
+                </div>
+                <div>
+                    <p class="mb-2">Categories</p>
+                    <section class="example-section">
+                        <span class="example-list-section">
+                          <ul>
+                            <li *ngFor="let subtask of tags.subtasks">
+                              <mat-checkbox [(ngModel)]="subtask.completed"
+                                            [color]="subtask.color"
+                                            (ngModelChange)="updateTags(subtask.name)">
+                                {{subtask.name}}
+                              </mat-checkbox>
+                            </li>
+                          </ul>
+                        </span>
+                      </section>
+                </div>
+                <div class="col-12 text-center mt-4">
+                    <a class="btn btn-common" (click)="submit()">Refine</a>
+                </div>
+            </section>
+            <section id="products">
+                <div class="container">
+                    <div class="row">
+
+                
+                        <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let user of users | paginate: config" >
+                            <a [routerLink]="['/recruiterProfile']" [queryParams]="{recruiterId: user.id}">
+                            <div class="job-featured">
+                                <div class="icon">
+                                    <img src="images/asa.jpg" alt="">
+                                </div>
+                                <div class="content">
+                                    <h3><a href="job-details.html">{{user.firstName}} {{user.lastFirstName}}</a></h3>
+                                    <p class="brand">{{user.currentJobRole}}</p>
+                                    <h3><a href="#">{{user.currentOrganization}}</a></h3>
+                                    <div class="tags">
+                                        <span><i class="fa fa-map-marker"></i> Noida</span>
+                                    </div>
+                                </div>
+        
+                                <div class="req-scells">
+                                    <small>Skills :</small>
+        
+                                    <p> cum Graphic Designer, PSD to HTML, HTML5, CSS3, Jquery, PHP, WordPress, Web
+                                        Designing, Team Leader, Website Designing, Templates Designing</p>
+        
+                                    <p class="activejob">19 active jobs | Last active on 27-Feb-2015</p>
+                                </div>
+                                <!-- <div class="followrow">
+                                    <div class="follow">
+                                        <span>
+                                            <a href="#" class="btn-apply">Follow</a><br>
+                                            <em>1835 Followers</em></span>
+        
+                                        <div class="sendbtn"><a href="#">Send Message</a></div>
+                                    </div>
+        
+                                </div> -->
+                            </div>
+                        </a>
+                        </div>
+                        <div class="col-12 text-center mt-4">
+                            <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+                        </div>
+
+                    </div> 
+                </div>
+            </section>				                            
+            
+
+             
+        </div>
+    </section>
+
+</body>
+<app-footer></app-footer>
+<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }), _trfd.push({ 'ap': 'cpsh' }, { 'server': 'sg3plcpnl0184' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+
+
+
+</html>

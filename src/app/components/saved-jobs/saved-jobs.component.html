@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<app-header></app-header>
+
+<body>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- <div class="inner-header">
+                        <h3>Manage Resumes</h3>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-xs-12">
+                    <div class="right-sideabr">
+                        <h4>Manage Account</h4>
+                        <ul class="list-item">
+                            <li><a   [routerLink]="['/profile']">My Profile</a></li>
+                            <li><a  [routerLink]="['/work-experience']">Work Experience</a></li>                            
+                            <li><a   [routerLink]="['/education']">Education</a></li>
+                            <li><a  [routerLink]="['/skills']">Skills</a></li>
+                            <li><a class="active" [routerLink]="['/saved-jobs']">Saved Jobs</a></li>
+                            <li><a [routerLink]="['/changepassword']">Change Password</a></li>
+                            <li><a href="notifications.html">Notifications <span class="notinumber">2</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12 col-xs-12">
+                    <div class="job-alerts-item candidates">
+                        <h3 class="alerts-title">Saved Jobs</h3>
+                        <div class="manager-resumes-item" *ngFor="let job of savedJobs" >
+                            <div class="manager-content">
+                                <a href="resume.html"><img class="resume-thumb" src="img/jobs/avatar-1.jpg" alt=""></a>
+                                <div class="manager-info">
+                                    <div class="manager-name">
+                                        <h4><a [routerLink]="['/job-details']" [queryParams]="{jobId: job.job.id}">{{job.job.jobName}}</a></h4>
+                                        <h5>{{job.job.organization.name}}</h5>
+                                    </div>
+                                    <div class="manager-meta">
+                                        <span class="location"><i class="lni-map-marker"></i> {{job.job.location}}</span>
+                                        <span class="rate"><i class="lni-alarm-clock"></i> $55 per hour</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="update-date">
+                                <p class="status">
+                                    <strong>Posted on:</strong> {{job.job.jobPublished | date:'fullDate'}}
+                                </p>
+                                <div class="action-btn">
+                                    <a class="btn btn-xs btn-danger" href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <a class="btn btn-common btn-sm" href="add-resume.html">Add new resume</a> -->
+                        <ul class="pagination">
+                            <li class="active"><a href="#" class="btn-prev"><i class="lni-angle-left"></i> prev</a></li>
+                            <!-- <li class="active" *ngFor="let a of totalPages; let index = index"><a href="#">{{index+1}}</a></li> -->
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li class="active"><a href="#" class="btn-next">Next <i class="lni-angle-right"></i></a></li>
+                          </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<app-footer></app-footer>
+
+<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }), _trfd.push({ 'ap': 'cpsh' }, { 'server': 'sg3plcpnl0184' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>

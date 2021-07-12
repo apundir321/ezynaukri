@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="keywords" content="EzyNaukari">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta name="author" content="flybunch">
+        <title>EzyNaukari</title>
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.css">
+        <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/css/owl.theme.default.css">
+        <link rel="stylesheet" href="/assets/css/slicknav.min.css">
+        <link rel="stylesheet" href="/assets/css/animate.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <link rel="stylesheet" href="/assets/css/responsive.css">
+        <!-- <link rel="stylesheet" href="/assets/css/bootstrap-tagsinput.css"> -->
+      </head>
+      
+      
+      
+      <header id="home" class="hero-area">
+      
+        <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
+          <div class="container" style="padding: 0px 0 0px;">
+            <div class="theme-header clearfix">
+      
+              <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+                  aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  <span class="lni lni-menu"></span>
+                  <span class="lni lni-menu"></span>
+                  <span class="lni lni-menu"></span>
+                </button>
+                <a [routerLink]="['/joblanding']" class="navbar-brand"><img src="/assets/images/logo.png" alt=""></a>
+              </div>
+              <div class="collapse navbar-collapse" id="main-navbar">
+                <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                  <li class="nav-item dropdown active">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['/browse-jobs']" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                      Find Jobs
+                    </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['/recruiters']" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                      Recruiters
+                    </a>
+                  </li>
+      
+      
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['/companies']" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                      Companies
+                    </a>
+      
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['/saved-jobs']" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                      Saved Jobs
+                    </a>
+      
+                  </li>
+      
+                  <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['/applied-jobs']" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                      Applied Jobs
+                    </a>
+                  </li>
+                  <!-- <li class="button-group">
+                    <a [routerLink]="['/postjob']" class="button btn btn-common">Post a Job</a>
+                  </li> -->
+                  <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['/login']" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                      Login
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link dropdown-toggle" [routerLink]="['/signup']" data-toggle="dropdown" aria-haspopup="true"
+                      aria-expanded="false">
+                      Sign Up
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="mobile-menu" data-logo="images/logo-mobile.png"></div>
+        </nav>
+      
+      </header>
+
+    <body>
+    <div class="container" style="margin-top: 10%;">
+        <div class="row space-100">
+            <div class="col-lg-12 col-md-12 col-xs-12">
+                <div class="contents" style="text-align: center;">
+                    <h2 class="head-title">Find your Dream Job</h2>
+                    <p>Experience the joy of finding the right job for you.</p>
+                    <div class="job-search-form">
+                        <!-- <form>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-xs-12">
+                                    <div class="form-group">
+                                        <input class="form-control" type="text" placeholder="Job Title or Company Name">
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="search-category-container">
+                                            <label class="styled-select">
+                                                <select>
+                                                    <option value="none">Locations</option>
+                                                    <option value="none">New York</option>
+                                                    <option value="none">California</option>
+                                                    <option value="none">Washington</option>
+                                                    <option value="none">Birmingham</option>
+                                                    <option value="none">Chicago</option>
+                                                    <option value="none">Phoenix</option>
+                                                </select>
+                                            </label>
+                                        </div>
+                                        <i class="lni lni lni lni-map-marker"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-xs-12">
+                                    <button type="submit" class="button">Find Job</button>
+                                </div>
+                            </div>
+                        </form> -->
+
+                        <div class="job-search-form bg-cyan job-featured-search" style="width: 100%; background-color: white;">
+                            <!-- <form [formGroup]="browseForm" (ngSubmit)="onSubmit()"> -->
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-5 col-md-5 col-xs-12">
+                                        <div class="form-group">
+                                            <!-- <input class="form-control" type="text" placeholder="Job Title or Company Name"> -->
+                                            <mat-form-field class="example-chip-list" style="width: 100%;">
+                                                <mat-label>Job Tags</mat-label>
+                                                <mat-chip-list #chipList aria-label="Fruit selection">
+                                                    <mat-chip *ngFor="let jobTag of jobTags" [selectable]="selectable"
+                                                        [removable]="removable" (removed)="remove(jobTag)">
+                                                        {{jobTag.name}}
+                                                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                                    </mat-chip>
+                                                    <input placeholder="Add Job Tags..." [matChipInputFor]="chipList"
+                                                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                                        [matChipInputAddOnBlur]="addOnBlur"
+                                                        (matChipInputTokenEnd)="add($event)">
+                                                </mat-chip-list>
+                                            </mat-form-field>
+                                            <i class="fa fa-tasks" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-xs-12">
+                                        <div class="form-group">
+                                            <div class="search-category-container">
+                                                <!-- <label class="styled-select">
+                                                    <select (click)="autoComplete()">
+                                                        <option value="">Locations</option>
+                                                        <option *ngFor="let location of locations" value="location.location">{{location.location}}</option>
+                                                        
+                                                    </select>
+                                                </label> -->
+                
+                                                <mat-form-field style="width: 100%;">
+                                                  <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" multiple>
+                                                    <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
+                                                  </mat-select>
+                                                </mat-form-field>
+                                            </div>
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 col-md-1 col-xs-12" style="
+                                    margin-right: 20px;
+                                    margin-top: 8px;
+                                ">
+                                        <button type="submit" class="btn btn-common" (click)="filterJobs()"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Filter</button>
+                                    </div>
+                                </div>
+                            <!-- </form> -->
+                        </div>  
+                    </div>
+
+                    <div class="popular_search d-flex align-items-center">
+                        <span>Popular Search:</span>
+                        <ul>
+                            <li><a [routerLink]="['/browse-jobs']">Design &amp; Creative</a></li>
+                            <li><a [routerLink]="['/browse-jobs']">Marketing</a></li>
+                            <li><a [routerLink]="['/browse-jobs']">Administration</a></li>
+                            <li><a [routerLink]="['/browse-jobs']">Teaching &amp; Education</a></li>
+                            <li><a [routerLink]="['/browse-jobs']">Engineering</a></li>
+                            <li><a [routerLink]="['/browse-jobs']">Software &amp; Web</a></li>
+                            <li><a [routerLink]="['/browse-jobs']">Telemarketing</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <section id="job-listings" class="section bg-cyan" *ngIf="jobData">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Filtered Jobs</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12">
+                    <div *ngFor="let job of jobData" class="job-listings">
+                        <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-xs-12">
+                                <div class="job-company-logo">
+                                    <img src="/assets/images/find-job.png" alt="">
+                                </div>
+                                <div class="job-details">
+                                    <h3>{{job.jobName}}</h3>
+                                    <span class="company-neme">
+                                       {{job.organization.name}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+                                <span class="btn-open" style="padding: 7px 10px;">
+                                    {{job.noOfvacancies}} Open Jobs
+                                </span>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                <div class="location">
+                                    <i class="lni lni-map-marker"></i> {{job.jobLocation}}
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                <span class="btn-full-time">Full Time</span>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                <span class="btn-apply" style="padding: 7px 10px;">Apply Now</span>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+                <div class="col-12 text-center mt-4">
+                    <a [routerLink]="['/browse-jobs']" class="btn btn-common">Load more listing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="category section bg-gray">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Top Categories</h2>
+                <p>Most popular categories of portal, sorted by popularity</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
+                    <a [routerLink]="['/browse-jobs']">
+                        <div class="icon bg-color-1">
+                            <i class="lni lni lni-home"></i>
+                        </div>
+                        <h3>Finance</h3>
+                        <!-- <p>(4286 jobs)</p> -->
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
+                    <a [routerLink]="['/browse-jobs']">
+                        <div class="icon bg-color-2">
+                            <i class="lni lni-world"></i>
+                        </div>
+                        <h3>Sale/Markting</h3>
+                        <!-- <p>(2000 jobs)</p> -->
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
+                    <a [routerLink]="['/browse-jobs']">
+                        <div class="icon bg-color-3">
+                            <i class="lni lni-book"></i>
+                        </div>
+                        <h3>Education/Training</h3>
+                        <!-- <p>(1450 jobs)</p> -->
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
+                    <a [routerLink]="['/browse-jobs']">
+                        <div class="icon bg-color-4">
+                            <i class="lni lni-display"></i>
+                        </div>
+                        <h3>Technologies</h3>
+                        <!-- <p>(5100 jobs)</p> -->
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
+                    <a [routerLink]="['/browse-jobs']">
+                        <div class="icon bg-color-5">
+                            <i class="lni lni-brush"></i>
+                        </div>
+                        <h3>Art/Design</h3>
+                        <!-- <p>(5079 jobs)</p> -->
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
+                    <a [routerLink]="['/browse-jobs']">
+                        <div class="icon bg-color-6">
+                            <i class="lni lni-heart"></i>
+                        </div>
+                        <h3>Healthcare</h3>
+                        <!-- <p>(3235 jobs)</p> -->
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
+                    <a [routerLink]="['/browse-jobs']">
+                        <div class="icon bg-color-7">
+                            <i class="lni lni-funnel"></i>
+                        </div>
+                        <h3>Science</h3>
+                        <!-- <p>(1800 jobs)</p> -->
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
+                    <a [routerLink]="['/browse-jobs']">
+                        <div class="icon bg-color-8">
+                            <i class="lni lni-cup"></i>
+                        </div>
+                        <h3>Food Services</h3>
+                        <!-- <p>(4286 jobs)</p> -->
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="job-listings" class="section bg-cyan">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recent Job Post</h2>
+                <p>As the world's #1 job site, with over 200 million unique visitors every month from over 60 different
+                    countries</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-xs-12">
+                    <div *ngFor="let job of allJobs" class="job-listings">
+                        <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-xs-12">
+                                <div class="job-company-logo">
+                                    <img src="/assets/images/find-job.png" alt="">
+                                </div>
+                                <div class="job-details">
+                                    <h3>{{job.jobName}}</h3>
+                                    <span class="company-neme">
+                                       {{job.organization.name}}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-xs-12 text-center">
+                                <span class="btn-open" style="padding: 7px 10px;">
+                                    {{job.noOfvacancies}} Open Jobs
+                                </span>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                <div class="location">
+                                    <i class="lni lni-map-marker"></i> {{job.jobLocation}}
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                <span class="btn-full-time">Full Time</span>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-xs-12 text-right">
+                                <span class="btn-apply" style="padding: 7px 10px;">Apply Now</span>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+                <div class="col-12 text-center mt-4">
+                    <a [routerLink]="['/browse-jobs']" class="btn btn-common">Load more listing</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="featured" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Jobs</h2>
+                <p>Hand-picked jobs featured depending on popularity and benefits</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let job of allJobs">
+                    <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
+                    <div class="job-featured">
+                        <div class="icon">
+                            <img src="/assets/images/features/img1.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3><a href="job-details.html">{{job.jobName}}</a></h3>
+                            <p class="brand"> {{job.organization.name}}</p>
+                            <div class="tags">
+                                <span><i class="lni lni lni-map-marker"></i> {{job.jobLocation}}</span>
+                                <!-- <span><i class="lni lni-user"></i>John Smith</span> -->
+                            </div>
+                            <span class="full-time">Full Time</span>
+                        </div>
+                    </div>
+                </a>
+                </div>
+                <!-- <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="job-featured">
+                        <div class="icon">
+                            <img src="/assets/images/features/img2.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3><a href="job-details.html">Graphic Designer</a></h3>
+                            <p class="brand">Hunter Inc.</p>
+                            <div class="tags">
+                                <span><i class="lni lni lni-map-marker"></i> New York</span>
+                                <span><i class="lni lni-user"></i>John Smith</span>
+                            </div>
+                            <span class="part-time">Part Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="job-featured">
+                        <div class="icon">
+                            <img src="/assets/images/features/img3.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3><a href="job-details.html">Managing Director</a></h3>
+                            <p class="brand">MagNews</p>
+                            <div class="tags">
+                                <span><i class="lni lni lni-map-marker"></i> New York</span>
+                                <span><i class="lni lni-user"></i>John Smith</span>
+                            </div>
+                            <span class="full-time">Full Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="job-featured">
+                        <div class="icon">
+                            <img src="/assets/images/features/img4.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3><a href="job-details.html">Software Engineer</a></h3>
+                            <p class="brand">AmazeSoft</p>
+                            <div class="tags">
+                                <span><i class="lni lni lni-map-marker"></i> New York</span>
+                                <span><i class="lni lni-user"></i>John Smith</span>
+                            </div>
+                            <span class="full-time">Full Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="job-featured">
+                        <div class="icon">
+                            <img src="/assets/images/features/img5.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3><a href="job-details.html">Graphic Designer</a></h3>
+                            <p class="brand">Bingo</p>
+                            <div class="tags">
+                                <span><i class="lni lni lni-map-marker"></i> New York</span>
+                                <span><i class="lni lni-user"></i>John Smith</span>
+                            </div>
+                            <span class="part-time">Part Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-xs-12">
+                    <div class="job-featured">
+                        <div class="icon">
+                            <img src="/assets/images/features/img6.png" alt="">
+                        </div>
+                        <div class="content">
+                            <h3><a href="job-details.html">Managing Director</a></h3>
+                            <p class="brand">MagNews</p>
+                            <div class="tags">
+                                <span><i class="lni lni-map-marker"></i> New York</span>
+                                <span><i class="lni lni-user"></i>John Smith</span>
+                            </div>
+                            <span class="full-time">Full Time</span>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-12 text-center mt-4">
+                    <a href="job-page.html" class="btn btn-common">Browse All Jobs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="browse-jobs" class="section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="text-wrapper">
+                        <div>
+                            <h3>7,000+ Browse Jobs</h3>
+                            <p>Search all the open positions on the web. Get your own personalized salary estimate. Read
+                                reviews on over 600,000 companies worldwide. The right job is out there.</p>
+                            <a class="btn btn-common" href="#">Search jobs</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="img-thumb">
+                        <img class="img-fluid" src="/assets/images/search.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="how-it-works section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works?</h2>
+                <p>You know what you are looking for We’re just making it easier for you.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="work-process">
+                        <span class="process-icon">
+                            <i class="lni lni-user"></i>
+                        </span>
+                        <h4>Create an Account</h4>
+                        <p>Create an account-  Got a working email address? That’s all required. Set up your account and build your profile. </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="work-process step-2">
+                        <span class="process-icon">
+                            <i class="lni lni-search"></i>
+                        </span>
+                        <h4>Search Jobs</h4>
+                        <p>Search Jobs- Add title, description, and preferred location and leave rest to us. Scroll through various options and you’re all set to go.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="work-process step-3">
+                        <span class="process-icon">
+                            <i class="lni lni-cup"></i>
+                        </span>
+                        <h4>Apply</h4>
+                        <p>Apply- Found the dream job that exactly matches your need? Apply it with one click without any hassles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="apply">
+        <div class="container-fulid">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-xs-12 no-padding">
+                    <div class="recruiter item-box">
+                        <div class="content-inner">
+                            <h5>I'm</h5>
+                            <h3>Looking for a Expert!</h3>
+                            <p>There are lots of good people with exceptional talent. Let us help you in making your next great hire.</p>
+                            <a href="#" class="btn btn-border-filled">Post a Job</a>
+                        </div>
+                        <div class="img-thumb">
+                            <i class="lni lni-users"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-xs-12 no-padding">
+                    <div class="jobseeker item-box">
+                        <div class="content-inner">
+                            <h5>I'm</h5>
+                            <h3>I am looking for a Job</h3>
+                            <p>Job hunting is no more a matter of hustle. Just type in a job title and location and get notified every time there’s a new job.</p>
+                            <a href="#" class="btn btn-border-filled">Browser Jobs</a>
+                        </div>
+                        <div class="img-thumb">
+                            <i class="lni lni-leaf"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- testimonial_area  -->
+    <section id="clint" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Clients Review</h2>
+                <p>Hear what people are talking about us!
+                </p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <div id="testimonials" class="touch-slider owl-carousel owl-loaded owl-drag">
+
+
+
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage"
+                                style="transform: translate3d(-1520px, 0px, 0px); transition: all 0.25s ease 0s; width: 5320px;">
+                                <div class="owl-item cloned" style="width: 730px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial-item">
+                                            <div class="author">
+                                                <div class="img-thumb">
+                                                    <img src="/assets/images/clint/1.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="content-inner">
+                                                <p class="description">The site offers numerous jobs across the world and the plus point is its sleek interface. You really don’t have to go through different sections for applying. Definitely, they have made job hunting easy.</p>
+                                                <div class="author-info">
+                                                    <h2><a href="#">John Doe</a></h2>
+                                                    <span>Project Menager</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item cloned" style="width: 730px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial-item">
+                                            <div class="author">
+                                                <div class="img-thumb">
+                                                    <img src="/assets/images/clint/3.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="content-inner">
+                                                <p class="description"> I have been using different websites for hiring. Although they are new, yet the ease they have offered is truly unmatchable. Simple and Effective.</p>
+                                                <div class="author-info">
+                                                    <h2><a href="#">Helen</a></h2>
+                                                    <span>Engineer</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="owl-item active" style="width: 730px; margin-right: 30px;">
+                                    <div class="item">
+                                        <div class="testimonial-item">
+                                            <div class="author">
+                                                <div class="img-thumb">
+                                                    <img src="/assets/images/clint/1.png" alt="">
+                                                </div>
+                                            </div>
+                                            <div class="content-inner">
+                                                <p class="description">First, it delivers great job listings and not only the full-time ones but also helped me in getting a good amount of freelancing work. Now, I know where to land up when I need a new project!</p>
+                                                <div class="author-info">
+                                                    <h2><a href="#">Jessica</a></h2>
+                                                    <span>Senior Accountant</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span
+                                    aria-label="Previous">‹</span></button><button type="button" role="presentation"
+                                class="owl-next"><span aria-label="Next">›</span></button></div>
+                        <div class="owl-dots">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /testimonial_area  -->
+
+    <section id="download" class="section bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 col-xs-12">
+                    <div class="download-wrapper">
+                        <div>
+                            <div class="download-text">
+                                <h4>Download Our Best Apps</h4>
+                                <p>Save time and effort with our app that delivers ease in job hiring and posting. Experience the blazing-fast speed that never blocks your opportunity. </p>
+                            </div>
+                            <div class="app-button">
+                                <a href="#" class="btn btn-border"><i class="lni lni-MizTech"></i>Download <br>
+                                    <span>From MizTech Store</span></a>
+                                <a href="#" class="btn btn-common btn-effect"><i class="lni lni-android"></i> Download
+                                    <br> <span>From Play Store</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-4 col-xs-12">
+                    <div class="download-thumb">
+                        <img class="img-fluid" src="/assets/images/app.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</body>
+<app-footer></app-footer>
+
+</html>

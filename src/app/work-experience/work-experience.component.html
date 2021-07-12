@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<app-header></app-header>
+    <body>
+    <div style="clear:both"></div>
+
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-header">
+                        <h3>My Profile</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-xs-12">
+                    <div class="right-sideabr"> 
+                        <h4>Manage Account</h4>
+                        <ul class="list-item">
+                            <li><a   [routerLink]="['/profile']">My Profile</a></li>
+                            <li><a class="active" [routerLink]="['/work-experience']">Work Experience</a></li>                            
+                            <li><a   [routerLink]="['/education']">Education</a></li>
+                            <li><a  [routerLink]="['/skills']">Skills</a></li>
+                            <li><a [routerLink]="['/changepassword']">Change Password</a></li>
+                            <li><a href="notifications.html">Notifications <span class="notinumber">2</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-8 col-xs-12">
+                    <div class="inner-box my-resume">
+                        <div class="author-resume">
+                            <div class="thumb">
+                                <img src="img/resume/img-1.png" alt="">
+                            </div>
+                            <div class="author-info">
+                                <h3>Mark Anderson</h3>
+                                <p class="sub-title">UI/UX Designer</p>
+                                <p><span class="address"><i class="lni-map-marker"></i>Mahattan, NYC, USA</span>
+                                    <span><i class="ti-phone"></i>(+01) 211-123-5678</span></p>
+                                <div class="social-link">
+                                    <a href="#" class="Twitter"><i class="lni-twitter-filled"></i></a>
+                                    <a href="#" class="facebook"><i class="lni-facebook-filled"></i></a>
+                                    <a href="#" class="google"><i class="lni-google-plus"></i></a>
+                                    <a href="#" class="linkedin"><i class="lni-linkedin-fill"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- <div class="work-experence item">
+                            <h3>Work Experience</h3>
+                            <h4>UI/UX Designer</h4>
+                            <h5>Bannana INC.</h5>
+                            <span class="date">Fab 2017-Present(5year)</span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero vero, dolores, officia
+                                quibusdam architecto sapiente eos voluptas odit ab veniam porro quae possimus itaque,
+                                quas! Tempora sequi nobis, atque incidunt!</p>
+                            <p><a href="#">4 Projects</a></p>
+                            <br>
+                            <h4>UI Designer</h4>
+                            <h5>Whale Creative</h5>
+                            <span class="date">Fab 2017-Present(2year)</span>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero vero, dolores, officia
+                                quibusdam architecto sapiente eos voluptas odit ab veniam porro quae possimus itaque,
+                                quas! Tempora sequi nobis, atque incidunt!</p>
+                            <p><a href="#">4 Projects</a></p>
+                        </div> -->
+                        
+                        <div class="work-experence item">
+                            <h3>Work Experience</h3>
+                            <div *ngIf="workExperiences; else workExperienceTemplate">
+                                <div *ngFor="let workExperience of workExperiences">
+                                    <div class="add-post-btn" style="padding: 0px 0 0px">
+                                        <div class="float-left">
+                                            <h4>{{workExperience.jobDesignation}}</h4>
+                                            </div>
+                                        
+                                        <div class="float-right">
+                                            <a [routerLink]="['/addOrganization']" class="btn-added"><i class="ti-plus"></i> Edit this</a>
+                                            </div>
+                                        </div>
+                                   
+                                    <h5>{{workExperience.companyName}}</h5>
+                                    <span class="date">{{workExperience.startDate |
+                                        date:'fullDate'}}-{{workExperience.endDate | date:'fullDate'}}</span>
+                                    <p>{{workExperience.description}}</p>
+                                    <br>
+                                </div>
+                            </div>
+                            <ng-template #workExperienceTemplate>
+                                <p>No work experience configured yet</p>
+                            </ng-template>
+
+
+
+
+                        </div>
+                        <button (click)="open('custom-modal-1')" [disabled]="loading" class="btn btn-common log-btn mt-3">
+                            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                            Add Work Experience</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<jw-modal id="custom-modal-1">
+    <h1 style="font-size: 20px;">Add Education</h1>
+     <!-- <p>Home page text: <input type="text" [(ngModel)]="bodyText" /></p> -->
+     <hr>
+     <form [formGroup]="workExperienceForm" (ngSubmit)="onSubmit()">
+         <div class="form-group">
+             <label class="control-label">Job Designation<span>(*)</span></label>
+             <!-- <input type="text" class="form-control" placeholder="Write job title"> -->
+             <input type="text" formControlName="jobDesignation" class="form-control"
+                     [ngClass]="{ 'is-invalid': submitted && f.jobDesignation.errors }" placeholder="Enter Job Designation" />
+                 <div *ngIf="submitted && f.jobDesignation.errors" class="invalid-feedback">
+                     <div *ngIf="f.jobDesignation.errors.required">Job Designation is Required</div>
+                 </div>
+         </div>
+
+         <div class="form-group">
+            <label class="control-label">Company <span>(*)</span></label>
+            <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
+            <input type="text" formControlName="companyName" class="form-control"
+                    [ngClass]="{ 'is-invalid': submitted && f.companyName.errors }" placeholder="Enter Company Name" />
+                <div *ngIf="submitted && f.companyName.errors" class="invalid-feedback">
+                    <div *ngIf="f.companyName.errors.required">Company name is required</div>
+                </div>
+        </div>
+         
+         <div class="form-group">
+             <label class="control-label">Location <span>(*)</span></label>
+             <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
+             <input type="text" formControlName="location" class="form-control"
+                     [ngClass]="{ 'is-invalid': submitted && f.location.errors }" placeholder="e.g.Gurgaon" />
+                 <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                     <div *ngIf="f.location.errors.required">Location is required</div>
+                 </div>
+         </div>
+         
+         <div class="form-group">
+            <label>Start Date:</label>
+            <div class="input-group">
+              <input type="date" class="form-control" id="startDate" name="startDate"
+              [ngModel]="startDate | date:'yyyy-MM-dd'"  formControlName="startDate">
+            </div>
+          </div>
+ 
+          <div class="form-group">
+            <label>End Date:</label>
+            <div class="input-group">
+              <input type="date" class="form-control" id="endDate" name="endDate"
+              [ngModel]="endDate | date:'yyyy-MM-dd'"  formControlName="endDate">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label">Description</label>
+        
+        <section id="editor">
+            <div id="summernote">
+                <textarea class="form-control"  placeholder="Job Description.." formControlName="description"></textarea>
+            </div>
+        </section>
+    </div>
+         
+         
+         <!-- <a href="#" class="btn btn-common">Submit your job</a> -->
+         <div class="form-group">
+             <button [disabled]="loading" class="btn btn-common log-btn mt-3">
+                 <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                 Add Work Experience</button>
+             </div>
+     </form>
+     <button [disabled]="loading" class="btn btn-common log-btn mt-3" (click)="closeModal('custom-modal-1');">
+         <span *ngIf="loading"  class="spinner-border spinner-border-sm mr-1"></span>
+         Close</button>
+     
+ </jw-modal>
+   <app-footer></app-footer>
+<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }), _trfd.push({ 'ap': 'cpsh' }, { 'server': 'sg3plcpnl0184' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+
+</html>

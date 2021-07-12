@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<app-header></app-header>
+
+<body>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-header">
+                        <h3>Find Your Recruiter</h3>
+                    </div>
+                    <div class="job-search-form bg-cyan job-featured-search">
+                        <form>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-5 col-md-5 col-xs-12">
+                                    <div class="form-group">
+                                        <!-- <input class="form-control" type="text" placeholder="Job Title or Company Name"> -->
+                                        <mat-form-field style="width: 100%;">
+                                            <mat-select name="countryReactiveString" [formControl]="selectedCountryControl" placeholder="Country">
+                                              <mat-option [value]="'GB'">Great Britain</mat-option>
+                                              <mat-option [value]="'US'">United States</mat-option>
+                                              <mat-option [value]="'CA'">Canada</mat-option>
+                                            </mat-select>
+                                          </mat-form-field>
+                                          <i class="fa fa-tasks" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-md-5 col-xs-12">
+                                    <div class="form-group">
+                                        <div class="search-category-container">
+                                            <!-- <label class="styled-select">
+                                                <select (click)="autoComplete()">
+                                                    <option value="">Locations</option>
+                                                    <option *ngFor="let location of locations" value="location.location">{{location.location}}</option>
+                                                    
+                                                </select>
+                                            </label> -->
+
+                                            <mat-form-field style="width: 100%;">
+                                                <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" multiple>
+                                                  <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
+                                                </mat-select>
+                                              </mat-form-field>
+                                        </div>
+                                        <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-xs-12">
+                                    <button type="submit" (click)="filterCompany()" class="btn btn-common">Filter</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="featured" class="section bg-cyan">
+        <div class="container">
+            
+            <!-- <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom"> <a class="navbar-brand ml-2 font-weight-bold" href="#">FORCEPAUSED</a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor" aria-controls="navbarColor" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+                <div class="collapse navbar-collapse" id="navbarColor">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#">Women's</a> </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Men's</a> </li>
+                        <li class="nav-item "><a class="nav-link" href="#">Home</a> </li>
+                        <li class="nav-item "><a class="nav-link" href="#">Sale</a> </li>
+                    </ul>
+                </div>
+               
+            </nav> -->
+        
+            
+            
+            <section id="products">
+                <div class="container">
+                    <div class="row">
+
+                
+                        <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let org of orgs | paginate: config" >
+                        <a [routerLink]="['/org-profile']" [queryParams]="{orgId: org.id}" >
+                            <div class="job-featured">
+                                <div class="org-featured" style="padding-top: 5%;">
+                                    <img src="/assets/images/company.png" alt="" style="width: 45%;">
+                                </div>
+                                <div class="org-content">
+                                    <!-- <h3><a href="job-details.html">ANurag Pundir</a></h3>
+                                    <p class="brand">xyz</p> -->
+                                    <h3 style="font-size: 20px;">{{org.name}}</h3>
+                                    <div class="tags" *ngIf="org.location">
+                                        <span><i class="fa fa-map-marker"></i> {{org.location}}</span>
+                                    </div>
+                                    <div class="tags">
+                                        <span>Category:</span>    <span> {{org.category.jobCategoryName}}</span>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="followrow">
+                                    <div class="follow">
+                                        <span>
+                                            <a href="#" class="btn-apply">Follow</a><br>
+                                            <em>1835 Followers</em></span>
+        
+                                        <div class="sendbtn"><a href="#">Send Message</a></div>
+                                    </div>
+        
+                                </div> -->
+        
+                                
+                                
+                            </div>
+
+                            
+                            
+                        </a>
+                        </div>
+                        <div class="col-12 text-center mt-4">
+                            <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+                        </div>
+                    </div> 
+                </div>
+            </section>				                            
+            
+
+             
+        </div>
+    </section>
+
+</body>
+<app-footer></app-footer>
+<script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }), _trfd.push({ 'ap': 'cpsh' }, { 'server': 'sg3plcpnl0184' }) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script>
+<script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+
+
+
+</html>
