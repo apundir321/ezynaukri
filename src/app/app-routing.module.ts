@@ -16,6 +16,8 @@ import { JobDetailsComponent } from './job-details/job-details.component';
 import { JoblandingComponent } from './joblanding/joblanding.component';
 import { LoginComponent } from './login/login.component';
 import { OrganizationComponent } from './organization/organization.component';
+import { AboutUsComponent } from './other-component/about-us/about-us.component';
+import { ContactComponent } from './other-component/contact/contact.component';
 import { PostjobComponent } from './postjob/postjob.component';
 import { FindProfilesComponent } from './recruiter/find-profiles/find-profiles.component';
 import { JobPostedComponent } from './recruiter/job-posted/job-posted.component';
@@ -110,6 +112,14 @@ const routes: Routes = [
   ,
   {
     path: 'job-posted', component: JobPostedComponent,  canActivate: [AuthGuard]
+  }
+  ,
+  {
+    path: 'about', component: AboutUsComponent
+  }
+  ,
+  {
+    path: 'contact', component: ContactComponent
   }
 ];
 

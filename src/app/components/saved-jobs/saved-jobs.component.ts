@@ -19,7 +19,7 @@ export class SavedJobsComponent implements OnInit {
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
     this.jobService.getSavedJobs(currentUser.id).subscribe((data) => {
-      console.log("saved jobs data");
+      console.log("saved job data");
       console.log(data);
       this.savedJobs = data;
     })

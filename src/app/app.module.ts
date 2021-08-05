@@ -98,6 +98,10 @@ import { EmployeeProfileComponent } from './company-profile/employee-profile/emp
 import { FindProfilesComponent } from './recruiter/find-profiles/find-profiles.component';
 import { RecruiterUserProfileComponent } from './recruiter/recruiter-user-profile/recruiter-user-profile.component';
 import { JobPostedComponent } from './recruiter/job-posted/job-posted.component';
+import { ContactComponent } from './other-component/contact/contact.component';
+import { AboutUsComponent } from './other-component/about-us/about-us.component';
+import { SavedProfilesComponent } from './components/saved-profiles/saved-profiles.component';
+import { ApplicationRecievedComponent } from './components/application-recieved/application-recieved.component';
 
 @NgModule({
   declarations: [
@@ -129,7 +133,11 @@ import { JobPostedComponent } from './recruiter/job-posted/job-posted.component'
     EmployeeProfileComponent,
     FindProfilesComponent,
     RecruiterUserProfileComponent,
-    JobPostedComponent
+    JobPostedComponent,
+    ContactComponent,
+    AboutUsComponent,
+    SavedProfilesComponent,
+    ApplicationRecievedComponent
   ],
   imports: [
     BrowserModule,

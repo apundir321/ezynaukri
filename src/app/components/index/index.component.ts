@@ -33,7 +33,7 @@ export class IndexComponent implements OnInit {
 
   location = new FormControl();
 
-  locations = ["Gurgaon"];
+  locations = ["Gurgaon","Mumbai","Bangalore","Chennai","Delhi","Faridabad","Mangalore","Hyedrabad","Secundrabad","Noida","Greater Noida"];
   selectedLocations;
 
   url: any;

@@ -21,13 +21,23 @@ export class RecruiterProfileComponent implements OnInit {
 
   ngOnInit() {
     let recruiterId = this.route.snapshot.queryParamMap.get("recruiterId");
+    let currentUser = this.authenticationService.currentUserValue;
     if (recruiterId) {
       this.getRecruiterDetail(recruiterId);
+    }
+    else if(currentUser && currentUser.id){
+      this.getRecruiterDetail(currentUser.id);
+    }
+    else{
+      sessionStorage.clear();
+      localStorage.clear();
+      this.router.navigate(['/login']);
     }
 
   }
 
   getRecruiterDetail(recruiterId: any) {
+    debugger;
     this.userService.getRecruiter(recruiterId).subscribe(data => {
       console.log(data);
       this.user = data;
@@ -47,7 +57,7 @@ export class RecruiterProfileComponent implements OnInit {
     }
       , error => {
         this.notifyService.showError("Error in loading the page please try again later", "EzyNaukari says!!");
-        this.router.navigate(['/joblanding']);
+        this.router.navigate(['/profileLanding']);
       }
     )
   }

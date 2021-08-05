@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="EzyNaukari">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="flybunch">
+    <title>EzyNaukari</title>
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.css">
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.theme.default.css">
+    <link rel="stylesheet" href="/assets/css/slicknav.min.css">
+    <link rel="stylesheet" href="/assets/css/animate.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
+    <!-- <link rel="stylesheet" href="/assets/css/bootstrap-tagsinput.css"> -->
+</head>
+
+
+
+<header id="home" class="hero-area">
+
+    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
+        <div class="container" style="padding: 0px 0 0px;">
+            <div class="theme-header clearfix">
+
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar"
+                        aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                        <span class="lni lni-menu"></span>
+                        <span class="lni lni-menu"></span>
+                        <span class="lni lni-menu"></span>
+                    </button>
+                    <a [routerLink]="['/']" class="navbar-brand"><img src="/assets/images/logo.png"
+                            alt=""></a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-navbar">
+                    <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                        <li class="nav-item dropdown active">
+                            <a class="nav-link dropdown-toggle" [routerLink]="['/browse-jobs']" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Find Jobs
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" [routerLink]="['/recruiters']" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Recruiters
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" [routerLink]="['/companies']" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Companies
+                            </a>
+
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" [routerLink]="['/saved-jobs']" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Saved Jobs
+                            </a>
+
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" [routerLink]="['/applied-jobs']" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Applied Jobs
+                            </a>
+                        </li>
+                        <!-- <li class="button-group">
+                    <a [routerLink]="['/postjob']" class="button btn btn-common">Post a Job</a>
+                  </li> -->
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" [routerLink]="['/login']" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Login
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" [routerLink]="['/signup']" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Sign Up
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu" data-logo="images/logo-mobile.png"></div>
+    </nav>
+
+</header>
+
+<body>
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-header">
+                        <h3>Contact</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="contact" class="section">
+        <div class="contact-form">
+            <div class="container">
+                <div class="row contact-form-area">
+                    <div class="col-md-12 col-lg-6 col-sm-12">
+                        <div class="contact-block">
+                            <h2>Contact Form</h2>
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                placeholder="Name" required data-error="Please enter your name">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Email" id="email" class="form-control"
+                                                name="name" required data-error="Please enter your email">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="text" placeholder="Subject" id="msg_subject"
+                                                class="form-control" required data-error="Please enter your subject">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea class="form-control" id="message" placeholder="Your Message"
+                                                rows="5" data-error="Write your message" required></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                        <div class="submit-button">
+                                            <button class="btn btn-common" id="submit" type="submit">Send
+                                                Message</button>
+                                            <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-6 col-sm-12">
+                        <div class="contact-right-area wow fadeIn">
+                            <h2>Contact Address</h2>
+                            <div class="contact-info">
+                                <div class="single-contact">
+                                    <div class="contact-icon">
+                                        <i class="lni lni-map-marker"></i>
+                                    </div>
+                                    <p>3rd Floor, Building 462, NIT Area, Nehru Ground, Faridabad, Haryana 121001 </p>
+                                </div>
+                                <!-- <div class="single-contact">
+                                    <div class="contact-icon">
+                                        <i class="lni lni-envelope"></i>
+                                    </div>
+                                    <p><a href="#">Customer Support: <span
+                                                class="__cf_email__">[email&#160;protected]</span> Technical Support:
+                                        </a></p>
+                                    <p><a href="#"><span class="__cf_email__">[email&#160;protected]</span></a></p>
+                                </div>
+                                <div class="single-contact">
+                                    <div class="contact-icon">
+                                        <i class="lni lni-phone-handset"></i>
+                                    </div>
+                                    <p><a href="#">Main Office: +880 123 456 789</a></p>
+                                    <p><a href="#">Customer Supprort: +880 123 456 789</a></p>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="conatiner-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14040.66387293924!2d77.2822957818978!3d28.38405472026194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cdc2412472be9%3A0x65d3755845d171ee!2sNew%20Industrial%20Twp%202%2C%20New%20Industrial%20Town%2C%20Faridabad%2C%20Haryana%20121001!5e0!3m2!1sen!2sin!4v1628128494666!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+<app-footer></app-footer>
+
+</html>
