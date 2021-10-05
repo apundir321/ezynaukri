@@ -40,6 +40,8 @@ export class PostjobComponent implements OnInit {
       category: ['', Validators.required],
       minExperience: ['', Validators.required],
       maxExperience: ['', Validators.required],
+      minSalary: ['', Validators.required],
+      maxSalary: ['', Validators.required],
       orgName:[''],
       tags: ['', Validators.required],
       description: [''],
@@ -63,7 +65,6 @@ export class PostjobComponent implements OnInit {
     let tags = [];
     // reset alerts on submit
     this.alertService.clear();
-
     // stop here if form is invalid
     if (this.jobForm.invalid) {
       return;
@@ -75,6 +76,8 @@ export class PostjobComponent implements OnInit {
     organizationId = this.jobForm.controls.orgName.value;
     jobData['minExperience'] = this.jobForm.controls.minExperience.value;
     jobData['maxExperience'] = this.jobForm.controls.maxExperience.value;
+    jobData['minSalary'] = this.jobForm.controls.minSalary.value;
+    jobData['maxSalary'] = this.jobForm.controls.maxSalary.value;
     jobData['endDate'] = this.jobForm.controls.endDate.value;
     let tagsString = this.jobForm.controls.tags.value;
     let tagsStringArray =  tagsString.split(',');

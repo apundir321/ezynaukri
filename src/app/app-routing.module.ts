@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { EmployeeProfileComponent } from './company-profile/employee-profile/employee-profile.component';
+import { ApplicationRecievedComponent } from './components/application-recieved/application-recieved.component';
 import { AppliedJobsComponent } from './components/applied-jobs/applied-jobs.component';
 import { BrowseJobsComponent } from './components/browse-jobs/browse-jobs.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
@@ -11,6 +12,7 @@ import { ProfileLandingComponent } from './components/profile-landing/profile-la
 import { RecruiterProfileComponent } from './components/recruiter-profile/recruiter-profile.component';
 import { RecruiterComponent } from './components/recruiter/recruiter.component';
 import { SavedJobsComponent } from './components/saved-jobs/saved-jobs.component';
+import { SavedProfilesComponent } from './components/saved-profiles/saved-profiles.component';
 import { EducationComponent } from './education/education.component';
 import { JobDetailsComponent } from './job-details/job-details.component';
 import { JoblandingComponent } from './joblanding/joblanding.component';
@@ -19,6 +21,7 @@ import { OrganizationComponent } from './organization/organization.component';
 import { AboutUsComponent } from './other-component/about-us/about-us.component';
 import { ContactComponent } from './other-component/contact/contact.component';
 import { PostjobComponent } from './postjob/postjob.component';
+import { AddcategoryComponent } from './recruiter/addcategory/addcategory.component';
 import { FindProfilesComponent } from './recruiter/find-profiles/find-profiles.component';
 import { JobPostedComponent } from './recruiter/job-posted/job-posted.component';
 import { RecruiterUserProfileComponent } from './recruiter/recruiter-user-profile/recruiter-user-profile.component';
@@ -27,6 +30,7 @@ import { SkillsComponent } from './skills/skills.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { WorkExperienceComponent } from './work-experience/work-experience.component';
 import { AuthGuard } from './_helpers';
+
 
 
 const routes: Routes = [
@@ -120,6 +124,19 @@ const routes: Routes = [
   ,
   {
     path: 'contact', component: ContactComponent
+  },
+  {
+    path: 'saved-profiles', component: SavedProfilesComponent
+  }
+  ,
+  {
+    path: 'recruiterUserProfile', component: RecruiterUserProfileComponent
+  },
+  {
+    path: 'applicationRecieved', component: ApplicationRecievedComponent
+  },
+  {
+    path: 'addCategory', component: AddcategoryComponent
   }
 ];
 

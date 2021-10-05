@@ -231,6 +231,18 @@ export class FindProfilesComponent implements OnInit {
   }
 
 
+  saveProfile(userId: any)
+  {
+    debugger;
+    let currentUser = this.authenticationService.currentUserValue;
+    if (currentUser && currentUser.id) {
+      let recruiterId = currentUser.id;
+      this.userService.getSaveProfile(userId,recruiterId).subscribe((data)=>{
+        console.log(data);
+      });
+    }
+  }
+
 
   // updateAllComplete() {
   //   this.allComplete = this.task.subtasks != null && this.task.subtasks.every(t => t.completed);

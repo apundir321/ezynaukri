@@ -79,5 +79,14 @@ export class UserService {
    return this.http.post(environment.apiUrl+`filterEmployeesProfiles`, payload,{headers:headers});
 }
 
+getSaveProfile(userId: number,recruiterId: number) {
+    return this.http.get(environment.apiUrl+`saveProfile?userId=`+userId+"&recruiterId="+recruiterId);
+}
+
+getSavedProfiles(recruiterId:number)
+{
+    return this.http.get(environment.apiUrl+`getSavedProfiles?userId=`+recruiterId); 
+}
+
 
 }

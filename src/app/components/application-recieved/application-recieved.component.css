@@ -1,0 +1,9 @@
+.saved-profiles{
+    box-shadow: 2px 2px 5px darkgrey;
+    padding: 20px 0px 20px 15px;
+    border-bottom: 1px solid #a51d2b;
+    /* margin-left: 80px; */
+}
+.saved-profiles .btn {
+    background-color:  #a51d2b;
+}

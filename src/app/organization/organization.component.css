@@ -1,0 +1,17 @@
+/* .browser{
+    height: 34px !important;
+
+} */
+
+.custom-file-label::after {
+    padding: 12px 25px;
+    color: #fff;
+    background-color: #a51d2b;
+    border-left: none;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    height: 44px;
+    padding-right: 47px;
+    justify-content: space-evenly;
+    padding-left: 47px;
+}

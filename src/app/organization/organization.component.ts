@@ -15,6 +15,8 @@ export class OrganizationComponent implements OnInit {
   orgForm : FormGroup;
   loading = false;
   submitted = false;
+
+  categories : any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -34,9 +36,14 @@ export class OrganizationComponent implements OnInit {
       organizationName: ['', Validators.required],
       website:[''],
       organizationDescription: [''],
-      profile:['']
+      profile:[''],
+      categoryName:['']
     });
 
+    this.jobService.getCategories().subscribe((data)=>{
+      console.log(data);
+      this.categories = data;
+    })
 
   }
 
@@ -50,28 +57,30 @@ export class OrganizationComponent implements OnInit {
     let category = {};
     // reset alerts on submit
     this.alertService.clear();
+    
   
     // stop here if form is invalid
     if (this.orgForm.invalid) {
       return;
     }
     let orgData = {};
+    let categoryId = this.orgForm.controls.categoryName.value;
     orgData['name'] = this.orgForm.controls.organizationName.value;
     orgData['description'] = this.orgForm.controls.organizationDescription.value;
     const formData = new FormData();
     formData.append('file', this.orgForm.get('profile').value);
     formData.append('orgData',JSON.stringify(orgData));
     
-    this.jobService.postOrganization(formData).subscribe((data)=>{
+    this.jobService.postOrganization(formData,categoryId).subscribe((data)=>{
       this.loading= false;
       console.log(data);
       this.notification.showSuccess("Organization has been added","Ezynaukari says!!");
-    })
+    });
   
   }
 
   onFileSelect(event) {
-    alert(event);
+    // alert(event);
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.orgForm.get('profile').setValue(file);

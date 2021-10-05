@@ -102,6 +102,7 @@ import { ContactComponent } from './other-component/contact/contact.component';
 import { AboutUsComponent } from './other-component/about-us/about-us.component';
 import { SavedProfilesComponent } from './components/saved-profiles/saved-profiles.component';
 import { ApplicationRecievedComponent } from './components/application-recieved/application-recieved.component';
+import { AddcategoryComponent } from './recruiter/addcategory/addcategory.component';
 
 @NgModule({
   declarations: [
@@ -137,7 +138,8 @@ import { ApplicationRecievedComponent } from './components/application-recieved/
     ContactComponent,
     AboutUsComponent,
     SavedProfilesComponent,
-    ApplicationRecievedComponent
+    ApplicationRecievedComponent,
+    AddcategoryComponent
   ],
   imports: [
     BrowserModule,

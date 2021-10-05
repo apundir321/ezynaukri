@@ -21,6 +21,7 @@ export class RecruiterProfileComponent implements OnInit {
 
   ngOnInit() {
     let recruiterId = this.route.snapshot.queryParamMap.get("recruiterId");
+    debugger;
     let currentUser = this.authenticationService.currentUserValue;
     if (recruiterId) {
       this.getRecruiterDetail(recruiterId);

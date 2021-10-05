@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<app-header></app-header>
+<app-recruiter-header></app-recruiter-header>
 
     <body>
     <div class="page-header">
@@ -49,14 +49,31 @@
                             </div>
                             <div class="custom-file mb-3">
                                 <input type="file" class="custom-file-input" id="validatedCustomFile" (change)="onFileSelect($event)">
-                                <label class="custom-file-label form-control" for="validatedCustomFile">Choose
+                                <label class="custom-file-label form-control align-items-center" for="validatedCustomFile">Choose
                                     Company profile image..</label>
                                 
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Category Name</label>
+                            <ng-select [items]="categories"
+                            [virtualScroll]="true"
+                            bindLabel="jobCategoryName"
+                            bindValue="id"
+                            placeholder="Choose category"
+                            formControlName="categoryName">
+         </ng-select>
+                            </div>
+                            <div class="add-post-btn">
+                            <div class="float-left">
+                                <a [routerLink]="['/addCategory']" class="btn-added"><i class="ti-plus"></i> Add Category</a>
+                                <div style="margin-top: 5px;"><label  class="control-label" style="font-size: 10px;">(Add Category incase Category name is not in the above list)</label></div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <button [disabled]="loading" class="btn btn-common log-btn mt-3">
                                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                                     Add Organization</button>
+                                   
                                 </div>
                             </form>
                     </div>

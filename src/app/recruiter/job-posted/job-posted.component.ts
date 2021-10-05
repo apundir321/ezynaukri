@@ -17,7 +17,8 @@ export class JobPostedComponent implements OnInit {
 
 
   userForm: FormGroup;
-  user: any;
+  students:any;
+  user : any;
   educations: any;
   workExperiences: any;
   loading = false;
@@ -28,7 +29,7 @@ export class JobPostedComponent implements OnInit {
 
   ];
   jobs:any;
-
+  
   url: any;
   constructor(private route: ActivatedRoute, private notifyService: NotificationService,
     private jobService: JobService, private router: Router, private userService: UserService,
@@ -40,7 +41,7 @@ export class JobPostedComponent implements OnInit {
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
       this.userService.getUser(currentUser.id).subscribe((data) => {
-        console.log(data);
+        // console.log(data);
         this.user = data;
         if (data['recruiterProfile']) {
           let userProfile = data['recruiterProfile'];
@@ -48,7 +49,7 @@ export class JobPostedComponent implements OnInit {
           Object.keys(userProfile['tags']).forEach((key) => {
 
             let skillName = userProfile['tags'][key];
-            console.log(skillName);
+            // console.log(skillName);
             this.tags.push({ "name": skillName['name'] });
           })
         }
@@ -64,7 +65,7 @@ export class JobPostedComponent implements OnInit {
       let postData = {};
 
       let profileId = currentUser.id;
-      postData['posted_by'] = "10";
+      postData['posted_by'] = profileId;
 
 
       this.jobService.getJobsById(JSON.stringify(postData)).subscribe(jobsData => {
@@ -74,6 +75,14 @@ export class JobPostedComponent implements OnInit {
         }
       });
     }
+    let currentUser1 = this.authenticationService.currentUserValue;
+    if (currentUser1 && currentUser1.id) {
+    this.userService.getSavedProfiles(currentUser1.id).subscribe((data) => {
+      // console.log(data);
+      this.students = data;
+    });
+  }
+    
 
   }
 
@@ -100,5 +109,7 @@ export class JobPostedComponent implements OnInit {
     //window.location.reload()
 
   }
+  
+  
 
 }

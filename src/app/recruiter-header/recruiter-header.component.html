@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.css">
     <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/assets/css/owl.theme.default.css">
     <link rel="stylesheet" href="/assets/css/slicknav.min.css">
@@ -22,7 +23,7 @@
   
   <header id="home" class="hero-area">
   
-    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
+    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar " id="rec-head">
       <div class="container">
         <div class="theme-header clearfix">
   
@@ -59,7 +60,7 @@
               </li>
 
               <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" [routerLink]="['/saved-jobs']" data-toggle="dropdown" aria-haspopup="true"
+                <a class="nav-link dropdown-toggle" [routerLink]="['/saved-profiles']" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
                   Saved Profiles
                 </a>
@@ -67,7 +68,7 @@
               </li>
   
               <li class="nav-item">
-                <a class="nav-link dropdown-toggle" [routerLink]="['/applied-jobs']" data-toggle="dropdown" aria-haspopup="true"
+                <a class="nav-link dropdown-toggle" [routerLink]="['/applicationRecieved']" id="nav-app" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
                   Application Recieved
                 </a>
@@ -77,19 +78,17 @@
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" [routerLink]="['/postjob']" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false"><i class=" fa-user" aria-hidden="true" style="display: inline-block;
-                    font: normal normal normal 14px/1 FontAwesome;
+                aria-expanded="false"><i class="fa-solid fa-user-tie" id="rec-icon" aria-hidden="true" style="display: inline-block;
+                    
                     font-size: xx-large;
                     text-rendering: auto;
                     -webkit-font-smoothing: antialiased;
                     "></i></a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="about.html">About</a></li>
-                        <li><a class="dropdown-item" href="job-page.html">Job Page</a></li>
-                        <li><a class="dropdown-item" href="job-details.html">Job Details</a></li>
-                        <li><a class="dropdown-item" href="resume.html">Resume Page</a></li>
-                        <li><a class="dropdown-item" href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
+                        <li><a class="dropdown-item" href="about.html">my profile</a></li>
+                        <li><a class="dropdown-item" href="job-page.html">password change </a></li>
+                        <li><a class="dropdown-item" href="job-details.html">privacy-policy</a></li>
+                        <li><a class="dropdown-item" href="resume.html">Log Out</a></li>
                       </ul>
 
                     

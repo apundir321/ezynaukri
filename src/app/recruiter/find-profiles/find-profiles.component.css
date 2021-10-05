@@ -76,6 +76,18 @@
     padding: 0;
     margin: 0
   }
+
+  #products .btn1 {
+    float: right;
+    border: 0px;
+    background-color: #fff;
+
+  }
+  #product .btn1 .far{
+    font-size: 40px;
+    color: grey;
+  }
+
   
   @media(min-width:991px) {
     .navbar-nav {

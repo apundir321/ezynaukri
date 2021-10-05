@@ -50,3 +50,8 @@ h4 {
   #fileInput{
     display: none;
   }
+
+.manager-resumes-item {
+  box-shadow: 2px 3px 4px grey;
+  border-bottom: 1px solid red;
+}

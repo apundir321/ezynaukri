@@ -74,12 +74,20 @@ export class JobService {
         return this.http.get(environment.apiUrl+'getOrganizations');
     }
 
-    postOrganization(orgData:any)
+    postOrganization(orgData:any,categoryId : number)
     {
         // let headers = new HttpHeaders()
         // headers=headers.set('content-type','application/json')
-        return this.http.post(environment.apiUrl+'addOrganization',orgData);
+        return this.http.post(environment.apiUrl+'addOrganization?categoryId='+categoryId,orgData);
     }
+
+    addCategory(categoryData:any)
+    {
+        // let headers = new HttpHeaders()
+        // headers=headers.set('content-type','application/json')
+        return this.http.post(environment.apiUrl+'addCategory',categoryData);
+    }
+
 
     getOrgsByCriteria(orgData:any)
     {
