@@ -26,24 +26,29 @@ export class BrowseJobsComponent implements OnInit {
   loading = false;
   title = 'Autocomplete';
   browseForm: FormGroup;
-
+  categories : any;
   // myControl = new FormControl();
-  jobData : any;
+  jobData: any;
   visible = true;
   selectable = true;
   removable = true;
   addOnBlur = true;
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   jobTags: JobTag[] = [
-    
+
   ];
 
   location = new FormControl();
 
-  locations = ["Gurgaon"];
+  locations = [];
   selectedLocations;
-  config:any;
 
+
+
+
+  config: any;
+  totalPages:any;
+  findJobsCount:number =0;
 
   value: number = 0;
   highValue: number = 100;
@@ -55,9 +60,9 @@ export class BrowseJobsComponent implements OnInit {
 
 
   category: Category[] = [
-    { name: 'Steak'},
-    { name: 'Pizza'},
-    { name: 'Tacos'}
+    { name: 'Steak' },
+    { name: 'Pizza' },
+    { name: 'Tacos' }
   ];
   selectedCategory: string;
 
@@ -65,50 +70,55 @@ export class BrowseJobsComponent implements OnInit {
 
   organization = new FormControl();
 
-  organizations = ["Wipro","Flybunch","Capegemini"];
+  organizations = ["Wipro", "Flybunch", "Capegemini"];
   selectedOrg;
 
-  constructor(private router: Router,private userService:UserService,private notifyService:NotificationService,
-    private formBuilder: FormBuilder,private jobService:JobService,private route:ActivatedRoute) {
+  constructor(private router: Router, private userService: UserService, private notifyService: NotificationService,
+    private formBuilder: FormBuilder, private jobService: JobService, private route: ActivatedRoute) {
   }
 
 
   ngOnInit() {
-    this.userService.getLocations().subscribe((data)=>{
+    this.userService.getLocations().subscribe((data) => {
       console.log(data);
-      Object.keys(data).forEach((key)=>{
-        
+      Object.keys(data).forEach((key) => {
+
         this.locations.push(data[key]['location']);
       })
     })
 
-    this.jobService.getFilterByTags(JSON.stringify({})).subscribe((data)=>{
+    this.jobService.getFilterByTags(JSON.stringify({})).subscribe((data) => {
       let jobListData = data['pagesJob'].content;
       // console.log(jobListData);
-      Object.keys(jobListData).forEach((job)=>{
+      Object.keys(jobListData).forEach((job) => {
         let jobData = jobListData[job];
         let appliedJobs = JSON.parse(localStorage.getItem("appliedJobs"));
-        if(appliedJobs)
-        {
-          if(appliedJobs.includes(jobData.id))
-          {
+        if (appliedJobs) {
+          if (appliedJobs.includes(jobData.id)) {
             jobData['applied'] = true;
           }
         }
       })
       this.jobData = jobListData;
       console.log(this.jobData);
-      this.loading=false;
+      this.totalPages= new Array(data['pagesJob']['totalPages']);
+      this.findJobsCount = data['pagesJob']['totalElements'];
+      this.loading = false;
       this.config = {
         currentPage: 1,
         itemsPerPage: 5,
-        totalItems:10
+        totalItems: 10
       };
       this.route.queryParams.subscribe(
-        params => this.config.currentPage= params['page']?params['page']:1 );
-  
+        params => this.config.currentPage = params['page'] ? params['page'] : 1);
 
-  })
+
+    })
+
+    this.jobService.getCategories().subscribe((data)=>{
+      console.log(data);
+      this.categories = data;
+    })
     // this.browseForm = this.formBuilder.group({
     //   location: [null,Validators.required]
     // });
@@ -122,7 +132,7 @@ export class BrowseJobsComponent implements OnInit {
 
     // Add our fruit
     if ((value || '').trim()) {
-      this.jobTags.push({name: value.trim()});
+      this.jobTags.push({ name: value.trim() });
     }
 
     // Reset the input value
@@ -132,8 +142,8 @@ export class BrowseJobsComponent implements OnInit {
   }
 
   pageChange(newPage: number) {
-		this.router.navigate(['browse-jobs'], { queryParams: { page: newPage } });
-	}
+    this.router.navigate(['browse-jobs'], { queryParams: { page: newPage } });
+  }
 
 
   remove(jobTag: JobTag): void {
@@ -144,7 +154,7 @@ export class BrowseJobsComponent implements OnInit {
     }
   }
 
-  
+
   // convenience getter for easy access to form fields
   get f() { return this.browseForm.controls; }
 
@@ -152,56 +162,54 @@ export class BrowseJobsComponent implements OnInit {
     debugger;
     let tagArray = [];
     this.loading = true;
-    
 
-    Object.keys(this.jobTags).forEach((key)=>{
+
+    Object.keys(this.jobTags).forEach((key) => {
       let tagValue = this.jobTags[key];
       tagArray.push(tagValue.name);
     })
 
 
     var postData = {};
-    if(this.selectedLocations.length>0)
-    {
-      postData['locations'] = this.selectedLocations;
+    if (this.selectedLocations) {
+      if (this.selectedLocations.length > 0) {
+        postData['locations'] = this.selectedLocations;
+      }
     }
-    if(tagArray.length>0)
-    {
+    if (tagArray.length > 0) {
       postData['tags'] = tagArray;
     }
 
-      this.jobService.getFilterByTags(JSON.stringify(postData)).subscribe((data)=>{
-        let jobListData = data['pagesJob'].content;
-        // console.log(jobListData);
-        Object.keys(jobListData).forEach((job)=>{
-          let jobData = jobListData[job];
-          let appliedJobs = JSON.parse(localStorage.getItem("appliedJobs"));
-          if(appliedJobs)
-          {
-            if(appliedJobs.includes(jobData.id))
-            {
-              jobData['applied'] = true;
-            }
+    this.jobService.getFilterByTags(JSON.stringify(postData)).subscribe((data) => {
+      let jobListData = data['pagesJob'].content;
+      // console.log(jobListData);
+      Object.keys(jobListData).forEach((job) => {
+        let jobData = jobListData[job];
+        let appliedJobs = JSON.parse(localStorage.getItem("appliedJobs"));
+        if (appliedJobs) {
+          if (appliedJobs.includes(jobData.id)) {
+            jobData['applied'] = true;
           }
-        })
-        this.jobData = jobListData;
-        console.log(this.jobData);
-        this.loading=false;
-        this.config = {
-          currentPage: 1,
-          itemsPerPage: 3,
-          totalItems:0
-        };
-        this.route.queryParams.subscribe(
-          params => this.config.currentPage= params['page']?params['page']:1 );
-    
-  
+        }
+      })
+      this.jobData = jobListData;
+      console.log(this.jobData);
+      this.loading = false;
+      this.config = {
+        currentPage: 1,
+        itemsPerPage: 3,
+        totalItems: 0
+      };
+      this.route.queryParams.subscribe(
+        params => this.config.currentPage = params['page'] ? params['page'] : 1);
+
+
     })
   }
 
 
 
-    
+
   // }
 
 }

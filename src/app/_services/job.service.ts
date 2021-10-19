@@ -22,9 +22,19 @@ export class JobService {
         return this.http.get('http://localhost:8080/applyJob?jobId='+jobId+'&userId='+userId);
     }
 
+    save(jobId:string,userId:any)
+    {
+        return this.http.get('http://localhost:8080/saveJob?jobId='+jobId+'&userId='+userId);
+    }
+
     getSavedJobs(userId:any)
     {
-        return this.http.get(environment.apiUrl+'getSavedJobs?userId='+userId);
+        return this.http.get(environment.apiUrl+'getSavedJobs?userId='+userId+"&pageItem=0&pageSize=10000");
+    }
+
+    deleteSavedJob(savedJobId:any)
+    {
+        return this.http.get(environment.apiUrl+'deleteSaveJob?savedJobId='+savedJobId);
     }
 
 
@@ -79,6 +89,20 @@ export class JobService {
         // let headers = new HttpHeaders()
         // headers=headers.set('content-type','application/json')
         return this.http.post(environment.apiUrl+'addOrganization?categoryId='+categoryId,orgData);
+    }
+
+    updateProfilePic(profileData:any,userId : number)
+    {
+        // let headers = new HttpHeaders()
+        // headers=headers.set('content-type','application/json')
+        return this.http.post(environment.apiUrl+'updateProfilePic?userId='+userId,profileData);
+    }
+
+    uploadResume(profileData:any,userId : number)
+    {
+        // let headers = new HttpHeaders()
+        // headers=headers.set('content-type','application/json')
+        return this.http.post(environment.apiUrl+'updateResume?userId='+userId,profileData);
     }
 
     addCategory(categoryData:any)

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import { NotificationService } from '../notification.service';
 // import { Console } from 'console';
 import { AuthenticationService, UserService } from '../_services';
@@ -29,7 +30,7 @@ export class JoblandingComponent implements OnInit {
   jobTags: JobTag[] = [
     
   ];
-
+  user : any;
   config:any;
 
   searchJobTags: string[] = [];
@@ -75,7 +76,7 @@ export class JoblandingComponent implements OnInit {
           }
         }
       })
-
+      debugger;
 
       this.jobData = jobListData;
       console.log(this.jobData);
@@ -94,6 +95,22 @@ export class JoblandingComponent implements OnInit {
     }, (error) => {
       console.log("error in getting jobdata from jobservice");
     })
+
+    let currentUser = this.authenticationService.currentUserValue;
+    if (currentUser && currentUser.id) {
+    this.userService.getUser(currentUser.id).subscribe((data)=>{
+      console.log(data);
+      this.user = data;
+      if(data['userProfile']){
+        let userProfile = data['userProfile'];
+        let profilePic =userProfile['profilePicName'];
+        if(profilePic)
+        {
+          this.url = environment.apiUrl+"getProfilePic"+"/"+profilePic+"/"+currentUser.id;
+        }
+      }
+    });
+  }
   }
 
   pageChange(newPage: number) {
@@ -109,6 +126,26 @@ export class JoblandingComponent implements OnInit {
         appliedJobs.push(jobId);
         localStorage.setItem("appliedJobs",JSON.stringify(appliedJobs));
         this.notifyService.showSuccess("Job Applied","EzyNaukri Says!!")
+        this.ngOnInit();
+      })
+    }
+  }
+
+  saveJob(jobId: string) {
+    let currentUser = this.authenticationService.currentUserValue;
+    if (currentUser && currentUser.id) {
+      this.jobService.save(jobId, currentUser.id).subscribe((data)=>{
+        debugger;
+        console.log("Job saved Successfully");
+        if(data['message']==="Job Already Saved")
+        {
+          this.notifyService.showWarning("Job Already Saved","EzyNaukri Says!!")
+        }else{
+        // let appliedJobs = JSON.parse(localStorage.getItem("appliedJobs"));
+        // appliedJobs.push(jobId);
+        // localStorage.setItem("appliedJobs",JSON.stringify(appliedJobs));
+        this.notifyService.showSuccess("Job saved","EzyNaukri Says!!")
+      }
         this.ngOnInit();
       })
     }

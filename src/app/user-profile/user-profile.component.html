@@ -31,7 +31,7 @@
                             <li><a [routerLink]="['/education']">Education</a></li>
                             <li><a [routerLink]="['/skills']">Skills</a></li>
                             <li><a [routerLink]="['/changepassword']">Change Password</a></li>
-                            <li><a href="notifications.html">Notifications <span class="notinumber">2</span></a></li>
+                            <!-- <li><a href="notifications.html">Notifications <span class="notinumber">2</span></a></li> -->
                         </ul>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                                     <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'"> 
                                     <div class="hover-text">
                                       Choose file
-                                      <h4 class="success-message" *ngIf="url"> Uploaded Successfully </h4>
+                                      <!-- <h4 class="success-message" *ngIf="url"> Uploaded Successfully </h4> -->
                                       </div>
                                     <div class="background"></div>
                                   </label>
@@ -56,18 +56,28 @@
                                         style="float:right; background: #a51d2b;padding: 5px 10px;">
 
                                         Edit Profile</button></h3>
-                                <div *ngIf="userProfile">
-                                    <p class="sub-title">{{userProfile.currentJobRole}}</p>
+                                <div *ngIf="userProfile.currentJobRole">
+                                    <p class="sub-title">{{userProfile.currentJobRole}} <span *ngIf="userProfile.currentOrganization">&nbsp;,{{userProfile.currentOrganization}} </span> </p>
                                 </div>
-                                <p><span class="address"> <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Mahattan,
-                                        NYC, USA</span>
-                                    <span><i class="ti-phone"></i>(+91) {{user.phoneNo}}</span>
+                                <p><span class="address" *ngIf="userProfile.currentLocation"> <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{userProfile.currentLocation}}</span>
+                                    <span *ngIf="user.phoneNo"><i class="ti-phone"></i>(+91) {{user.phoneNo}}</span>
                                 </p>
                                 <div class="social-link">
                                     <a href="#" class="Twitter"><i class="fa fa-twitter-square"></i></a>
                                     <a href="#" class="facebook"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
                                     <a href="#" class="linkedin"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
                                 </div>
+                                <div style="margin-top: 5%;">
+                                <!-- <a href="#" class="btn btn-common">Upload Resume</a> -->
+                                <label class="btn btn-common">
+                                    <input type="file" style="display: none;" (change)="uploadResume($event)"/>
+                                    Upload Resume
+                                </label>
+                                
+                            </div>
+                            <div style="margin-top: 3%;" *ngIf="userProfile.resume">
+                                <a href="{{resumeUrl}}"><i class="fa fa-download" aria-hidden="true"></i>&nbsp; Download Resume</a>
+                            </div>
                             </div>
                         </div>
                         <div class="about-me item">
@@ -231,6 +241,26 @@
                 [ngClass]="{ 'is-invalid': submitted && f.expectedCtc.errors }" placeholder="in lakhs" />
             <div *ngIf="submitted && f.expectedCtc.errors" class="invalid-feedback">
                 <div *ngIf="f.expectedCtc.errors.required">Current ctc is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Current Organization <span>(*)</span></label>
+            <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
+            <input type="text" formControlName="currentOrganization" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.currentOrganization.errors }" placeholder="Current Organization" />
+            <div *ngIf="submitted && f.currentOrganization.errors" class="invalid-feedback">
+                <div *ngIf="f.currentOrganization.errors.required">Current Organization is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Current Location <span>(*)</span></label>
+            <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
+            <input type="text" formControlName="currentLocation" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.currentLocation.errors }" placeholder="Current Location" />
+            <div *ngIf="submitted && f.currentLocation.errors" class="invalid-feedback">
+                <div *ngIf="f.currentLocation.errors.required">Current Location is required</div>
             </div>
         </div>
         <div class="form-group">

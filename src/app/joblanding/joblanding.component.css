@@ -60,3 +60,12 @@
     background: #a51d2b  !important;
    
   }
+
+  #block_container
+{
+    text-align:center;
+}
+#apply, #save
+{
+    display:inline-block;
+}

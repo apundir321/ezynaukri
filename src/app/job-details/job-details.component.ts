@@ -2,6 +2,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { NotificationService } from '../notification.service';
 import { AuthenticationService } from '../_services';
 import { JobService } from '../_services/job.service';
@@ -17,6 +18,7 @@ export class JobDetailsComponent implements OnInit {
     private jobService: JobService,private router:Router,
      private authenticationService: AuthenticationService) { }
   job: any;
+  url:any;
   ngOnInit() {
     let jobId = this.route.snapshot.queryParamMap.get("jobId");
     if (jobId) {
@@ -28,7 +30,13 @@ export class JobDetailsComponent implements OnInit {
   getJobDetail(jobId: any) {
     this.jobService.getJobDetail(jobId).subscribe(data => {
       console.log(data);
+      debugger;
       let jobData = data['job'];
+      let organization = jobData['organization'];
+      if(organization)
+      {
+        this.url = environment.apiUrl+"getProfilePic"+"/"+organization['orgProfileImage'];
+      }
       let appliedJobs = JSON.parse(localStorage.getItem("appliedJobs"));
       if(appliedJobs)
       {

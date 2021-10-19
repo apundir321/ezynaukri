@@ -94,14 +94,35 @@
                         <ng-template #educationTemplate>
                             <p>No Education configured yet</p>
                         </ng-template> -->
-                            <div class="popular_search d-flex align-items-center">
+                            <!-- <div class="popular_search d-flex align-items-center">
                                 <ul>
                                     <div *ngFor="let tag of tags">
                                     </div>
                                     <li *ngFor="let tag of tags"><a href="#">{{tag.name}}</a></li>
 
                                 </ul>
-                            </div>
+                            </div> -->
+
+                            <div class="education item">
+                                <mat-form-field class="example-chip-list" style="width: 100%;">
+                                  <mat-chip-list #chipList>
+                                    <mat-chip *ngFor="let tag of tags" [selectable]="selectable"
+                                             [removable]="removable" (removed)="remove(tag)">
+                                      {{tag.name}}
+                                      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                    </mat-chip>
+                                    <input placeholder="Skills.."
+                                           [matChipInputFor]="chipList"
+                                           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                           [matChipInputAddOnBlur]="addOnBlur"
+                                           (matChipInputTokenEnd)="add($event)">
+                                  </mat-chip-list>
+                                </mat-form-field>
+                              </div>
+                              
+                              <button (click)="updateSkills()" [disabled]="loading" class="btn btn-common log-btn mt-3">
+                                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                                  Update Skills</button>
                             <br>
 
                         </div>

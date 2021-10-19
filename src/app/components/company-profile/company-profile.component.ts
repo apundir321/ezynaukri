@@ -31,8 +31,12 @@ export class CompanyProfileComponent implements OnInit {
   categoryArray : string[] = [];
 
   location = new FormControl();
-  locations = ["Gurgaon"];
+  category = new FormControl();
+  locations = [];
   selectedLocations;
+  selectedCategories;
+  categories: any;
+
 
 
 
@@ -75,6 +79,11 @@ export class CompanyProfileComponent implements OnInit {
       this.notifyService.showError("Error occured while loading recuiter profiles with message=" + error, "Ezynaukari says!!");
       this.router.navigate(['/joblanding']);
     })
+
+    this.jobService.getCategories().subscribe((data)=>{
+      console.log(data);
+      this.categories = data;
+    })
   }
 
   places: Task = {
@@ -88,16 +97,6 @@ export class CompanyProfileComponent implements OnInit {
     ]
   };
 
-  categories: Task = {
-    name: 'category',
-    completed: false,
-    color: 'primary',
-    subtasks: [
-      {name: 'It services', completed: false, color: 'primary'},
-      {name: 'Food services', completed: false, color: 'primary'},
-      {name: 'Manufactoring', completed: false, color: 'primary'}
-    ]
-  };
 
   tags: Task = {
     name: 'Tags',
@@ -111,18 +110,7 @@ export class CompanyProfileComponent implements OnInit {
   };
 
   countries: any = [
-    {
-      full: "Great Britain",
-      short: "GB"
-    },
-    {
-      full: "United States",
-      short: "US"
-    },
-    {
-      full: "Canada",
-      short: "CA"
-    }
+   
   ];
   selectedCountry: string = "GB";
 
@@ -169,6 +157,7 @@ export class CompanyProfileComponent implements OnInit {
 
   submit()
   {
+    debugger;
     var postData = {};
     if(this.locationArray.length>0)
     {
@@ -217,18 +206,18 @@ export class CompanyProfileComponent implements OnInit {
   {
     debugger;
     var postData = {};
-    if(this.selectedLocations.length>0)
+    if(this.selectedLocations)
     {
-      postData['locations'] = this.selectedLocations;
+      postData['location'] = this.selectedLocations;
     }
-    if(this.jobTags.length>0)
+    if(this.selectedCategories)
     {
-      postData['tags'] = this.searchJobTags;
+      postData['category'] = this.selectedCategories;
     }
-    this.jobService.getOrgsByCriteria(JSON.stringify({})).subscribe((data) => {
+    this.jobService.getOrgsByCriteria(JSON.stringify(postData)).subscribe((data) => {
       console.log(data);
       this.notifyService.showInfo("Ezynaukari says!","Refined results has been posted");
-      this.users = data;
+      this.orgs = data;
       this.config = {
         currentPage: 1,
         itemsPerPage: 3,

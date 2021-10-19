@@ -18,10 +18,10 @@
                                     <div class="form-group">
                                         <!-- <input class="form-control" type="text" placeholder="Job Title or Company Name"> -->
                                         <mat-form-field style="width: 100%;">
-                                            <mat-select name="countryReactiveString" [formControl]="selectedCountryControl" placeholder="Country">
-                                              <mat-option [value]="'GB'">Great Britain</mat-option>
-                                              <mat-option [value]="'US'">United States</mat-option>
-                                              <mat-option [value]="'CA'">Canada</mat-option>
+                                            <mat-select placeholder="Categories" [formControl]="category" [(value)]="selectedCategories" >
+                                                <mat-option *ngFor="let category of categories" [value]="category.id">
+                                                    {{category.jobCategoryName}}
+                                                  </mat-option>
                                             </mat-select>
                                           </mat-form-field>
                                           <i class="fa fa-tasks" aria-hidden="true"></i>
@@ -39,7 +39,7 @@
                                             </label> -->
 
                                             <mat-form-field style="width: 100%;">
-                                                <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" multiple>
+                                                <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" >
                                                   <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
                                                 </mat-select>
                                               </mat-form-field>

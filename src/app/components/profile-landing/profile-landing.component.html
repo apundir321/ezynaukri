@@ -156,7 +156,7 @@
                         <a [routerLink]="['/employeeProfile']" [queryParams]="{employeeId: user.id}">
                             <div class="job-featured">
                                 <div class="icon">
-                                    <img src="images/asa.jpg" alt="">
+                                    <img [src]="user.profilePicName ? serverUrl+'getProfilePicByProfileId/'+user.profilePicName+'/'+user.id : 'https://www.w3schools.com/howto/img_avatar.png'" style="width: 70px;height: 70px;">
                                 </div>
                                 <div class="content">
                                     <h3><a href="job-details.html">{{user.firstName}} {{user.lastFirstName}}</a></h3>

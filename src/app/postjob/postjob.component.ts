@@ -85,6 +85,7 @@ export class PostjobComponent implements OnInit {
       let tagValue = tagsStringArray[element];
       tags.push({'name':tagValue});
     })
+    jobData['tags'] = tags;
     //jobData['tags'] = tags;
     jobData['jobDescription'] = this.jobForm.controls.description.value;
     jobData['noOfvacancies'] = this.jobForm.controls.noOfvacancies.value;

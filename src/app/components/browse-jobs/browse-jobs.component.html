@@ -154,7 +154,7 @@
                 </div>
                 <div>
                     <h6 class="p-1 border-bottom">Filter By</h6>
-                    <p class="mb-2">Experience</p>
+                    
                     <section class="example-section">
                         <span class="example-list-section">
                             
@@ -200,8 +200,8 @@
                             <mat-form-field appearance="fill">
                                 <mat-label>Select Category</mat-label>
                                 <mat-select [(ngModel)]="selectedCategory">
-                                  <mat-option *ngFor="let category of categories" [value]="category.name">
-                                    {{category.name}}
+                                  <mat-option *ngFor="let category of categories" [value]="category.id">
+                                    {{category.jobCategoryName}}
                                   </mat-option>
                                 </mat-select>
                               </mat-form-field>
@@ -226,7 +226,7 @@
                 
                 
                 <div class="col-12 text-center mt-4">
-                    <a class="btn btn-common" (click)="submit()">Refine</a>
+                    <a class="btn btn-common" (click)="onSubmit()">Refine</a>
                 </div>
             </section>
             <section id="products">

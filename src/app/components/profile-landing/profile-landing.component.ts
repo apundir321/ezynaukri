@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/notification.service';
 import { AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 export interface JobTag {
   name: string;
 }
@@ -45,6 +46,7 @@ export class ProfileLandingComponent implements OnInit {
 
   searchJobTags: string[] = [];
   
+  serverUrl:string = environment.apiUrl;
   
   constructor(private route: ActivatedRoute,private jobService: JobService, private authenticationService: AuthenticationService,
     private router:Router,private notifyService : NotificationService,private formBuilder:FormBuilder,private userService:UserService) { }
@@ -63,6 +65,7 @@ export class ProfileLandingComponent implements OnInit {
       this.userService.getEmployeesByParams(JSON.stringify({})).subscribe((data) => {
         console.log(data);
         this.users = data;
+        
         this.config = {
           currentPage: 1,
           itemsPerPage: 3,

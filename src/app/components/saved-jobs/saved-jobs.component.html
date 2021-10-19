@@ -36,7 +36,7 @@
                 <div class="col-lg-8 col-md-12 col-xs-12">
                     <div class="job-alerts-item candidates">
                         <h3 class="alerts-title">Saved Jobs</h3>
-                        <div class="manager-resumes-item" *ngFor="let job of savedJobs" >
+                        <div class="manager-resumes-item" *ngFor="let job of savedJobs | paginate: config" >
                             <div class="manager-content">
                                 <a href="resume.html"><img class="resume-thumb" src="img/jobs/avatar-1.jpg" alt=""></a>
                                 <div class="manager-info">
@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="manager-meta">
                                         <span class="location"><i class="lni-map-marker"></i> {{job.job.location}}</span>
-                                        <span class="rate"><i class="lni-alarm-clock"></i> $55 per hour</span>
+                                        <span class="rate"><i class="fa fa-rupee"></i>&nbsp;Upto {{job.job.maxSalary}} LPA</span>
                                     </div>
                                 </div>
                             </div>
@@ -55,21 +55,15 @@
                                     <strong>Posted on:</strong> {{job.job.jobPublished | date:'fullDate'}}
                                 </p>
                                 <div class="action-btn">
-                                    <a class="btn btn-xs btn-danger" href="#">Delete</a>
+                                    <a class="btn btn-xs btn-danger" (click)="deleteSavedJob(job.id)">Delete</a>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- <a class="btn btn-common btn-sm" href="add-resume.html">Add new resume</a> -->
-                        <ul class="pagination">
-                            <li class="active"><a href="#" class="btn-prev"><i class="lni-angle-left"></i> prev</a></li>
-                            <!-- <li class="active" *ngFor="let a of totalPages; let index = index"><a href="#">{{index+1}}</a></li> -->
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li class="active"><a href="#" class="btn-next">Next <i class="lni-angle-right"></i></a></li>
-                          </ul>
+                        <div class="col-12 text-center mt-4">
+                            <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
+                        </div>
                     </div>
                 </div>
             </div>

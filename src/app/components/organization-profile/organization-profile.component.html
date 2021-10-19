@@ -27,15 +27,15 @@
                             <!-- <input id="fileInput" type='file' (change)="onSelectFile($event)"> -->
                           </div>
                         <div class="content" *ngIf="org" >
-                            <h3 class="product-title">{{org.name}} </h3>
+                            <h3 class="product-title"><i class="fa fa-building-o" aria-hidden="true"></i> &nbsp;{{org.name}} </h3>
                             <!-- <div class="tags"><i class="fa fa-building-o" aria-hidden="true"></i>{{user.recruiterProfile.currentOrganization}}</div> -->
                             
                             <div class="tags" style="padding-top: 5px;">
-                                <span><i class="lni lni-briefcase"></i>{{org.category.jobCategoryName}}</span>
+                                <span><i class="fa fa-briefcase"></i>{{org.category.jobCategoryName}}</span>
                             </div>
                             <div class="tags">
                                 <span *ngIf="org.location"><i class="lni lni-map-marker"></i> {{org.location}}</span>
-                                <span><i class="lni lni-calendar"></i> Posted &nbsp;Wednesday, May 26, 2021</span>
+                                <span><i class="fa fa-calendar"></i> Posted &nbsp;Wednesday, May 26, 2021</span>
                             </div>
                         </div>
                     </div>
@@ -46,8 +46,8 @@
                         <div class="price">$65,000</div>
                     </div> -->
                     <ul class="mt-3 footer-social">
-                        <li><a class="facebook" href="#"><i class="lni lni-facebook-filled"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="lni lni-twitter-filled"></i></a></li>
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
                         <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
                         <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
                     </ul>
