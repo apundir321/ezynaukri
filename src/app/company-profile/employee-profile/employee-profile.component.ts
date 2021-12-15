@@ -30,11 +30,11 @@ export class EmployeeProfileComponent implements OnInit {
   ngOnInit() {
     let employeeId = this.route.snapshot.queryParamMap.get("employeeId");
     debugger;
-    this.userService.getUser(2).subscribe((data)=>{
+    this.userService.getProfile(employeeId).subscribe((data)=>{
       console.log(data);
       this.user = data;
-      if(data['userProfile']){
-      let userProfile = data['userProfile'];
+      if(data){
+      let userProfile = data;
       this.userProfile = userProfile;
         Object.keys(userProfile['tags']).forEach((key)=>{
          

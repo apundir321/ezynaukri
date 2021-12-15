@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+    <div *ngIf="!isRecruiter">
     <app-header></app-header>
+    </div>
+<div *ngIf="isRecruiter">
+    <app-recruiter-header></app-recruiter-header>
+</div>
 
 <body>
 
@@ -50,11 +55,12 @@
         <ul>
         <li *ngFor="let tag of job.tags">- {{tag.name}}</li>
         </ul>
+        <div *ngIf="!isRecruiter">
         <h5>How To Apply</h5>
         <p>Go through a smooth process of applying to a job, Click the below button to apply for the job or you can apply this job on home page through the listing.</p>
         <div *ngIf="job.applied; else elseBlock"><a  class="btn btn-common">Applied &nbsp;<i class="fa fa-check" aria-hidden="true"></i></a></div>
         <ng-template #elseBlock><a (click)="applyJob(job.id)" class="btn btn-common">Apply job</a></ng-template>
-        
+    </div>
         </div>
         </div>
         <div class="col-lg-4 col-md-12 col-xs-12">

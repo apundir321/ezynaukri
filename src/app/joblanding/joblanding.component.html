@@ -2,7 +2,8 @@
 <html lang="en">
 
 <app-header></app-header>
-  <body>
+
+<body>
   <div style="clear:both"></div>
   <div class="page-header">
     <div class="inner-header top-header">
@@ -11,31 +12,30 @@
 
           <div class="job-search-form bg-cyan job-featured-search" style="width: 100%; background-color: white;">
             <!-- <form [formGroup]="browseForm" (ngSubmit)="onSubmit()"> -->
-                <div class="row justify-content-center">
-                    <div class="col-lg-5 col-md-5 col-xs-12">
-                        <div class="form-group">
-                            <!-- <input class="form-control" type="text" placeholder="Job Title or Company Name"> -->
-                            <mat-form-field class="example-chip-list">
-                                <mat-label>Job Tags</mat-label>
-                                <mat-chip-list #chipList aria-label="Fruit selection">
-                                    <mat-chip *ngFor="let jobTag of jobTags" [selectable]="selectable"
-                                        [removable]="removable" (removed)="remove(jobTag)">
-                                        {{jobTag.name}}
-                                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                                    </mat-chip>
-                                    <input placeholder="Add Job Tags..." [matChipInputFor]="chipList"
-                                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                                        [matChipInputAddOnBlur]="addOnBlur"
-                                        (matChipInputTokenEnd)="add($event)">
-                                </mat-chip-list>
-                            </mat-form-field>
-                            <i class="fa fa-tasks" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-5 col-md-5 col-xs-12">
-                        <div class="form-group">
-                            <div class="search-category-container">
-                                <!-- <label class="styled-select">
+            <div class="row justify-content-center">
+              <div class="col-lg-5 col-md-5 col-xs-12">
+                <div class="form-group">
+                  <!-- <input class="form-control" type="text" placeholder="Job Title or Company Name"> -->
+                  <mat-form-field class="example-chip-list">
+                    <mat-label>Job Tags</mat-label>
+                    <mat-chip-list #chipList aria-label="Fruit selection">
+                      <mat-chip *ngFor="let jobTag of jobTags" [selectable]="selectable" [removable]="removable"
+                        (removed)="remove(jobTag)">
+                        {{jobTag.name}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                      </mat-chip>
+                      <input placeholder="Add Job Tags..." [matChipInputFor]="chipList"
+                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                        (matChipInputTokenEnd)="add($event)">
+                    </mat-chip-list>
+                  </mat-form-field>
+                  <i class="fa fa-tasks" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="col-lg-5 col-md-5 col-xs-12">
+                <div class="form-group">
+                  <div class="search-category-container">
+                    <!-- <label class="styled-select">
                                     <select (click)="autoComplete()">
                                         <option value="">Locations</option>
                                         <option *ngFor="let location of locations" value="location.location">{{location.location}}</option>
@@ -43,24 +43,26 @@
                                     </select>
                                 </label> -->
 
-                                <mat-form-field style="width: 100%;">
-                                  <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" multiple>
-                                    <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
-                                  </mat-select>
-                                </mat-form-field>
-                            </div>
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 col-md-1 col-xs-12" style="
+                    <mat-form-field style="width: 100%;">
+                      <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations"
+                        multiple>
+                        <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <i class="fa fa-map-marker" aria-hidden="true"></i>
+                </div>
+              </div>
+              <div class="col-lg-1 col-md-1 col-xs-12" style="
                     margin-right: 20px;
                     margin-top: 8px;
                 ">
-                        <button type="submit" class="btn btn-common" (click)="filterJobs()"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Filter</button>
-                    </div>
-                </div>
+                <button type="submit" class="btn btn-common" (click)="filterJobs()"><span *ngIf="loading"
+                    class="spinner-border spinner-border-sm mr-1"></span>Filter</button>
+              </div>
+            </div>
             <!-- </form> -->
-        </div>
+          </div>
 
 
 
@@ -94,46 +96,59 @@
             </div>
           </div>
           <!-- <div *ngIf="findJobsCount>0; else jobsTemplate"> -->
-          <div *ngFor="let job of jobData | paginate: config" class="row job-listings" style="background: antiquewhite; border-radius: 10px;">
+          <div *ngFor="let job of jobData | paginate: config" class="row job-listings"
+            style="background: antiquewhite; border-radius: 10px;">
             <a [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
-            <div class="job-details">
-              <h3>{{job.jobName}}</h3>
-              <span class="company-neme">
-                {{job.organization.name}}
-              </span>
-            </div>
-            <div class="top-jd">
-              <ul>
-                <li><i class="fa fa-briefcase" aria-hidden="true"></i> {{job.minExperience}} - {{ job.maxExperience}}
-                  yrs</li>
-                <li><i class="fa fa-inr" aria-hidden="true"></i> As per Industry Standards</li>
-                <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{job.jobLocation}}</li>
-              </ul>
-            </div>
-            <div class="top-jd-dt">
-              <p>{{job.jobDescription}}</p>
-            </div>
+              <div class="job-details">
+                <h3>{{job.jobName}}</h3>
+                <span class="company-neme">
+                  {{job.organization.name}}
+                </span>
+              </div>
+              <div class="top-jd">
+                <ul>
+                  <li><i class="fa fa-briefcase" aria-hidden="true"></i> {{job.minExperience}} - {{ job.maxExperience}}
+                    yrs</li>
+                  <li><i class="fa fa-inr" aria-hidden="true"></i> As per Industry Standards</li>
+                  <li><i class="fa fa-map-marker" aria-hidden="true"></i> {{job.jobLocation}}</li>
+                </ul>
+              </div>
+              <div class="top-jd-dt">
+                <p>{{job.jobDescription}}</p>
+              </div>
             </a>
             <div id="block_container">
-            <div id = "apply" style="float:left" *ngIf="job.applied; else elseBlock"><div class="appbtn"><a style="background-color: #a51d2b;color: white;" class="btn-apply disabled">Applied&nbsp;<i class="fa fa-check" aria-hidden="true"></i></a></div></div>
-            <ng-template #elseBlock><div class="appbtn" ><a (click)="applyJob(job.id)"  class="btn-apply">Apply Now</a><a href="#"> Posted : {{job.jobPublished | date:'fullDate'}}</a></div></ng-template>
-              <div id="save" style="float: right;" ><a (click)="saveJob(job.id)"  class="btn-apply"><i class="fa fa-save" aria-hidden="true"></i>&nbsp; Save</a></div>
-          </div>
-              
-          
-            
-            
+              <div id="apply" style="float:left" *ngIf="job.applied; else elseBlock">
+                <div class="appbtn"><a style="background-color: #a51d2b;color: white;"
+                    class="btn-apply disabled">Applied&nbsp;<i class="fa fa-check" aria-hidden="true"></i></a></div>
+              </div>
+
+
+
+              <ng-template #elseBlock>
+                <div id="apply" style="float:left">
+                <div class="appbtn"><a (click)="applyJob(job.id)" class="btn-apply">Apply Now</a></div>
+                </div>
+              </ng-template>
+              <div id="save" style="float: right;"><a (click)="saveJob(job.id)" class="btn-apply"><i class="fa fa-save"
+                    aria-hidden="true"></i>&nbsp; Save</a></div>
+            </div>
+
+
+
+
             <!-- <div ><a>Applied</a><i class="bi bi-check"></i></div> -->
 
-          <!-- </div> -->
-          <!-- <ng-template #jobsTemplate > -->
-          <div class="row job-listings" style="    width: 100%; 
+            <!-- </div> -->
+            <!-- <ng-template #jobsTemplate > -->
+            <div class="row job-listings" style="    width: 100%; 
           height: 30%;" *ngIf="findJobsCount==0 || findJobsCount==='0' ">
               <p style="    margin-top: 20px;
-              text-align: center;"><i class="lni lni-warning"></i> No jobs posted with the current criteria please refine your filter</p>
-        </div>
-        <!-- </ng-template> -->
-      </div>
+              text-align: center;"><i class="lni lni-warning"></i> No jobs posted with the current criteria please
+                refine your filter</p>
+            </div>
+            <!-- </ng-template> -->
+          </div>
 
 
 
@@ -151,14 +166,14 @@
               <!-- <img src="/assets/images/blog/img2.jpg" alt=""> -->
 
               <label class="hoverable" for="fileInput">
-                <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'"> 
+                <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'">
                 <!-- <div class="hover-text">
                   Choose file
                   <h4 class="success-message" *ngIf="url"> Uploaded Successfully </h4>
                   </div> -->
                 <div class="background"></div>
               </label>
-              <br/>
+              <br />
               <!-- <input id="fileInput" type='file' (change)="onSelectFile($event)"> -->
             </div>
             <div class="job-details">
@@ -174,7 +189,7 @@
             </div>
             <a href="#" [routerLink]="['/profile']" class="updatepro">Update Profile</a>
 
-           
+
 
           </div>
 
@@ -187,4 +202,5 @@
 
 </body>
 <app-footer></app-footer>
+
 </html>

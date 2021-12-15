@@ -19,7 +19,13 @@ export class JobDetailsComponent implements OnInit {
      private authenticationService: AuthenticationService) { }
   job: any;
   url:any;
+  isRecruiter : boolean = false
   ngOnInit() {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if(currentUser['roles'][0]==="ROLE_RECRUITER")
+    {
+      this.isRecruiter = true;
+    }
     let jobId = this.route.snapshot.queryParamMap.get("jobId");
     if (jobId) {
       this.getJobDetail(jobId);

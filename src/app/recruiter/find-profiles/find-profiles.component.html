@@ -165,52 +165,48 @@
                 <div class="container">
                     <div class="row">
 
-                
                         <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let user of users " >
-                            <a [routerLink]="['/employeeProfile']" [queryParams]="{employeeId: user.id}">
+                           
                                 <div class="job-featured">
+                                    <a [routerLink]="['/employeeProfile']" [queryParams]="{employeeId: user.id}">
                                     <div class="icon">
-                                        <img src="images/asa.jpg" alt="">
+                                        <img [src]="user.profilePicName ? serverUrl+'getProfilePicByProfileId/'+user.profilePicName+'/'+user.id : 'https://www.w3schools.com/howto/img_avatar.png'" style="width: 70px;height: 70px;">
                                     </div>
                                     <div class="content">
                                         <h3><a href="job-details.html">{{user.firstName}} {{user.lastFirstName}}</a></h3>
                                         <p class="brand">{{user.currentJobRole}}</p>
-                                        <h3><a href="#">{{user.currentOrganization}}</a></h3>
+                                        <h3>{{user.currentOrganization}}</h3>
                                         <div class="tags">
                                             <span><i class="fa fa-map-marker"></i> Noida</span>
                                         </div>
                                     </div>
             
-                                    <div class="req-scells">
+                                    <div class="req-scells"  style="margin-top: 10%;">
+                                        <div *ngIf="user.tags.length >0">
                                         <small>Skills :</small>
             
                                         <p><span *ngFor="let tag of user.tags">   {{tag.name}},</span></p>
-        
-                                        <span><small>Work Experience :</small><span class="profile" style="color: gray; margin-left: 5%;">    {{user.workExperience}} years </span></span>
-                                        <br/>
-                                        <span><small>Current CTC :</small><span style="color: gray;margin-left: 5%;">    {{user.currentCtc}} LPA </span></span>
-                                        <br/>
-                                        <span><small>Expected CTC :</small><span style="color: gray;margin-left: 5%;">    {{user.expectedCtc}} LPA </span></span>
-                                        <br/>
-                                        <span><small>Notice Period :</small><span style="color: gray;margin-left: 5%;">    90 Days </span></span>
-                                        
-                                        
-            
-                                        <p class="activejob">Last active on 27-Feb-2015</p>
-                                        <a class="btn1" (click)="saveProfile(user.id)"><i class="far fa-save" style="font-size: 20px;color: grey;"></i></a >
                                     </div>
-                                    <!-- <div class="followrow">
-                                        <div class="follow">
-                                            <span>
-                                                <a href="#" class="btn-apply">Follow</a><br>
-                                                <em>1835 Followers</em></span>
-            
-                                            <div class="sendbtn"><a href="#">Send Message</a></div>
+                                        <span ><small>Work Experience :</small><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="user.workExperience">    {{user.workExperience}} years </span><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="!user.workExperience">Not Defined</span></span>
+                                        <br/>
+                                        <span><small>Current CTC :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.currentCtc">    {{user.currentCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.currentCtc">Not Defined</span></span>
+                                        <br/>
+                                        <span><small>Expected CTC :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.expectedCtc">    {{user.expectedCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.expectedCtc">Not Defined</span></span>
+                                        <br/>
+                                        <span><small>Notice Period :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.noticePeriod">    90 Days </span> <span style="color: gray;margin-left: 5%;" *ngIf="!user.noticePeriod">Not Defined</span></span>
+                                        
+                                    </div>
+                                </a>
+                                    <div class="add-post-btn" style="margin-top: 4%;">
+                                        <div class="float-left">
+                                            <a (click)="saveProfile(user.id)"  class="btn-added"><i class="ti-plus"></i> Save Profile</a>
+                                            
+                                            </div>
                                         </div>
-            
-                                    </div> -->
+                                   
                                 </div>
-                            </a>
+                                
+                            
                         </div>
                         <!-- <div class="col-12 text-center mt-4">
                             <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>

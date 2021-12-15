@@ -11,6 +11,7 @@ import { NotificationService } from 'src/app/notification.service';
 import { ModalService } from 'src/app/_modal';
 import { AlertService, AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-find-profiles',
@@ -25,10 +26,10 @@ export class FindProfilesComponent implements OnInit {
   categoryArray : string[] = [];
   
   location = new FormControl();
-  locations = ["Gurgaon"];
+  locations = [""];
   selectedLocations;
 
-
+  serverUrl:string = environment.apiUrl;
 
   visible = true;
   selectable = true;
@@ -190,11 +191,11 @@ export class FindProfilesComponent implements OnInit {
   {
     alert("filtering");
     var postData = {};
-    if(this.selectedLocations.length>0)
+    if(this.selectedLocations && this.selectedLocations.length>0)
     {
       postData['locations'] = this.selectedLocations;
     }
-    if(this.jobTags.length>0)
+    if(this.jobTags && this.jobTags.length>0)
     {
       postData['tags'] = this.searchJobTags;
     }
@@ -214,7 +215,6 @@ export class FindProfilesComponent implements OnInit {
     {
       postData['maxSalary'] = this.highValue;
     }
-    alert(this.min +"   "+this.max+"    "+this.value+"    "+this.highValue);
     this.userService.getEmployeesByParams(JSON.stringify(postData)).subscribe((data)=>{
       console.log(data);
       this.notifyService.showInfo("Ezynaukari says!","Refined results has been posted");
@@ -238,7 +238,8 @@ export class FindProfilesComponent implements OnInit {
     if (currentUser && currentUser.id) {
       let recruiterId = currentUser.id;
       this.userService.getSaveProfile(userId,recruiterId).subscribe((data)=>{
-        console.log(data);
+        // console.log(data);
+        this.notifyService.showInfo("Ezynaukari says!","Profile has been saved!");
       });
     }
   }

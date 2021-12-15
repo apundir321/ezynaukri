@@ -25,9 +25,9 @@ export class ApplicationRecievedComponent implements OnInit {
     
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
-    this.userService.getSavedProfiles(currentUser.id).subscribe((data) => {
+    this.userService.getApplicationRecieved(currentUser.id).subscribe((data) => {
       console.log(data);
-      this.profiles = data;
+      this.profiles = data['jobApplication'];
     });
   }
 

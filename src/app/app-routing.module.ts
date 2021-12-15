@@ -130,9 +130,6 @@ const routes: Routes = [
   }
   ,
   {
-    path: 'recruiterUserProfile', component: RecruiterUserProfileComponent
-  },
-  {
     path: 'applicationRecieved', component: ApplicationRecievedComponent
   },
   {

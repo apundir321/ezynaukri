@@ -26,7 +26,7 @@
                     <div class="right-sideabr">
                         <h4>Manage Account</h4>
                         <ul class="list-item">
-                            <li><a  [routerLink]="['/recruiterUserProfile']">My Profile</a></li>
+                            <li><a [routerLink]="['/recruiterUserProfile']" [queryParams]="{recruiterId: id}">My Profile</a></li>
                             <li><a  [routerLink]="['/job-posted']">Job Posted</a></li>
                             <li><a class="active" [routerLink]="['/saved-profiles']">Saved Profiles</a></li>
                             <li><a [routerLink]="['/applicationRecieved']">Application Recieved</a></li>
@@ -72,14 +72,20 @@
                         
                     </div> -->
                     <div class="row justify-content-between align-items-center mt-3 saved-profiles" *ngFor="let profile of profiles">
+                        
                         <div class="col-lg-3">
-                            <img src="" alt="" style="width: 100%; height: 100px; background-color: grey;">
+                            <a [routerLink]="['/employeeProfile']" [queryParams]="{employeeId: profile.id}">
+                            <img [src]="profile.profilePicName ? serverUrl+'getProfilePicByProfileId/'+profile.profilePicName+'/'+profile.id : 'https://www.w3schools.com/howto/img_avatar.png'" alt="" style="width: 100%; height: 100px; background-color: grey;">
+                        </a>
                         </div>
                         <div class="col-lg-6" >
-                            <p>Name: {{profile.applicant.firstName}} </p>
-                            <p>Skills: {{profile.applicant.email}} </p>
-                            <p>Location: {{profile.applicant.firstName}} </p>
+                            <p>Name: {{profile.applicant.firstName}} {{profile.applicant.lastName}}</p>
+                            <p>Email: {{profile.applicant.email}} </p>
+                            <p *ngIf="profile.applicant.currentLocation">Current Location: <span>{{profile.applicant.currentLocation}}</span> </p>
+                            <p *ngIf="profile.applicant.currentJobRole">Current Role: <span>{{profile.applicant.currentJobRole}}</span> </p>
+
                         </div>
+                        
                         <div class="text-center">
                             <button class="btn mr-3">Delete</button>
                         </div>

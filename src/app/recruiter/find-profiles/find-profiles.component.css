@@ -233,3 +233,8 @@
     background: #a51d2b  !important;
    
   }
+
+  .btn-holder {
+    justify-content: flex-end;
+    display: flex;
+  }

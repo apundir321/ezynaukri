@@ -28,26 +28,29 @@
                           </div>
                         <div class="content" *ngIf="user">
                             <h3 class="product-title">{{user.firstName}} {{user.lastName}}</h3>
+                            <br/>
                             <!-- <div class="tags"><i class="fa fa-building-o" aria-hidden="true"></i>{{user.recruiterProfile.currentOrganization}}</div> -->
-                            <div class="tags">
+                            <!-- <div class="tags" *ngIf= "userProfile.currentOrganization">
                                 <span><i class="lni lni-apartment"></i>{{userProfile.currentOrganization}}</span>
                             </div>
 
                             <div class="tags">
-                                <span><i class="lni lni-phone"></i>+(91)9873567279</span>
-                                <span><i class="lni lni-book"></i>Work Experience : {{userProfile.workExperience}} years</span>
-                            </div>
-
-                            
-                            
-                            <div class="tags">
-                                <span><i class="lni lni-briefcase"></i>{{userProfile.currentJobRole}}</span>
-                                <span><i class="lni lni-customer"></i>Current CTC : {{userProfile.currentCtc}}</span>
-                            </div>
-                            <div class="tags">
-                                <span><i class="lni lni-map-marker"></i> Gurgaon</span>
-                                <span><i class="lni lni-calendar"></i> Last Active:  &nbsp;Wednesday, May 26, 2021</span>
-                            </div>
+                                <span *ngIf= "userProfile.phoneNo"><i class="lni lni-phone" ></i>+(91){{userProfile.phoneNo}}</span>
+                                <span *ngIf= "userProfile.workExperience"><i class="lni lni-book"></i>Work Experience : {{userProfile.workExperience}} years</span>
+                            </div> -->
+                            <span  ><small>Work Experience :</small><span style="color: gray; margin-left: 5%;" *ngIf="user.workExperience">    {{user.workExperience}} years </span><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="!user.workExperience"><small>Not Defined</small></span></span>
+                                    <br/>
+                                    <span><small>Current CTC :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.currentCtc">    {{user.currentCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.currentCtc"><small>Not Defined</small></span></span>
+                                    <br/>
+                                    <span><small>Expected CTC :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.expectedCtc">    {{user.expectedCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.expectedCtc"><small>Not Defined</small></span></span>
+                                    <br/>
+                                    <span><small>Notice Period :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.noticePeriod">    90 Days </span> <span style="color: gray;margin-left: 5%;" *ngIf="!user.noticePeriod"><small>Not Defined</small></span></span>
+                                    <br/>
+                                    <span><small>Current Job Profile :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.currentJobRole">    {{user.currentJobRole}} </span> <span style="color: gray;margin-left: 5%;" *ngIf="!user.currentJobRole"><small>Not Defined</small></span></span>
+                                    <br/>
+                                    <span><small>Current Location :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.currentLocation"> <i class="lni lni-map-marker"></i> &nbsp;   {{user.currentLocation}} </span> <span style="color: gray;margin-left: 5%;" *ngIf="!user.currentLocation"><small>Not Defined</small></span></span>
+                                    <br/>
+                                    <span><small>Phone No :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.phoneNo">{{user.phoneNo}} </span> <span style="color: gray;margin-left: 5%;" *ngIf="!user.phoneNo"><small>Not Defined</small></span></span>
                         </div>
                     </div>
                 </div>
@@ -73,12 +76,18 @@
                 <div class="col-lg-8 col-md-12 col-xs-12">
                     <div class="content-area" *ngIf="user">
                         <h4>Profile Description</h4>
-                        <p>{{userProfile.aboutMe}}</p>
+                        <p *ngIf="user.aboutMe">{{user.aboutMe}}</p><p *ngIf="!user.aboutMe">Not filled by the user yet.</p>
 
                         <h5>Skills</h5>
                         <ul>
                             <!-- <li *ngFor="let tag of job.tags">- {{tag.name}}</li> -->
-                            <li *ngFor="let tag of user.userProfile.tags">- {{tag.name}}</li>
+                            <div *ngIf="user.tags.length>0">
+                            <li *ngFor="let tag of user.tags">- {{tag.name}}</li>
+                        </div>
+                        <div *ngIf="user.tags || user.tags.length>0">
+                            Not configured by the user yet.
+                        </div>
+
                         </ul>
 
                         <div class="work-experence item">

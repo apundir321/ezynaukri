@@ -193,11 +193,11 @@ export class JoblandingComponent implements OnInit {
   {
     debugger;
     var postData = {};
-    if(this.selectedLocations.length>0)
+    if(this.selectedLocations && this.selectedLocations.length>0)
     {
       postData['locations'] = this.selectedLocations;
     }
-    if(this.jobTags.length>0)
+    if(this.jobTags && this.jobTags.length>0)
     {
       postData['tags'] = this.searchJobTags;
     }

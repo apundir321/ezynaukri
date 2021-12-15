@@ -75,13 +75,7 @@ export class JobPostedComponent implements OnInit {
         }
       });
     }
-    let currentUser1 = this.authenticationService.currentUserValue;
-    if (currentUser1 && currentUser1.id) {
-    this.userService.getSavedProfiles(currentUser1.id).subscribe((data) => {
-      // console.log(data);
-      this.students = data;
-    });
-  }
+   
     
 
   }

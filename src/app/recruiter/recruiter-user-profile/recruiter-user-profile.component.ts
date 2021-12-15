@@ -9,6 +9,7 @@ import { Tag } from 'src/app/skills/skills.component';
 import { ModalService } from 'src/app/_modal';
 import { AlertService, AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -49,10 +50,16 @@ export class RecruiterUserProfileComponent implements OnInit {
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
       this.userService.getUser(currentUser.id).subscribe((data) => {
+        debugger;
         console.log(data);
         this.user = data;
         if (data['recruiterProfile']) {
           let userProfile = data['recruiterProfile'];
+          let profilePic =userProfile['profilePic'];
+        if(profilePic)
+        {
+        this.url = environment.apiUrl+"getRecruiterProfilePic"+"/"+profilePic+"/"+currentUser.id;
+        }
           this.userForm.patchValue(userProfile);
           this.userProfile = userProfile;
           Object.keys(userProfile['tags']).forEach((key) => {
@@ -74,6 +81,7 @@ export class RecruiterUserProfileComponent implements OnInit {
         currentJobRole: ['', Validators.required],
         maxQualification: ['', Validators.required],
         workExperience: [''],
+        currentLocation: [''],
         aboutMe: ['']
       });
 
@@ -88,13 +96,21 @@ export class RecruiterUserProfileComponent implements OnInit {
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
       var reader = new FileReader();
-
+      let currentUser = this.authenticationService.currentUserValue;
+      if (currentUser && currentUser.id) {
       reader.readAsDataURL(event.target.files[0]); // read file as data url
-
+      const formData = new FormData();
+      formData.append('file', event.target.files[0]);
+      this.jobService.updateRecruiterProfilePic(formData,currentUser.id).subscribe((data)=>{
+        this.loading= false;
+        console.log(data);
+        this.notifyService.showSuccess("Profile Pic has been updated","Ezynaukari says!!");
+      });
       reader.onload = (event) => { // called once readAsDataURL is completed
         this.url = reader.result;
       }
     }
+  }
   }
 
   get f() { return this.userForm.controls; }
@@ -122,7 +138,7 @@ export class RecruiterUserProfileComponent implements OnInit {
     let currentUser = this.authenticationService.currentUserValue;
     debugger;
     this.loading = true;
-    this.userService.saveProfile(this.userForm.value, currentUser.id)
+    this.userService.saveRecruiterProfile(this.userForm.value, currentUser.id)
       .pipe(first())
       .subscribe(
         data => {
@@ -168,7 +184,7 @@ export class RecruiterUserProfileComponent implements OnInit {
 
     })
 
-    this.userService.addSkills(JSON.stringify(this.skills), currentUser.id).subscribe((data) => {
+    this.userService.addRecruiterSkills(JSON.stringify(this.skills), currentUser.id).subscribe((data) => {
 
       this.notifyService.showSuccess('Skills Updated', 'Ezynaukari Says!!');
       // this.loading = false;

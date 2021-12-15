@@ -26,10 +26,10 @@
                     <div class="right-sideabr">
                         <h4>Manage Account</h4>
                         <ul class="list-item">
-                            <li><a  [routerLink]="['/recruiterProfile']">My Profile</a></li>
+                            <li><a [routerLink]="['/recruiterUserProfile']">My Profile</a></li>
                             <li><a  [routerLink]="['/job-posted']">Job Posted</a></li>
-                            <li><a class="active" [routerLink]="['/saved-profiles']">Saved Profiles</a></li>
-                            <li><a [routerLink]="['/applicationRecieved']">Application Recieved</a></li>
+                            <li><a  [routerLink]="['/saved-profiles']">Saved Profiles</a></li>
+                            <li><a class="active" [routerLink]="['/applicationRecieved']">Application Recieved</a></li>
                             <li><a [routerLink]="['/changepassword']">Change Password</a></li>
                             <!-- <li><a href="notifications.html">Notifications <span class="notinumber">2</span></a></li> -->
                         </ul>
@@ -71,8 +71,8 @@
                         
                         
                     </div> -->
-                    <div class="row justify-content-between align-items-center mt-3 saved-profiles" *ngFor="let profile of profiles">
-                        <div class="col-lg-3">
+                    <div class="manager-resumes-item" *ngFor="let profile of profiles">
+                        <!-- <div class="col-lg-3">
                             <img src="" alt="" style="width: 100%; height: 100px; background-color: grey;">
                         </div>
                         <div class="col-lg-6" >
@@ -82,7 +82,42 @@
                         </div>
                         <div class="text-center">
                             <button class="btn mr-3">Delete</button>
-                        </div>
+                        </div> -->
+
+
+                        <!-- <a [routerLink]="['/job-details']" [queryParams]="{jobId: profile.job.id}"> -->
+                            <div class="manager-content">
+                                <!-- <a href="resume.html"><img class="resume-thumb" src="img/jobs/avatar-1.jpg"
+                                        alt=""></a> -->
+                                <div class="manager-info">
+                                    <a [routerLink]="['/job-details']" [queryParams]="{jobId: profile.job.id}">
+                                    <div class="manager-name">
+                                        <h4><a href="#">{{profile.job.organization.name}}</a></h4>
+                                        <h5>{{profile.job.jobName}}</h5>
+                                        <div>Keyskills : <span *ngFor="let tag of profile.job.tags">{{tag.name}},</span></div>
+                                    </div>
+                                </a>
+                                    <a [routerLink]="['/employeeProfile']" [queryParams]="{employeeId: profile.applicant.id}">
+                                    <div class="manager-meta">
+                                        <span class="location"><i class="lni lni-map-marker" ></i> {{profile.applicant.firstName}}</span>
+                                        <span class="rate" *ngIf="profile.applicant.userProfile.currentJobRole"><i class="fa fa-building"></i> {{profile.applicant.userProfile.currentJobRole}}</span>
+                                        <span class="rate" *ngIf="profile.applicant.userProfile.workExperience"><i class="lni lni-library"></i> {{profile.applicant.userProfile.workExperience}} years</span>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="update-date">
+                                <p class="status" style="    margin-top: 20px;
+                                text-align: center;">
+                                    <strong>Application recieved on:</strong> {{profile.applicationDate | date:'fullDate'}}
+                                </p>
+                                
+                                <div class="action-btn">
+                                    <a class="btn btn-xs btn-danger" href="#">Delete</a>
+                                </div>
+                            </div>
+                        <!-- </a> -->
+
                     </div>
                 </div>
             </div>

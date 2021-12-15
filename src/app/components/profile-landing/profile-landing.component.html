@@ -161,24 +161,25 @@
                                 <div class="content">
                                     <h3><a href="job-details.html">{{user.firstName}} {{user.lastFirstName}}</a></h3>
                                     <p class="brand">{{user.currentJobRole}}</p>
-                                    <h3><a href="#">{{user.currentOrganization}}</a></h3>
+                                    <h3>{{user.currentOrganization}}</h3>
                                     <div class="tags">
                                         <span><i class="fa fa-map-marker"></i> Noida</span>
                                     </div>
                                 </div>
         
-                                <div class="req-scells">
+                                <div class="req-scells"  style="margin-top: 10%;">
+                                    <div *ngIf="user.tags.length >0">
                                     <small>Skills :</small>
         
                                     <p><span *ngFor="let tag of user.tags">   {{tag.name}},</span></p>
-
-                                    <span><small>Work Experience :</small><span class="profile" style="color: gray; margin-left: 5%;">    {{user.workExperience}} years </span></span>
+                                </div>
+                                    <span ><small>Work Experience :</small><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="user.workExperience">    {{user.workExperience}} years </span><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="!user.workExperience">Not Defined</span></span>
                                     <br/>
-                                    <span><small>Current CTC :</small><span style="color: gray;margin-left: 5%;">    {{user.currentCtc}} LPA </span></span>
+                                    <span><small>Current CTC :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.currentCtc">    {{user.currentCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.currentCtc">Not Defined</span></span>
                                     <br/>
-                                    <span><small>Expected CTC :</small><span style="color: gray;margin-left: 5%;">    {{user.expectedCtc}} LPA </span></span>
+                                    <span><small>Expected CTC :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.expectedCtc">    {{user.expectedCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.expectedCtc">Not Defined</span></span>
                                     <br/>
-                                    <span><small>Notice Period :</small><span style="color: gray;margin-left: 5%;">    90 Days </span></span>
+                                    <span><small>Notice Period :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.noticePeriod">    90 Days </span> <span style="color: gray;margin-left: 5%;" *ngIf="!user.noticePeriod">Not Defined</span></span>
                                     
                                     
         

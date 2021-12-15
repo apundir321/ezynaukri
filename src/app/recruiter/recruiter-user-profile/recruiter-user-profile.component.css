@@ -50,3 +50,7 @@ h4 {
   #fileInput{
     display: none;
   }
+
+  .item{
+    margin-top: 5%;
+  }

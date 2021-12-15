@@ -98,6 +98,13 @@ export class JobService {
         return this.http.post(environment.apiUrl+'updateProfilePic?userId='+userId,profileData);
     }
 
+    updateRecruiterProfilePic(profileData:any,userId : number)
+    {
+        // let headers = new HttpHeaders()
+        // headers=headers.set('content-type','application/json')
+        return this.http.post(environment.apiUrl+'updateRecruiterProfilePic?userId='+userId,profileData);
+    }
+
     uploadResume(profileData:any,userId : number)
     {
         // let headers = new HttpHeaders()

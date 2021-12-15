@@ -29,7 +29,7 @@
                     <div class="right-sideabr">
                         <h4>Manage Account</h4>
                         <ul class="list-item">
-                            <li>
+                            <li *ngIf="user">
                                 <!-- <a  [routerLink]="['/recruiterProfile']"> -->
                                     <a [routerLink]="['/recruiterUserProfile']" [queryParams]="{recruiterId: user.id}">My Profile</a></li>
                             <li><a class="active" [routerLink]="['/job-posted']">Job Posted</a></li>
@@ -111,10 +111,7 @@
                                             text-align: center;">
                                                 <strong>Posted on:</strong> {{job.jobPublished | date:'fullDate'}}
                                             </p>
-                                            <p class="status" style="    margin-top: 20px;
-                                            text-align: center;padding-left: 20px;">
-                                                <strong>Ended on:</strong> {{job.endDate | date:'fullDate'}}
-                                            </p>
+                                            
                                             <div class="action-btn">
                                                 <a class="btn btn-xs btn-danger" href="#">Hide</a>
                                             </div>
@@ -123,33 +120,7 @@
                                     </div>
                                 </div>
                                     <ng-template #jobsTemplate >
-                                        <div class="manager-resumes-item" *ngFor="let student of students">
-                                            <div class="manager-content">
-                                                <a href="resume.html"><img class="resume-thumb" src="img/jobs/avatar-1.jpg"
-                                                        alt=""></a>
-                                                <div class="manager-info">
-                                                    <div class="manager-name">
-                                                        <h4><a href="#">Comapany:Zane Joyner</a></h4>
-                                                        <h5>Job role: Front-end developer</h5>
-                                                    </div>
-                                                    <div class="manager-meta">
-                                                        <span class="location"><i class="fa-solid fa-location-pin mr-2"></i> Location:Cupertino, CA,
-                                                            USA</span>
-                                                        <span class="rate"><i class="fa-solid fa-indian-rupee-sign mr-2"></i> LPA:55 per hour</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="update-date">
-                                                <p class="status">
-                                                    <strong>Posted on:</strong> Fab 22, 2020
-                                                </p>
-                                                <div class="action-btn">
-                                                    <!-- <a class="btn btn-xs btn-gray" href="#">Hide</a>
-                                                    <a class="btn btn-xs btn-gray" href="#">Edit</a> -->
-                                                    <a class="btn btn-xs btn-danger" href="#">Delete</a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </ng-template>
                                 
 

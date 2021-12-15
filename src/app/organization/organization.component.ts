@@ -70,7 +70,6 @@ export class OrganizationComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.orgForm.get('profile').value);
     formData.append('orgData',JSON.stringify(orgData));
-    
     this.jobService.postOrganization(formData,categoryId).subscribe((data)=>{
       this.loading= false;
       console.log(data);

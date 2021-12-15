@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-xs-12">
-                    <div class="inner-box my-resume">
+                    <div class="inner-box my-resume" *ngIf="user && userProfile">
                         <div class="author-resume">
                             <div class="thumb">
                                 <label class="hoverable" for="fileInput">
@@ -59,9 +59,8 @@
                                 <div *ngIf="userProfile">
                                     <p class="sub-title">{{userProfile.currentJobRole}}</p>
                                 </div>
-                                <p><span class="address"> <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;Mahattan,
-                                        NYC, USA</span>
-                                    <span><i class="ti-phone"></i>(+91) {{user.phoneNo}}</span>
+                                <p><span class="address" *ngIf="userProfile.currentLocation"> <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;{{userProfile.currentLocation}}</span>
+                                    <span *ngIf="user.phoneNo"><i class="ti-phone"></i>(+91) {{user.phoneNo}}</span>
                                 </p>
                                 <div class="social-link">
                                     <a href="#" class="Twitter"><i class="fa fa-twitter-square"></i></a>
@@ -170,9 +169,19 @@
             <label class="control-label">Current Job Role <span>(*)</span></label>
             <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
             <input type="text" formControlName="currentJobRole" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.currentJobRole.errors }" placeholder="e.g.Gurgaon" />
+                [ngClass]="{ 'is-invalid': submitted && f.currentJobRole.errors }"  />
             <div *ngIf="submitted && f.currentJobRole.errors" class="invalid-feedback">
                 <div *ngIf="f.currentJobRole.errors.required">Job Role is required</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Current Location <span>(*)</span></label>
+            <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
+            <input type="text" formControlName="currentLocation" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && f.currentLocation.errors }"  />
+            <div *ngIf="submitted && f.currentLocation.errors" class="invalid-feedback">
+                <div *ngIf="f.currentLocation.errors.required">Current location is required</div>
             </div>
         </div>
 
@@ -180,7 +189,7 @@
             <label class="control-label">Max Qualification <span></span></label>
             <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
             <input type="text" formControlName="maxQualification" class="form-control"
-                [ngClass]="{ 'is-invalid': submitted && f.maxQualification.errors }" placeholder="e.g.Gurgaon" />
+                [ngClass]="{ 'is-invalid': submitted && f.maxQualification.errors }" />
             <div *ngIf="submitted && f.maxQualification.errors" class="invalid-feedback">
                 <div *ngIf="f.maxQualification.errors.required">Max Qualification is required</div>
             </div>

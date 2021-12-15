@@ -5,6 +5,7 @@ import { NotificationService } from 'src/app/notification.service';
 import { ModalService } from 'src/app/_modal';
 import { AlertService, AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-saved-profiles',
@@ -14,7 +15,8 @@ import { JobService } from 'src/app/_services/job.service';
 export class SavedProfilesComponent implements OnInit {
 
   profiles :any ;
-
+  serverUrl:string = environment.apiUrl;
+  id:any;
   constructor(private route: ActivatedRoute, private notifyService: NotificationService,
     private jobService: JobService,private router:Router,private userService: UserService,
      private authenticationService: AuthenticationService,private modalService:ModalService,
@@ -25,6 +27,7 @@ export class SavedProfilesComponent implements OnInit {
     
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
+      this.id = currentUser.id;
     this.userService.getSavedProfiles(currentUser.id).subscribe((data) => {
       console.log(data);
       this.profiles = data;

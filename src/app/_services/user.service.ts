@@ -37,6 +37,10 @@ export class UserService {
         return this.http.post(environment.apiUrl+`saveProfile?userId=`+id, userProfile);
     }
 
+    saveRecruiterProfile(userProfile: any,id:number) {
+        return this.http.post(environment.apiUrl+`saveRecruiterProfile?userId=`+id, userProfile);
+    }
+
     addWorkExperience(workExperience: any,id:number) {
         return this.http.post(environment.apiUrl+`addWorkExperience?userId=`+id, workExperience);
     }
@@ -51,8 +55,14 @@ export class UserService {
         return this.http.post(environment.apiUrl+`updateTags?userId=`+id, skills,{headers:headers});
     }
 
-    get(userId: number) {
-        return this.http.get(environment.apiUrl+`getUser?userId=`+userId);
+    addRecruiterSkills(skills: any,id:number) {
+        let headers = new HttpHeaders()
+       headers = headers.set('content-type','application/json');
+       return this.http.post(environment.apiUrl+`updateRecruiterTags?userId=`+id, skills,{headers:headers});
+   }
+
+    getProfile(userId: any) {
+        return this.http.get(environment.apiUrl+`getProfile?userId=`+userId);
     }
 
     getRecruiter(userId: number) {
@@ -86,6 +96,11 @@ getSaveProfile(userId: number,recruiterId: number) {
 getSavedProfiles(recruiterId:number)
 {
     return this.http.get(environment.apiUrl+`getSavedProfiles?userId=`+recruiterId); 
+}
+
+getApplicationRecieved(recruiterId:number)
+{
+    return this.http.get(environment.apiUrl+`getApplicationRecieved?userId=`+recruiterId); 
 }
 
 

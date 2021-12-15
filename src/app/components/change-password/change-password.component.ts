@@ -8,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class ChangePasswordComponent implements OnInit {
 
   constructor() { }
-
+  isRecruiter:boolean = false;
   ngOnInit() {
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if(currentUser['roles'][0]==="ROLE_RECRUITER")
+    {
+      this.isRecruiter = true;
+    }
   }
 
 }
