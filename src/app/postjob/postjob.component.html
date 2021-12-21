@@ -52,24 +52,26 @@
                             <div class="divider">
                                 <h3 class="job-title">Job Details</h3>
                             </div>
-                            
+                            <input type="text" formControlName="id" class="form-control"
+                                      
+                            />
                             <div class="form-group">
                                 <label class="control-label">Job Title<span>(*)</span></label>
                                 <!-- <input type="text" class="form-control" placeholder="Write job title"> -->
-                                <input type="text" formControlName="jobTitle" class="form-control"
-                                        [ngClass]="{ 'is-invalid': submitted && f.jobTitle.errors }" placeholder="Write job title" />
-                                    <div *ngIf="submitted && f.jobTitle.errors" class="invalid-feedback">
-                                        <div *ngIf="f.jobTitle.errors.required">Job Title is required</div>
+                                <input type="text" formControlName="jobName" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.jobName.errors }" placeholder="Write job title" />
+                                    <div *ngIf="submitted && f.jobName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.jobName.errors.required">Job Title is required</div>
                                     </div>
                             </div>
                             
                             <div class="form-group">
                                 <label class="control-label">Location <span>(*)</span></label>
                                 <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
-                                <input type="text" formControlName="location" class="form-control"
-                                        [ngClass]="{ 'is-invalid': submitted && f.location.errors }" placeholder="e.g.Gurgaon" />
-                                    <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
-                                        <div *ngIf="f.location.errors.required">Location is required</div>
+                                <input type="text" formControlName="jobLocation" class="form-control"
+                                        [ngClass]="{ 'is-invalid': submitted && f.jobLocation.errors }" placeholder="e.g.Gurgaon" />
+                                    <div *ngIf="submitted && f.jobLocation.errors" class="invalid-feedback">
+                                        <div *ngIf="f.jobLocation.errors.required">Location is required</div>
                                     </div>
                             </div>
                             <div class="form-group">
@@ -151,7 +153,7 @@
                             
                             <section id="editor">
                                 <div id="summernote">
-                                    <textarea class="form-control"  placeholder="Job Description.." formControlName="description"></textarea>
+                                    <textarea class="form-control"  placeholder="Job Description.." formControlName="jobDescription"></textarea>
                                 </div>
                             </section>
                         </div>

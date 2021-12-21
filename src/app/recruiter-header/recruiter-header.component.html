@@ -85,7 +85,7 @@
                     -webkit-font-smoothing: antialiased;
                     "></i></a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" [routerLink]="['/recruiterProfile']">My Profile</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/recruiterUserProfile']" [queryParams]="{recruiterId: recruiterId}">My Profile</a></li>
                         <li><a class="dropdown-item" [routerLink]="['/changepassword']">Password Change </a></li>
                         <li><a class="dropdown-item" [routerLink]="['/skills']">Log Out</a></li>
                       </ul>

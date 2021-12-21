@@ -71,7 +71,7 @@
                         
                         
                     </div> -->
-                    <div class="row justify-content-between align-items-center mt-3 saved-profiles" *ngFor="let profile of profiles">
+                    <div class="row justify-content-between align-items-center mt-3 saved-profiles" *ngFor="let profile of profiles | paginate: config">
                         
                         <div class="col-lg-3">
                             <a [routerLink]="['/employeeProfile']" [queryParams]="{employeeId: profile.id}">
@@ -87,8 +87,11 @@
                         </div>
                         
                         <div class="text-center">
-                            <button class="btn mr-3">Delete</button>
+                            <button class="btn mr-3" (click)="deleteSavedProfile(profile.id)">Delete</button>
                         </div>
+                    </div>
+                    <div class="col-12 text-center mt-4">
+                        <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
                     </div>
                 </div>
             </div>

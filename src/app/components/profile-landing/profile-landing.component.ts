@@ -42,11 +42,16 @@ export class ProfileLandingComponent implements OnInit {
   selectMaxExperience: string;
   selectMinValue: string;
 
-  config:any;
+  
 
   searchJobTags: string[] = [];
   
   serverUrl:string = environment.apiUrl;
+
+
+  config:any;
+  totalPages:any;
+  findJobsCount:number =0;
   
   constructor(private route: ActivatedRoute,private jobService: JobService, private authenticationService: AuthenticationService,
     private router:Router,private notifyService : NotificationService,private formBuilder:FormBuilder,private userService:UserService) { }
@@ -63,16 +68,20 @@ export class ProfileLandingComponent implements OnInit {
       })
 
       this.userService.getEmployeesByParams(JSON.stringify({})).subscribe((data) => {
+        debugger;
         console.log(data);
         this.users = data;
         
+        // this.totalPages= new Array(data['pagesJob']['totalPages']);
+        // this.findJobsCount = data['pagesJob']['totalElements'];
         this.config = {
           currentPage: 1,
-          itemsPerPage: 3,
-          totalItems:0
+          itemsPerPage: 6,
+          totalItems: data['length']
         };
         this.route.queryParams.subscribe(
-          params => this.config.currentPage= params['page']?params['page']:1 );
+          params => this.config.currentPage = params['page'] ? params['page'] : 1);
+      
       }, (error) => {
         this.notifyService.showError("Error occured while loading recuiter profiles with message=" + error, "Ezynaukari says!!");
         this.router.navigate(['/profileLanding']);
@@ -132,13 +141,18 @@ export class ProfileLandingComponent implements OnInit {
       this.users = data;
       this.config = {
         currentPage: 1,
-        itemsPerPage: 3,
+        itemsPerPage: 6,
         totalItems:0
       };
       this.route.queryParams.subscribe(
         params => this.config.currentPage= params['page']?params['page']:1 );
     })
   }
+
+  pageChange(newPage: number) {
+    this.router.navigate(['profileLanding'], { queryParams: { page: newPage } });
+  }
+
 
 
  

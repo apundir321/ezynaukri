@@ -14,6 +14,7 @@ import { JobService } from 'src/app/_services/job.service';
 export class ApplicationRecievedComponent implements OnInit {
 
   profiles :any ;
+  config :any;
 
   constructor(private route: ActivatedRoute, private notifyService: NotificationService,
     private jobService: JobService,private router:Router,private userService: UserService,
@@ -28,9 +29,20 @@ export class ApplicationRecievedComponent implements OnInit {
     this.userService.getApplicationRecieved(currentUser.id).subscribe((data) => {
       console.log(data);
       this.profiles = data['jobApplication'];
+      this.config = {
+        currentPage: 1,
+        itemsPerPage: 6,
+        totalItems: 0
+      };
+      this.route.queryParams.subscribe(
+        params => this.config.currentPage = params['page'] ? params['page'] : 1);
     });
   }
 
+  }
+
+  pageChange(newPage: number) {
+    this.router.navigate(['applicationRecieved'], { queryParams: { page: newPage } });
   }
 
 }

@@ -17,3 +17,7 @@
   color: gray;
   padding-left: 5%;
 }
+.my-pagination::ng-deep .ngx-pagination .current {
+  background: #a51d2b  !important;
+ 
+}

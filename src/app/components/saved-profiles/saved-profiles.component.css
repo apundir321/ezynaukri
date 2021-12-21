@@ -7,3 +7,8 @@
 .saved-profiles .btn {
     background-color:  #a51d2b;
 }
+
+.my-pagination::ng-deep .ngx-pagination .current {
+    background: #a51d2b  !important;
+   
+  }

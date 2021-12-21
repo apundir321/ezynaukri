@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../_services';
 
 @Component({
   selector: 'app-recruiter-header',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecruiterHeaderComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private authenticationService: AuthenticationService) { }
+  recruiterId:any;
   ngOnInit() {
+    let currentUser = this.authenticationService.currentUserValue;
+    if (currentUser && currentUser.id) {
+      this.recruiterId = currentUser.id;
   }
+}
 
 }

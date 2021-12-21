@@ -17,6 +17,7 @@ export class SavedProfilesComponent implements OnInit {
   profiles :any ;
   serverUrl:string = environment.apiUrl;
   id:any;
+  config: any;
   constructor(private route: ActivatedRoute, private notifyService: NotificationService,
     private jobService: JobService,private router:Router,private userService: UserService,
      private authenticationService: AuthenticationService,private modalService:ModalService,
@@ -31,9 +32,33 @@ export class SavedProfilesComponent implements OnInit {
     this.userService.getSavedProfiles(currentUser.id).subscribe((data) => {
       console.log(data);
       this.profiles = data;
+
+      this.config = {
+        currentPage: 1,
+        itemsPerPage: 6,
+        totalItems: data['length']
+      };
+      this.route.queryParams.subscribe(
+        params => this.config.currentPage = params['page'] ? params['page'] : 1);
+    
     });
   }
 
   }
+
+  pageChange(newPage: number) {
+    this.router.navigate(['saved-profiles'], { queryParams: { page: newPage } });
+  }
+
+  deleteSavedProfile(savedProfileId: any)
+  {
+          this.userService.deleteSavedProfile(savedProfileId).subscribe((data)=>{
+        // console.log(data);
+        this.notifyService.showSuccess("Ezynaukari says!","Saved Profile delted!");
+        this.ngOnInit();
+
+      });
+    }
+  
 
 }

@@ -35,7 +35,7 @@ export class AppliedJobsComponent implements OnInit {
       this.findJobsCount = data['pagesJob']['totalElements'];
       this.config = {
         currentPage: 1,
-        itemsPerPage: 3,
+        itemsPerPage: 6,
         totalItems: 0
       };
       this.route.queryParams.subscribe(

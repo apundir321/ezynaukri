@@ -93,6 +93,10 @@ getSaveProfile(userId: number,recruiterId: number) {
     return this.http.get(environment.apiUrl+`saveProfile?userId=`+userId+"&recruiterId="+recruiterId);
 }
 
+
+deleteSavedProfile(recruiterId:number){
+    return this.http.get(environment.apiUrl+`deleteSavedProfile?savedProfileId=`+recruiterId);
+}
 getSavedProfiles(recruiterId:number)
 {
     return this.http.get(environment.apiUrl+`getSavedProfiles?userId=`+recruiterId); 

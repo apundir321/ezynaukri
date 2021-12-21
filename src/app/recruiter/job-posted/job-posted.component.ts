@@ -31,6 +31,7 @@ export class JobPostedComponent implements OnInit {
   jobs:any;
   
   url: any;
+  config : any;
   constructor(private route: ActivatedRoute, private notifyService: NotificationService,
     private jobService: JobService, private router: Router, private userService: UserService,
     private authenticationService: AuthenticationService, private modalService: ModalService,
@@ -72,7 +73,14 @@ export class JobPostedComponent implements OnInit {
         console.log(jobsData);
         if (jobsData['jobs']) {
           this.jobs = jobsData['jobs'];
-        }
+          this.config = {
+            currentPage: 1,
+            itemsPerPage: 6,
+            totalItems: 0
+          };
+          this.route.queryParams.subscribe(
+            params => this.config.currentPage = params['page'] ? params['page'] : 1);
+          }
       });
     }
    
@@ -102,6 +110,10 @@ export class JobPostedComponent implements OnInit {
     this.modalService.close(id);
     //window.location.reload()
 
+  }
+
+  pageChange(newPage: number) {
+    this.router.navigate(['job-posted'], { queryParams: { page: newPage } });
   }
   
   

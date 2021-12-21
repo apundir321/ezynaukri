@@ -84,7 +84,7 @@ export class FindProfilesComponent implements OnInit {
       this.users = data;
       this.config = {
         currentPage: 1,
-        itemsPerPage: 3,
+        itemsPerPage: 6,
         totalItems:0
       };
       this.route.queryParams.subscribe(
@@ -240,9 +240,14 @@ export class FindProfilesComponent implements OnInit {
       this.userService.getSaveProfile(userId,recruiterId).subscribe((data)=>{
         // console.log(data);
         this.notifyService.showInfo("Ezynaukari says!","Profile has been saved!");
+      },(err)=>{
+        debugger;
+        this.notifyService.showError("Ezynaukari says!",err)
       });
     }
   }
+
+  
 
 
   // updateAllComplete() {

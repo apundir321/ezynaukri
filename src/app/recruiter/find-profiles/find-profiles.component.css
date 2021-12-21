@@ -238,3 +238,8 @@
     justify-content: flex-end;
     display: flex;
   }
+
+  .my-pagination::ng-deep .ngx-pagination .current {
+    background: #a51d2b  !important;
+   
+  }

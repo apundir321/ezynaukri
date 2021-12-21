@@ -88,7 +88,7 @@
                             <mat-tab label="Current Active Jobs">
 
                                 <div *ngIf="jobs; else jobsTemplate">
-                                    <div class="manager-resumes-item" *ngFor="let job of jobs">
+                                    <div class="manager-resumes-item" *ngFor="let job of jobs | paginate: config">
                                        <a [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
                                         <div class="manager-content">
                                             <!-- <a href="resume.html"><img class="resume-thumb" src="img/jobs/avatar-1.jpg"
@@ -106,18 +106,24 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        </a>
                                         <div class="update-date">
                                             <p class="status" style="    margin-top: 20px;
                                             text-align: center;">
                                                 <strong>Posted on:</strong> {{job.jobPublished | date:'fullDate'}}
                                             </p>
-                                            
+                                            <div class="action-btn" style="margin-left: 1%;">
+                                                <a class="btn btn-xs btn-danger" [routerLink]="['/postjob']" [queryParams]="{jobId:job.id}">Edit</a>
+                                            </div> 
                                             <div class="action-btn">
-                                                <a class="btn btn-xs btn-danger" href="#">Hide</a>
+                                                <a class="btn btn-xs btn-danger" href="#">Delete</a>
                                             </div>
                                         </div>
-                                    </a>
+                                    
                                     </div>
+                                </div>
+                                <div class="col-12 text-center mt-4">
+                                    <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>
                                 </div>
                                     <ng-template #jobsTemplate >
                                         

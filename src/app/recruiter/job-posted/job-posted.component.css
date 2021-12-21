@@ -55,3 +55,8 @@ h4 {
   box-shadow: 2px 3px 4px grey;
   border-bottom: 1px solid red;
 }
+
+.my-pagination::ng-deep .ngx-pagination .current {
+  background: #a51d2b  !important;
+ 
+}
