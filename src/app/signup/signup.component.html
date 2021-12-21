@@ -37,7 +37,7 @@
                   <span class="lni lni-menu"></span>
                   <span class="lni lni-menu"></span>
                 </button>
-                <a [routerLink]="['/']" class="navbar-brand"><img src="/assets/images/logo.png" alt=""></a>
+                <a [routerLink]="['/']" class="navbar-brand"><img src="../../../assets/images/logo-ezy-update.png" alt=""></a>
               </div>
               <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav mr-auto w-100 justify-content-end">
@@ -62,13 +62,13 @@
                     </a>
       
                   </li>
-                  <li class="nav-item dropdown">
+                  <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" [routerLink]="['/saved-jobs']" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">
                       Saved Jobs
                     </a>
       
-                  </li>
+                  </li> -->
       
                   <li class="nav-item">
                     <a class="nav-link dropdown-toggle" [routerLink]="['/applied-jobs']" data-toggle="dropdown" aria-haspopup="true"
@@ -76,21 +76,19 @@
                       Applied Jobs
                     </a>
                   </li>
-                  <!-- <li class="button-group">
-                    <a [routerLink]="['/postjob']" class="button btn btn-common">Post a Job</a>
-                  </li> -->
-                  <li class="nav-item">
+                  
+                  <li class="nav-item sign-in-btn">
                     <a class="nav-link dropdown-toggle" [routerLink]="['/login']" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">
-                      Login
+                      <button class="btn shadow">Sign in</button>
                     </a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link dropdown-toggle" [routerLink]="['/signup']" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">
                       Sign Up
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>

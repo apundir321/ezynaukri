@@ -1,0 +1,184 @@
+@keyframes slideInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+   }
+    100% {
+        opacity: 1;
+        transform: none;
+   }
+}
+@keyframes slideInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%);
+   }
+    100% {
+        opacity: 1;
+        transform: none;
+   }
+}
+@keyframes slideInleft {
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+   }
+    100% {
+        opacity: 1;
+        transform: none;
+   }
+}
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+   }
+    100% {
+        opacity: 1;
+        transform: none;
+   }
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+   }
+    100% {
+        opacity: 1;
+   }
+}
+@keyframes zoomIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+   }
+    100% {
+        opacity: 1;
+        transform: none;
+   }
+}
+@keyframes zoomReverseIn {
+    0% {
+        opacity: 0;
+        transform: scale(1.5);
+   }
+    100% {
+        opacity: 1;
+        transform: none;
+   }
+}
+@keyframes flipInY {
+    0% {
+        opacity: 0;
+        transform: rotateY(90deg);
+   }
+    100% {
+        opacity: 1;
+        transform: none;
+   }
+}
+[data-animation] {
+    opacity: 0;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: both;
+    animation-duration: 1s;
+}
+.animations-disabled, .animations-disabled [data-animation] {
+    animation: none !important;
+    opacity: 1 !important;
+}
+.slideInUp {
+    animation-name: slideInUp;
+}
+.slideInDown {
+    animation-name: slideInDown;
+}
+.slideInLeft {
+    animation-name: slideInleft;
+}
+.slideInRight {
+    animation-name: slideInRight;
+}
+.fadeIn {
+    animation-name: fadeIn;
+}
+.fadeOut {
+    animation-name: fadeIn;
+    animation-direction: reverse;
+}
+.zoomIn {
+    animation-name: zoomIn;
+}
+.zoomOut {
+    animation-name: zoomIn;
+    animation-direction: reverse;
+}
+.zoomReverseIn {
+    animation-name: zoomReverseIn;
+}
+.zoomReverseOut {
+    animation-name: zoomReverseIn;
+    animation-direction: reverse;
+}
+.flipInY {
+    animation-name: flipInY;
+}
+.flipOutY {
+    animation-name: flipInY;
+    animation-direction: reverse;
+}
+
+
+/* 
+
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled {
+    opacity: .35;
+    cursor: auto;
+
+    height: 50px;
+    padding: -1px;
+    border-radius: 50%;
+    width: 50px;
+    background: #d4d4d4;
+    pointer-events: none;
+    cursor: pointer;
+    z-index: 10 !important;
+}
+
+.swiper-button-next,  .swiper-button-prev{
+    cursor: auto;
+
+    height: 50px !important;
+    padding: -1px;
+    border-radius: 50%;
+    width: 50px !important;
+    background: #d4d4d4;
+    pointer-events: none; 
+    cursor: pointer; 
+    z-index: 10 !important;
+}
+
+.swiper-button-next:hover,  .swiper-button-prev:hover{
+  cursor:pointer;
+}
+
+
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+content: '' !important;
+cursor: pointer;
+
+}
+
+.swiper-button-next{right:0% !important; color:#000 !important; z-index: 10 !important; cursor: pointer !important;}
+
+ .swiper-button-prev:after{
+    content: '' !important;
+    left: -0%;
+    z-index: 10;
+    }
+
+    .swiper-button-prev{
+
+      left: -0%;
+      z-index: 10 !important;
+      cursor: pointer !important;
+       } */

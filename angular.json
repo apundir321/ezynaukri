@@ -38,7 +38,8 @@
   "src/js/waypoints.min.js",
   "src/js/form-validator.min.js",
   "src/js/contact-form-script.js",
-  "src/js/main.js"
+  "src/js/main.js",
+  "src/js/anim.js"
             ]
           },
           "configurations": {
