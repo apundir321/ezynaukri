@@ -37,7 +37,7 @@
                   <span class="lni lni-menu"></span>
                   <span class="lni lni-menu"></span>
                 </button>
-                <a [routerLink]="['/']" class="navbar-brand"><img src="/assets/images/logo.png" alt=""></a>
+                <a [routerLink]="['/']" class="navbar-brand"><img src="../../../assets/images/logo-ezy-update.png" alt=""></a>
               </div>
               <div class="collapse navbar-collapse" id="main-navbar">
                 <ul class="navbar-nav mr-auto w-100 justify-content-end">
@@ -62,13 +62,13 @@
                     </a>
       
                   </li>
-                  <li class="nav-item dropdown">
+                  <!-- <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" [routerLink]="['/saved-jobs']" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">
                       Saved Jobs
                     </a>
       
-                  </li>
+                  </li> -->
       
                   <li class="nav-item">
                     <a class="nav-link dropdown-toggle" [routerLink]="['/applied-jobs']" data-toggle="dropdown" aria-haspopup="true"
@@ -76,21 +76,19 @@
                       Applied Jobs
                     </a>
                   </li>
-                  <!-- <li class="button-group">
-                    <a [routerLink]="['/postjob']" class="button btn btn-common">Post a Job</a>
-                  </li> -->
-                  <li class="nav-item">
+                  
+                  <li class="nav-item sign-in-btn">
                     <a class="nav-link dropdown-toggle" [routerLink]="['/login']" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">
-                      Login
+                      <button class="btn shadow">Sign in</button>
                     </a>
                   </li>
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link dropdown-toggle" [routerLink]="['/signup']" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">
                       Sign Up
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -99,52 +97,24 @@
         </nav>
       
       </header>
+      <!-- <app-header></app-header> -->
 
     <body>
-    <div class="container" style="margin-top: 10%;">
+    <!-- <div class="container" style="margin-top: 10%;">
         <div class="row space-100">
             <div class="col-lg-12 col-md-12 col-xs-12">
                 <div class="contents" style="text-align: center;">
                     <h2 class="head-title">Find your Dream Job</h2>
                     <p>Experience the joy of finding the right job for you.</p>
                     <div class="job-search-form">
-                        <!-- <form>
-                            <div class="row">
-                                <div class="col-lg-5 col-md-5 col-xs-12">
-                                    <div class="form-group">
-                                        <input class="form-control" type="text" placeholder="Job Title or Company Name">
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 col-md-5 col-xs-12">
-                                    <div class="form-group">
-                                        <div class="search-category-container">
-                                            <label class="styled-select">
-                                                <select>
-                                                    <option value="none">Locations</option>
-                                                    <option value="none">New York</option>
-                                                    <option value="none">California</option>
-                                                    <option value="none">Washington</option>
-                                                    <option value="none">Birmingham</option>
-                                                    <option value="none">Chicago</option>
-                                                    <option value="none">Phoenix</option>
-                                                </select>
-                                            </label>
-                                        </div>
-                                        <i class="lni lni lni lni-map-marker"></i>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2 col-md-2 col-xs-12">
-                                    <button type="submit" class="button">Find Job</button>
-                                </div>
-                            </div>
-                        </form> -->
+                     
 
                         <div class="job-search-form bg-cyan job-featured-search" style="width: 100%; background-color: white;">
-                            <!-- <form [formGroup]="browseForm" (ngSubmit)="onSubmit()"> -->
+                           
                                 <div class="row justify-content-center">
                                     <div class="col-lg-5 col-md-5 col-xs-12">
                                         <div class="form-group">
-                                            <!-- <input class="form-control" type="text" placeholder="Job Title or Company Name"> -->
+                                           
                                             <mat-form-field class="example-chip-list" style="width: 100%;">
                                                 <mat-label>Job Tags</mat-label>
                                                 <mat-chip-list #chipList aria-label="Fruit selection">
@@ -165,13 +135,7 @@
                                     <div class="col-lg-5 col-md-5 col-xs-12">
                                         <div class="form-group">
                                             <div class="search-category-container">
-                                                <!-- <label class="styled-select">
-                                                    <select (click)="autoComplete()">
-                                                        <option value="">Locations</option>
-                                                        <option *ngFor="let location of locations" value="location.location">{{location.location}}</option>
-                                                        
-                                                    </select>
-                                                </label> -->
+                                               
                 
                                                 <mat-form-field style="width: 100%;">
                                                   <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" multiple>
@@ -189,7 +153,7 @@
                                         <button type="submit" class="btn btn-common" (click)="filterJobs()"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Filter</button>
                                     </div>
                                 </div>
-                            <!-- </form> -->
+                           
                         </div>  
                     </div>
 
@@ -210,7 +174,82 @@
 
         </div>
 
-    </div>
+    </div> -->
+    <section id="ezy-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="box-ezy-1">
+                        <h1>Find jobs <span>Software Developer</span> </h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu.  </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row filter">
+                
+                    <div class="col-lg-4 col-4 left-design">
+                       <div class="box-ezy-input-1">
+                        <div class="form-group">
+                                           
+                            <mat-form-field class="example-chip-list" style="width: 100%;">
+                                <!-- <mat-label>Job Tags</mat-label> -->
+                                <mat-chip-list #chipList aria-label="Fruit selection">
+                                    <mat-chip *ngFor="let jobTag of jobTags" [selectable]="selectable"
+                                        [removable]="removable" (removed)="remove(jobTag)">
+                                        {{jobTag.name}}
+                                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                    </mat-chip>
+                                    <input placeholder="" [matChipInputFor]="chipList"
+                                        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                        [matChipInputAddOnBlur]="addOnBlur"
+                                        (matChipInputTokenEnd)="add($event)">
+                                </mat-chip-list>
+                            </mat-form-field>
+                            <!-- <i class="fa fa-tasks" aria-hidden="true"></i> -->
+                        </div>
+                       </div> 
+                    </div>
+                    <div class="col-lg-4 col-4 left-design">
+                        <div class="box-ezy-input-1">
+                        
+                                <div class="form-group">
+                                    <div class="search-category-container">
+                                       
+        
+                                        <mat-form-field style="width: 100%;">
+                                          <mat-select placeholder="" [formControl]="location" [(value)]="selectedLocations" multiple>
+                                            <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
+                                          </mat-select>
+                                        </mat-form-field>
+                                    </div>
+                                    <!-- <i class="fa fa-map-marker" aria-hidden="true"></i> -->
+                                </div>
+                            
+                        </div> 
+                     </div>
+                     <!-- <div class="col-lg-3 left-design">
+                        <div class="box-ezy-input-1">
+                            <div class="form-group">
+                               
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                                </select>
+                              </div>
+                        </div> 
+                     </div> -->
+                     <div class="col-lg-4 col-4">
+                        <div class="box-ezy-input-1-btn">
+                           <button class="btn">SEARCH JOBS</button>
+                        </div> 
+                     </div>
+                
+            </div>
+        </div>
+    </section>
 
     <section id="job-listings" class="section bg-cyan" *ngIf="jobData">
         <div class="container">
@@ -261,91 +300,301 @@
     </section>
 
 
-    <section class="category section bg-gray">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Top Categories</h2>
-                <p>Most popular categories of portal, sorted by popularity</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                    <a [routerLink]="['/browse-jobs']">
-                        <div class="icon bg-color-1">
-                            <i class="lni lni lni-home"></i>
-                        </div>
-                        <h3>Finance</h3>
-                        <!-- <p>(4286 jobs)</p> -->
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                    <a [routerLink]="['/browse-jobs']">
-                        <div class="icon bg-color-2">
-                            <i class="lni lni-world"></i>
-                        </div>
-                        <h3>Sale/Markting</h3>
-                        <!-- <p>(2000 jobs)</p> -->
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                    <a [routerLink]="['/browse-jobs']">
-                        <div class="icon bg-color-3">
-                            <i class="lni lni-book"></i>
-                        </div>
-                        <h3>Education/Training</h3>
-                        <!-- <p>(1450 jobs)</p> -->
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                    <a [routerLink]="['/browse-jobs']">
-                        <div class="icon bg-color-4">
-                            <i class="lni lni-display"></i>
-                        </div>
-                        <h3>Technologies</h3>
-                        <!-- <p>(5100 jobs)</p> -->
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                    <a [routerLink]="['/browse-jobs']">
-                        <div class="icon bg-color-5">
-                            <i class="lni lni-brush"></i>
-                        </div>
-                        <h3>Art/Design</h3>
-                        <!-- <p>(5079 jobs)</p> -->
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                    <a [routerLink]="['/browse-jobs']">
-                        <div class="icon bg-color-6">
-                            <i class="lni lni-heart"></i>
-                        </div>
-                        <h3>Healthcare</h3>
-                        <!-- <p>(3235 jobs)</p> -->
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                    <a [routerLink]="['/browse-jobs']">
-                        <div class="icon bg-color-7">
-                            <i class="lni lni-funnel"></i>
-                        </div>
-                        <h3>Science</h3>
-                        <!-- <p>(1800 jobs)</p> -->
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-6 col-xs-12 f-category">
-                    <a [routerLink]="['/browse-jobs']">
-                        <div class="icon bg-color-8">
-                            <i class="lni lni-cup"></i>
-                        </div>
-                        <h3>Food Services</h3>
-                        <!-- <p>(4286 jobs)</p> -->
-                    </a>
+   <section id="top-cateogry">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-top-cateogry">
+                    <p id="focus-p">Job categories</p>
+                    <h2>Top Trending Categories</h2>
+                    <img src="../../../assets/images/line-top.png" alt="">
+                    
                 </div>
             </div>
         </div>
-    </section>
+        <div class="row new-p">
+         
+                <div class="col-12">
+                    <div class="box-new-p">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu. Scelerisque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu. Scelerisque </p>
+                    </div>
+                </div>
+         
+        </div>
+        <div class="row mt-4">
+            
+                <div class="col-lg-4">
+                    <div class="box-chart shadow">
+                        <img src="../../../assets/images/chart.png" alt="">
+                        <h4>Finance</h4>
+                        <p>8917 Jobs</p>
+                        <p id="openings">21 Openings</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box-chart shadow response">
+                        <img src="../../../assets/images/chart.png" alt="">
+                        <h4>Finance</h4>
+                        <p>8917 Jobs</p>
+                        <p id="openings">21 Openings</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="box-chart shadow response">
+                        <img src="../../../assets/images/chart.png" alt="">
+                        <h4>Finance</h4>
+                        <p>8917 Jobs</p>
+                        <p id="openings">21 Openings</p>
+                    </div>
+                </div>
+            
+        </div>
+
+        <div class="row mt-4">
+            
+            <div class="col-lg-4">
+                <div class="box-chart shadow">
+                    <img src="../../../assets/images/chart.png" alt="">
+                    <h4>Finance</h4>
+                    <p>8917 Jobs</p>
+                    <p id="openings">21 Openings</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="box-chart shadow response">
+                    <img src="../../../assets/images/chart.png" alt="">
+                    <h4>Finance</h4>
+                    <p>8917 Jobs</p>
+                    <p id="openings">21 Openings</p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="box-chart shadow response">
+                    <img src="../../../assets/images/chart.png" alt="">
+                    <h4>Finance</h4>
+                    <p>8917 Jobs</p>
+                    <p id="openings">21 Openings</p>
+                </div>
+            </div>
+        
+    </div>
+        
+    </div>
+   </section>
+
+   <section id="recent-job">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-top-cateogry">
+                    <p id="focus-p">Job categories</p>
+                    <h2>Recent Job Post</h2>
+                    <img src="../../../assets/images/line-top.png" alt="">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row new-p">
+         
+                <div class="col-12">
+                    <div class="box-new-p">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu. Scelerisque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu. Scelerisque </p>
+                    </div>
+                </div>
+         
+        </div>
+        <div class="row">
+            <div class="col-lg-1 ">
+                <div class="box-comp-image">
+                    <a href=""><img src="../../../assets/images/comp-1.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-5 ">
+                <div class="box-comp-det">
+                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                    <h4>Full Stack Developer</h4>
+                    <!-- <div class="row">
+                        gaurav
+                    </div> -->
+                    <ul id="icon-box">
+                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>Java Developer</span></li>
+                        <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
+                        <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 comp-det-1">
+            <div class="col-lg-1">
+                <div class="box-comp-image">
+                    <img src="../../../assets/images/comp-1.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="box-comp-det">
+                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                    <h4>Full Stack Developer</h4>
+                    <!-- <div class="row">
+                        gaurav
+                    </div> -->
+                    <ul id="icon-box">
+                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>Java Developer</span></li>
+                        <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
+                        <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 comp-det-1">
+            <div class="col-lg-1">
+                <div class="box-comp-image">
+                    <img src="../../../assets/images/comp-1.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="box-comp-det">
+                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                    <h4>Full Stack Developer</h4>
+                    <!-- <div class="row">
+                        gaurav
+                    </div> -->
+                    <ul id="icon-box">
+                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>Java Developer</span></li>
+                        <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
+                        <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 comp-det-1" *ngIf="isshow">
+            <div class="col-lg-1">
+                <div class="box-comp-image">
+                    <img src="../../../assets/images/comp-1.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="box-comp-det">
+                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                    <h4>Full Stack Developer</h4>
+                    <!-- <div class="row">
+                        gaurav
+                    </div> -->
+                    <ul id="icon-box">
+                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>Java Developer</span></li>
+                        <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
+                        <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 comp-det-1" *ngIf="isshow">
+            <div class="col-lg-1">
+                <div class="box-comp-image">
+                    <img src="../../../assets/images/comp-1.png" alt="">
+                </div>
+            </div>
+            <div class="col-lg-5" >
+                <div class="box-comp-det">
+                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                    <h4>Full Stack Developer</h4>
+                    <!-- <div class="row">
+                        gaurav
+                    </div> -->
+                    <ul id="icon-box">
+                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>Java Developer</span></li>
+                        <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
+                        <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row text-center mt-4 view">
+            <div class="col-12">
+                <div class="box-view-btn" >
+                    <button class="btn" (click)="category()">View all Cateogories</button>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    
+   </section>
+
+   <section id="image">
+    <div class="container">
+
+    </div>
+   </section>
+
+   <section id="works">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box-top-cateogry">
+                    <p id="focus-p">Working Process</p>
+                    <h2>How it Works?</h2>
+                    <img src="../../../assets/images/line-top.png" alt="">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row new-p">
+         
+                <div class="col-12">
+                    <div class="box-new-p">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu. Scelerisque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu. Scelerisque </p>
+                    </div>
+                </div>
+         
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="box-work">
+                    <img src="../../../assets/images/work-1.png" alt="">
+                    <a href="" [routerLink]="['/signup']"><h4>Create an Account</h4></a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing  </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="box-work">
+                    <img src="../../../assets/images/work-2.png" alt="">
+                    <a href="" [routerLink]="['/login']"><h4>Search Jobs</h4></a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing  </p>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="box-work">
+                    <img src="../../../assets/images/work-3.png" alt="">
+                    <a href="" [routerLink]="['/login']"><h4>Apply and Get Job</h4></a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing  </p>
+                </div>
+            </div>
+        </div>
+    </div>
+   </section>
+
+   <section id="newsletter">
+    <div class="container">
+        <div class="row subscribe">
+            <div class="col-lg-6">
+               <div class="box-news">
+                   <h4>Subscribe to Our Newsletter!</h4>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing  </p>
+               </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="box-news">
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Email" aria-describedby="emailHelp">
+                    <button class="btn">SUBSCRIBE NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+   </section>
 
 
-    <section id="job-listings" class="section bg-cyan">
+    <!-- <section id="job-listings" class="section bg-cyan">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Recent Job Post</h2>
@@ -393,11 +642,11 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
 
-    <section id="featured" class="section">
+    <!-- <section id="featured" class="section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Featured Jobs</h2>
@@ -415,13 +664,13 @@
                             <p class="brand"> {{job.organization.name}}</p>
                             <div class="tags">
                                 <span><i class="lni lni lni-map-marker"></i> {{job.jobLocation}}</span>
-                                <!-- <span><i class="lni lni-user"></i>John Smith</span> -->
+                               
                             </div>
                             <span class="full-time">Full Time</span>
                         </div>
                     </div>
                 </a>
-                </div>
+                </div> -->
                 <!-- <div class="col-lg-4 col-md-6 col-xs-12">
                     <div class="job-featured">
                         <div class="icon">
@@ -502,15 +751,15 @@
                         </div>
                     </div>
                 </div> -->
-                <div class="col-12 text-center mt-4">
+                <!-- <div class="col-12 text-center mt-4">
                     <a href="job-page.html" class="btn btn-common">Browse All Jobs</a>
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
-    <div id="browse-jobs" class="section bg-gray">
+    <!-- <div id="browse-jobs" class="section bg-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12">
@@ -530,10 +779,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
-    <section class="how-it-works section">
+    <!-- <section class="how-it-works section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">How It Works?</h2>
@@ -603,14 +852,14 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 
 
 
     <!-- testimonial_area  -->
-    <section id="clint" class="section">
+    <!-- <section id="clint" class="section">
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title">Clients Review</h2>
@@ -691,10 +940,10 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- /testimonial_area  -->
 
-    <section id="download" class="section bg-gray">
+    <!-- <section id="download" class="section bg-gray">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-8 col-xs-12">
@@ -720,11 +969,21 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
 
 
 </body>
 <app-footer></app-footer>
+
+<section id="design">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-12 design-fly">
+                <p>Design & Developed by <a href="https://flybunch.com/">Flybunch</a></p>
+            </div>
+        </div>
+    </div>
+</section>
 
 </html>

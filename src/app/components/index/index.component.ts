@@ -15,7 +15,7 @@ export interface JobTag {
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-
+  isshow = false;
   jobData: any;
   allJobs: any;
   visible = true;
@@ -118,6 +118,10 @@ export class IndexComponent implements OnInit {
       this.notifyService.showError("Ezynaukari says!", "Something went wrong please try again later!");
     })
 
+  }
+
+  category() {
+    this.isshow=!this.isshow;
   }
 
 }
