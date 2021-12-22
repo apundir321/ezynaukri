@@ -19,12 +19,12 @@ export class JobService {
 
     applyJob(jobId:string,userId:any)
     {
-        return this.http.get('http://localhost:8080/applyJob?jobId='+jobId+'&userId='+userId);
+        return this.http.get(environment.apiUrl+'applyJob?jobId='+jobId+'&userId='+userId);
     }
 
     save(jobId:string,userId:any)
     {
-        return this.http.get('http://localhost:8080/saveJob?jobId='+jobId+'&userId='+userId);
+        return this.http.get(environment.apiUrl+'saveJob?jobId='+jobId+'&userId='+userId);
     }
 
     getSavedJobs(userId:any)

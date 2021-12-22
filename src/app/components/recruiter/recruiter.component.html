@@ -4,17 +4,17 @@
 <app-header></app-header>
 
 <body>
-    <div class="page-header">
+    <div class="page-header page-recruiter">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-header">
-                        <h3>Find Your Recruiter</h3>
+                        <h3 class="find-ur-rec">Find Your Recruiter</h3>
                     </div>
                     <div class="job-search-form bg-cyan job-featured-search">
                         <form>
                             <div class="row justify-content-center">
-                                <div class="col-lg-5 col-md-5 col-xs-12">
+                                <div class="col-lg-5 col-md-5 col-xs-12 job-tag-recruiter">
                                     <div class="form-group">
                                         <!-- <input class="form-control" type="text" placeholder="Job Title or Company Name"> -->
                                         <mat-form-field class="example-chip-list" style="width: 100%;">
@@ -54,7 +54,7 @@
                                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     </div>
                                 </div>
-                                <div class="col-lg-1 col-md-1 col-xs-12">
+                                <div class="col-lg-2 col-md-1 col-xs-12 filter-rec-btn">
                                     <button type="submit" class="btn btn-common" (click)="filterProfiles()">Filter</button>
                                 </div>
                             </div>
@@ -123,7 +123,8 @@
                       </section>
                 </div>
                 <div class="col-12 text-center mt-4">
-                    <a class="btn btn-common" (click)="submit()">Refine</a>
+                    <!-- <a class="btn btn-common" (click)="submit()">Refine</a> -->
+                    <button class="btn refine-btn" (click)="submit()">Refine</button>
                 </div>
             </section>
             <section id="products">

@@ -229,7 +229,7 @@ button:focus {
   padding-bottom: 45px;
 }
 .page-header {
-  padding: 115px 0 0px;
+  padding: 72px 0 0px;
   position: relative;
   background: url(../img/banner1.jpg);
 }
@@ -647,13 +647,13 @@ button:focus {
   }
 }
 .navbar-toggler {
-  display: none;
+  /* display: none; */
 }
 .slicknav_menu {
-  display: none;
+  /* display: block !important; */
   background: #fff;
   padding: 0 20px;
-  text-align: left;
+  text-align: right;
 }
 .slicknav_brand {
   float: left;
@@ -737,7 +737,7 @@ button:focus {
     width: 100%;
   }
   .theme-header {
-    display: none;
+    /* display: none; */
   }
   .mobile-menu {
     width: 100%;
@@ -890,6 +890,8 @@ button:focus {
 .job-featured-search {
   padding: 15px 0;
   border-radius: 6px;
+  border-radius: 75px;
+    border: 4px solid;
 }
 .about-content h3 {
   font-size: 24px;
@@ -1170,7 +1172,7 @@ button:focus {
   display: inline-block;
   height: 70px;
   line-height: 70px;
-  box-shadow: 0 0 7px rgba(203, 203, 203, 0.23);
+  /* box-shadow: 0 0 7px rgba(203, 203, 203, 0.23); */
 }
 #featured .job-featured .content {
   padding-left: 90px;
@@ -1202,7 +1204,7 @@ button:focus {
   color: #a51d2b;
 }
 #featured .job-featured:hover {
-  border-color: #a51d2b;
+  box-shadow: 0px 0px 6px 3px grey;
 }
 .f-category {
   -webkit-transition: all 0.3s linear;
@@ -3759,6 +3761,8 @@ footer .menu li .small-title {
   text-align: center;
   padding: 5px 10px;
   margin-top: 20px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 .updatepro:hover {
   color: #fff;

@@ -15,6 +15,7 @@ export interface JobTag {
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+ 
   isshow = false;
   jobData: any;
   allJobs: any;
@@ -44,6 +45,19 @@ export class IndexComponent implements OnInit {
 
 
   ngOnInit() {
+
+    // const target = document.querySelector('.tw');
+    // const writer = new Typewriter(target, {
+    //   loop: true,
+    //   typeColor: 'blue'
+    // })
+    
+    // writer
+    //   .type('A simple syntax makes it easy.')
+    //   .rest(500)
+    //   .start()
+    
+     
 
     this.userService.getLocations().subscribe((data) => {
       console.log(data);
@@ -123,5 +137,6 @@ export class IndexComponent implements OnInit {
   category() {
     this.isshow=!this.isshow;
   }
+ 
 
 }

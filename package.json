@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-slider/ngx-slider": "^2.0.3",
     "@angular/animations": "~8.1.0",
     "@angular/cdk": "^7.0.0",
     "@angular/common": "~8.1.0",
@@ -25,11 +26,11 @@
     "angular-ng-autocomplete": "^2.0.5",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
-    "ngx-toastr": "~11.3.3",
     "ngx-pagination": "^3.2.1",
-    "@angular-slider/ngx-slider": "^2.0.3",
+    "ngx-toastr": "~11.3.3",
     "rxjs": "~6.4.0",
     "safe-pipe": "^1.0.3",
+    "t-writer.js": "^1.0.4",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
   },

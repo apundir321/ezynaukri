@@ -21,3 +21,6 @@
   background: #a51d2b  !important;
  
 }
+.icon img {
+  border-radius: 50%;
+}

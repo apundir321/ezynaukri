@@ -104,6 +104,7 @@ import { SavedProfilesComponent } from './components/saved-profiles/saved-profil
 import { ApplicationRecievedComponent } from './components/application-recieved/application-recieved.component';
 import { AddcategoryComponent } from './recruiter/addcategory/addcategory.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -151,6 +152,7 @@ import { AddcategoryComponent } from './recruiter/addcategory/addcategory.compon
     AutocompleteLibModule,
     MatChipsModule,
     SafePipeModule, 
+    
     // DemoMaterialModule,
     BrowserAnimationsModule,
     NgSelectModule,

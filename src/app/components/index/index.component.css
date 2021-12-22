@@ -224,6 +224,10 @@
     }
 
     @media (max-width:767px) {
+        /* .top-nav-collapse {
+            display: none !important;
+        } */
+
        .box-ezy-1 h1 {
             font-size: 18px !important;
         }
@@ -304,6 +308,15 @@
     height: 50px;
         }
     }
+
+
+    @media (min-width:992px) and (max-width:1199px) {
+        .box-news .btn {
+            margin-top: -16%;
+    height: 52px;
+        }
+    }
+
     #design .container {
         padding: 10px 0 10px;
     }
@@ -315,4 +328,27 @@
     }
     .design-fly a {
         color: blue !important;
+    }
+    #recent-job {
+        background: #EEEEEE;
+    }
+    .set-color-inrow {
+        background: #fff;
+        padding: 3%;
+    }
+    .box-comp-det p {
+        background: #E0F5D7;
+        width: 17%;
+    text-align: center;
+    
+    }
+    .box-comp-det-btn .btn {
+        background: #A51D2B;
+        text-transform: capitalize;
+    }
+    .box-comp-det-btn {
+        text-align: end;
+    }
+    .box-comp-det-btn {
+        line-height: 100px;
     }

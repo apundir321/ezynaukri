@@ -34,13 +34,14 @@
                   aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                   <span class="lni lni-menu"></span>
-                  <span class="lni lni-menu"></span>
-                  <span class="lni lni-menu"></span>
+                  <!-- <span class="lni lni-menu"></span>
+                  <span class="lni lni-menu"></span> -->
+                  
                 </button>
                 <a [routerLink]="['/']" class="navbar-brand"><img src="../../../assets/images/logo-ezy-update.png" alt=""></a>
               </div>
               <div class="collapse navbar-collapse" id="main-navbar">
-                <ul class="navbar-nav mr-auto w-100 justify-content-end">
+                <ul class="navbar-nav mr-auto  justify-content-end set-list-mobile">
                   <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" [routerLink]="['/browse-jobs']" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">
@@ -179,8 +180,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="box-ezy-1">
-                        <h1>Find jobs <span>Software Developer</span> </h1>
+                    <div class="box-ezy-1 slideInUp" data-animation="slideInUp" data-animation-delay="40ms"  data-animated="true">
+                        <h1 class="tw">Find jobs <span>Software Developer</span> </h1>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu.  </p>
                     </div>
                 </div>
@@ -306,7 +307,7 @@
             <div class="col-12">
                 <div class="box-top-cateogry">
                     <p id="focus-p">Job categories</p>
-                    <h2>Top Trending Categories</h2>
+                    <h2 class="" >Top Trending Categories</h2>
                     <img src="../../../assets/images/line-top.png" alt="">
                     
                 </div>
@@ -403,7 +404,7 @@
                 </div>
          
         </div>
-        <div class="row">
+        <div class="row set-color-inrow">
             <div class="col-lg-1 ">
                 <div class="box-comp-image">
                     <a href=""><img src="../../../assets/images/comp-1.png" alt=""></a>
@@ -423,8 +424,13 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-lg-6">
+                <div class="box-comp-det-btn">
+                    <button class="btn">Apply Now</button>
+                </div>
+            </div>
         </div>
-        <div class="row mt-4 comp-det-1">
+        <div class="row mt-4 comp-det-1 set-color-inrow">
             <div class="col-lg-1">
                 <div class="box-comp-image">
                     <img src="../../../assets/images/comp-1.png" alt="">
@@ -444,8 +450,13 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-lg-6">
+                <div class="box-comp-det-btn">
+                    <button class="btn">Apply Now</button>
+                </div>
+            </div>
         </div>
-        <div class="row mt-4 comp-det-1">
+        <div class="row mt-4 comp-det-1 set-color-inrow">
             <div class="col-lg-1">
                 <div class="box-comp-image">
                     <img src="../../../assets/images/comp-1.png" alt="">
@@ -465,8 +476,13 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-lg-6">
+                <div class="box-comp-det-btn">
+                    <button class="btn">Apply Now</button>
+                </div>
+            </div>
         </div>
-        <div class="row mt-4 comp-det-1" *ngIf="isshow">
+        <div class="row mt-4 comp-det-1 set-color-inrow" *ngIf="isshow">
             <div class="col-lg-1">
                 <div class="box-comp-image">
                     <img src="../../../assets/images/comp-1.png" alt="">
@@ -486,8 +502,13 @@
                     </ul>
                 </div>
             </div>
+            <div class="col-lg-6">
+                <div class="box-comp-det-btn">
+                    <button class="btn">Apply Now</button>
+                </div>
+            </div>
         </div>
-        <div class="row mt-4 comp-det-1" *ngIf="isshow">
+        <div class="row mt-4 comp-det-1 set-color-inrow" *ngIf="isshow">
             <div class="col-lg-1">
                 <div class="box-comp-image">
                     <img src="../../../assets/images/comp-1.png" alt="">
@@ -505,6 +526,11 @@
                         <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
                         <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
                     </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="box-comp-det-btn">
+                    <button class="btn">Apply Now</button>
                 </div>
             </div>
         </div>

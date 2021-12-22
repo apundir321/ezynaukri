@@ -221,3 +221,23 @@ li a:hover {
   background: #a51d2b  !important;
  
 }
+.page-recruiter {
+  background-image: url("../../../assets/images/ezy-1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 5%;
+  padding-bottom: 5%;
+}
+.find-ur-rec {
+  color: #fff !important;
+}
+.refine-btn {
+  text-transform: capitalize;
+    background: #a51d2b;
+}
+.job-tag-recruiter {
+  padding-left: 40px !important; 
+}
+.filter-rec-btn {
+  margin-top: 11px;
+}

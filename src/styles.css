@@ -9,3 +9,37 @@
     padding-top: 10% !important;
     padding-bottom: 10% !important;
 }
+.ul-set {
+    float: right;
+}
+.navbar-toggler {
+    position: absolute;
+    right: 66px;
+    top: 20px;
+}
+.set-list-mobile {
+    width: 100%;
+}
+
+@media (max-width:767px) {
+ .set-list-mobile {
+        width: 0% !important;
+        position: absolute;
+    right: 120px;
+    top: 67px;
+    }
+    .sign-in-btn .btn {
+        font-size: 8px;
+    }
+}
+@media (min-width:768px) and (max-width:991px) {
+    .set-list-mobile {
+        width: 0% !important;
+        position: absolute;
+    right: 120px;
+    top: 67px;
+    }
+    .sign-in-btn .btn {
+        font-size: 8px;
+    }
+}
