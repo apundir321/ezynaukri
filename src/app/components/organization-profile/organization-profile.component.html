@@ -12,11 +12,11 @@
             <div class="row set-org-profile">
                 <div class="col-lg-8 col-md-6 col-xs-12">
                     <div class="breadcrumb-wrapper">
-                        <div class="job-company-logo">
+                        <div class="job-company-logo" *ngIf= "org">
                             <!-- <img src="/assets/images/blog/img2.jpg" alt=""> -->
               
                             <label class="hoverable" for="fileInput">
-                                <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'"> 
+                                <img [src]="url ? url + 'getProfilePic'+'/'+org['orgProfileImage'] : '/assets/images/find-job.png'">
                               <!-- <div class="hover-text">
                                 Choose file
                                 <h4 class="success-message" *ngIf="url"> Uploaded Successfully </h4>
@@ -179,56 +179,27 @@
 
 
     <section id="featured" class="section bg-gray pb-45">
-        <div class="container">
-            <h4 class="small-title text-left">Similar Jobs</h4>
+        <div class="container" *ngIf="recomendedOrgs && recomendedOrgs.length>0">
+            <h4 class="small-title text-left">Similar Organizations</h4>
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let org of recomendedOrgs">
+                    <a  href="/org-profile?orgId={{org.id}}">
                     <div class="job-featured">
                         <div class="icon">
-                            <img src="/assets/images/features/img1.png" alt="">
+                            <!-- <img src="/assets/images/features/img1.png" alt=""> -->
+                            <img [src]="serverUrl ? serverUrl + 'getProfilePic'+'/'+org['orgProfileImage'] : '/assets/images/find-job.png'" style="width: 100%;">
                         </div>
                         <div class="content">
-                            <h3><a href="job-page.html">Software Engineer</a></h3>
-                            <p class="brand">MizTech</p>
+                            <h3>{{org.name}}</h3>
+                            <p class="brand">{{org.description}}</p>
                             <div class="tags">
-                                <span><i class="lni lni-map-marker"></i> New York</span>
-                                <span><i class="lni lni-user"></i>John Smith</span>
+                                <span><i class="lni lni-map-marker"></i>{{org.location}}</span>
+                                <!-- <span><i class="lni lni-user"></i>John Smith</span> -->
                             </div>
-                            <span class="full-time">Full Time</span>
+                            <!-- <span class="full-time">Full Time</span> -->
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="job-featured">
-                        <div class="icon">
-                            <img src="/assets/images/features/img2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3><a href="job-page.html">Graphic Designer</a></h3>
-                            <p class="brand">Hunter Inc.</p>
-                            <div class="tags">
-                                <span><i class="lni lni-map-marker"></i> New York</span>
-                                <span><i class="lni lni-user"></i>John Smith</span>
-                            </div>
-                            <span class="part-time">Part Time</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-xs-12">
-                    <div class="job-featured">
-                        <div class="icon">
-                            <img src="/assets/images/features/img3.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3><a href="job-page.html">Managing Director</a></h3>
-                            <p class="brand">MagNews</p>
-                            <div class="tags">
-                                <span><i class="lni lni-map-marker"></i> New York</span>
-                                <span><i class="lni lni-user"></i>John Smith</span>
-                            </div>
-                            <span class="full-time">Full Time</span>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

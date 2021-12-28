@@ -39,7 +39,7 @@ export class RecruiterProfileComponent implements OnInit {
 
   getRecruiterDetail(recruiterId: any) {
     debugger;
-    this.userService.getRecruiter(recruiterId).subscribe(data => {
+    this.userService.getRecruiterByProfileId(recruiterId).subscribe(data => {
       console.log(data);
       this.user = data;
       let postData = {};

@@ -168,7 +168,7 @@
                         <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let user of users | paginate: config" >
                            
                                 <div class="job-featured">
-                                    <a [routerLink]="['/employeeProfile']" [queryParams]="{employeeId: user.id}">
+                                    <a [routerLink]="['/recruiterProfile']" [queryParams]="{recruiterId: user.id}">
                                     <div class="icon">
                                         <img [src]="user.profilePicName ? serverUrl+'getProfilePicByProfileId/'+user.profilePicName+'/'+user.id : 'https://www.w3schools.com/howto/img_avatar.png'" style="width: 70px;height: 70px;">
                                     </div>

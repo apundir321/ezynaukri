@@ -19,8 +19,11 @@ export class JobDetailsComponent implements OnInit {
      private authenticationService: AuthenticationService) { }
   job: any;
   url:any;
+  serverUrl :any;
   isRecruiter : boolean = false
+  recomendedJobs : any;
   ngOnInit() {
+    this.serverUrl = environment.apiUrl;
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if(currentUser['roles'][0]==="ROLE_RECRUITER")
     {
@@ -59,8 +62,29 @@ export class JobDetailsComponent implements OnInit {
       {
       postData['category'] = categoryId;
       } 
+      let filteredData = [];
       this.jobService.getFilterByTags(JSON.stringify(postData)).subscribe((data) => {
         debugger;
+        let jobs = data['pagesJob']['content'];
+        let recomendedJobsArray = [];
+        console.log(this.recomendedJobs);
+        Object.keys(jobs).forEach((key)=>{
+          let element = jobs[key];
+          if(element['id'] != jobData.id )
+          {
+            recomendedJobsArray.push(element);
+          }
+        })
+        if (recomendedJobsArray.length > 3) {
+          for (let index = 0; index <= 3; index++) {
+            const element = recomendedJobsArray[index];
+            filteredData.push(element);
+          }
+          this.recomendedJobs = filteredData;
+        } else {
+          this.recomendedJobs = recomendedJobsArray;
+        }
+        console.log(this.recomendedJobs);
       });
     }
       , error => {

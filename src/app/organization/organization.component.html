@@ -16,71 +16,32 @@
 </div>
 </div>
 
-    <section class="section">
-        
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-9 col-md-12 col-xs-12">
-                    <div class="post-job box">
-                        
-                        <form [formGroup]="orgForm" (ngSubmit)="onOrgSubmit()">
-                            <div class="form-group">
-                                <label class="control-label">Company Name</label>
-                                <!-- <input type="text" class="form-control" placeholder="Enter the name of the company"> -->
-                                <input type="text" formControlName="organizationName" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f.organizationName.errors }" placeholder="Enter the name of the company" />
-                            <div *ngIf="submitted && f.organizationName.errors" class="invalid-feedback">
-                                <div *ngIf="f.organizationName.errors.required">Company Name is required</div>
-                            </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Website <span>(optional)</span></label>
-                                <input type="text" formControlName="website" class="form-control"
-                                 placeholder="Enter the website url of the company" />
-                            
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Tagline <span>(optional)</span></label>
-                                <section id="editor">
-                                    <div id="summernote">
-                                        <textarea  class="form-control" placeholder="Company Description.." formControlName="organizationDescription"></textarea>
-                                    </div>
-                                </section>
-                            </div>
-                            <div class="custom-file mb-3">
-                                <input type="file" class="custom-file-input" id="validatedCustomFile" (change)="onFileSelect($event)">
-                                <label class="custom-file-label form-control align-items-center" for="validatedCustomFile">Choose
-                                    Company profile image..</label>
-                                
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">Category Name</label>
-                            <ng-select [items]="categories"
-                            [virtualScroll]="true"
-                            bindLabel="jobCategoryName"
-                            bindValue="id"
-                            placeholder="Choose category"
-                            formControlName="categoryName">
-         </ng-select>
-                            </div>
-                            <div class="add-post-btn">
-                            <div class="float-left">
-                                <a [routerLink]="['/addCategory']" class="btn-added"><i class="ti-plus"></i> Add Category</a>
-                                <div style="margin-top: 5px;"><label  class="control-label" style="font-size: 10px;">(Add Category incase Category name is not in the above list)</label></div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <button [disabled]="loading" class="btn btn-common log-btn mt-3">
-                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                                    Add Organization</button>
-                                   
-                                </div>
-                            </form>
+<section id="featured" class="section bg-gray pb-45">
+    <div class="container" *ngIf="recomendedJobs && recomendedJobs.length>0">
+        <h4 class="small-title text-left">Similar Jobs</h4>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let job of recomendedJobs">
+                <a  href="/job-details?jobId={{job.id}}">
+                <div class="job-featured">
+                    <div class="icon">
+                        <!-- <img src="/assets/images/features/img1.png" alt=""> -->
+                        <img [src]="serverUrl ? serverUrl + 'getProfilePic'+'/'+job['organization']['orgProfileImage'] : '/assets/images/find-job.png'" style="width: 100%;">
+                    </div>
+                    <div class="content">
+                        <h3>{{job.jobName}}</h3>
+                        <p class="brand">{{job.organization.name}}</p>
+                        <div class="tags">
+                            <span><i class="lni lni-map-marker"></i>{{job.jobLocation}}</span>
+                            <!-- <span><i class="lni lni-user"></i>John Smith</span> -->
+                        </div>
+                        <span class="full-time">Full Time</span>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 </body>
 <app-footer></app-footer>
