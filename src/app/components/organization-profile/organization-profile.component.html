@@ -9,14 +9,14 @@
     <div style="clear:both"></div>
     <div class="page-header">
         <div class="container">
-            <div class="row">
+            <div class="row set-org-profile">
                 <div class="col-lg-8 col-md-6 col-xs-12">
                     <div class="breadcrumb-wrapper">
                         <div class="job-company-logo">
                             <!-- <img src="/assets/images/blog/img2.jpg" alt=""> -->
               
                             <label class="hoverable" for="fileInput">
-                              <img [src]="url ? url : '/assets/images/company.png'"> 
+                                <img [src]="url ? url : 'https://www.w3schools.com/howto/img_avatar.png'"> 
                               <!-- <div class="hover-text">
                                 Choose file
                                 <h4 class="success-message" *ngIf="url"> Uploaded Successfully </h4>
@@ -27,16 +27,21 @@
                             <!-- <input id="fileInput" type='file' (change)="onSelectFile($event)"> -->
                           </div>
                         <div class="content" *ngIf="org" >
-                            <h3 class="product-title"><i class="fa fa-building-o" aria-hidden="true"></i> &nbsp;{{org.name}} </h3>
+                            <ul style="padding: 2%;" class="shadow">
+                                <li style="list-style: none;"><h3 class="product-title"><i class="fa fa-building-o" aria-hidden="true"></i> &nbsp;{{org.name}} </h3>
+                                </li>
+                                <li style="list-style: none;"><div class="tags" style="padding-top: 5px;">
+                                    <span><i class="fa fa-briefcase"></i>{{org.category.jobCategoryName}}</span>
+                                </div></li>
+                                <li style="list-style: none;"><div class="tags">
+                                    <span *ngIf="org.location"><i class="lni lni-map-marker"></i> {{org.location}}</span>
+                                    <span><i class="fa fa-calendar"></i> Posted &nbsp;Wednesday, May 26, 2021</span>
+                                </div></li>
+                            </ul>
                             <!-- <div class="tags"><i class="fa fa-building-o" aria-hidden="true"></i>{{user.recruiterProfile.currentOrganization}}</div> -->
                             
-                            <div class="tags" style="padding-top: 5px;">
-                                <span><i class="fa fa-briefcase"></i>{{org.category.jobCategoryName}}</span>
-                            </div>
-                            <div class="tags">
-                                <span *ngIf="org.location"><i class="lni lni-map-marker"></i> {{org.location}}</span>
-                                <span><i class="fa fa-calendar"></i> Posted &nbsp;Wednesday, May 26, 2021</span>
-                            </div>
+                            
+                            
                         </div>
                     </div>
                 </div>
