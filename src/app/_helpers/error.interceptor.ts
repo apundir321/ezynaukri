@@ -13,10 +13,11 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
-            
+            debugger;
             if (err.status === 401) {
                 // auto logout if 401 response returned from api
                 this.authenticationService.logout();
+                this.notifyService.showError("Ezynaukari says!","Token expired please try logging in again.")
                 location.reload(true);
             }
             

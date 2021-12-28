@@ -158,7 +158,7 @@
         height: 100%;
     }
     .box-comp-image img {
-        width: 100%;
+        /* width: 100%; */
         height: 100%;
     }
     .comp-det-1 {
@@ -338,7 +338,7 @@
     }
     .box-comp-det p {
         background: #E0F5D7;
-        width: 17%;
+        width: 20%;
     text-align: center;
     
     }

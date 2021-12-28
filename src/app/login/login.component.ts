@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NotificationService } from '../notification.service';
 import { AlertService, AuthenticationService } from '../_services';
 
 @Component({
@@ -9,7 +10,7 @@ import { AlertService, AuthenticationService } from '../_services';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  @ViewChild('myForm', { static: false }) myForm: NgForm;
   loginForm: FormGroup;
   loading = false;
   submitted = false;
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private notificationService: NotificationService
   ) { }
 
   ngOnInit() {
@@ -36,9 +38,9 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
+    debugger;
     // reset alerts on submit
-    this.alertService.clear();
+    // this.alertService.clear();
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
@@ -46,9 +48,12 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authenticationService.login(this.f.username.value, this.f.password.value)
-      .subscribe(
-        data => {
+    this.authenticationService.login(this.f.username.value, this.f.password.value).subscribe
+    
+      ((data) => {
+                
+                
+          debugger;
           console.log("data recieved from authenticate service with data=")
           console.log(data);
           let role = data['roles'][0];
@@ -58,9 +63,12 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/profileLanding']);
           }
         },
-        error => {
-          this.alertService.error(error);
-          this.loading = false;
+        (error) => {
+          alert("error="+error);
+          debugger;
+          this.notificationService.showError("Ezynaukri says!", JSON.stringify(error));
+          this.loading = false;this.submitted= false;
+          this.router.navigate(['/login']);
         });
   }
 

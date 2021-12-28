@@ -1,3 +1,4 @@
+import { Options } from '@angular-slider/ngx-slider';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl } from '@angular/forms';
@@ -8,6 +9,7 @@ import { NotificationService } from 'src/app/notification.service';
 import { ModalService } from 'src/app/_modal';
 import { AlertService, AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 export interface Task {
   name: string;
   completed: boolean;
@@ -31,10 +33,10 @@ export class RecruiterComponent implements OnInit {
   categoryArray : string[] = [];
   
   location = new FormControl();
-  locations = ["Gurgaon"];
+  locations = [];
   selectedLocations;
 
-
+  serverUrl:string = environment.apiUrl;
 
   visible = true;
   selectable = true;
@@ -46,6 +48,29 @@ export class RecruiterComponent implements OnInit {
   ];
   config:any;
   searchJobTags: string[] = [];
+
+  // min:any;
+  // max:any;
+
+
+  value: number = 0;
+  highValue: number = 100;
+  options: Options = {
+    floor: 0,
+    ceil: 100
+  };
+
+
+
+  organization = new FormControl();
+  organizations = [];
+  selectedOrg;
+
+
+  category = new FormControl();
+  categories = [];
+  selectCategory;
+
   
   constructor(private route: ActivatedRoute, private notifyService: NotificationService,
     private jobService: JobService,private router:Router,private userService: UserService,
@@ -55,18 +80,34 @@ export class RecruiterComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getLocations().subscribe((data)=>{
-      console.log(data);
+      // console.log(data);
       Object.keys(data).forEach((key)=>{
         
         this.locations.push(data[key]['location']);
       })
     })
-    this.userService.getRecruitersByParams(JSON.stringify({})).subscribe((data) => {
+
+    this.jobService.getCategories().subscribe((data)=>{
+      // console.log(data);
+      Object.keys(data).forEach((key)=>{
+        
+        this.categories.push(data[key]['jobCategoryName']);
+      })
+    })
+
+    this.jobService.getOrgs().subscribe((data)=>{
       console.log(data);
+      Object.keys(data).forEach((key)=>{
+        
+        this.organizations.push(data[key]['name']);
+      })
+    })
+    this.userService.getRecruitersByParams(JSON.stringify({})).subscribe((data) => {
+      // console.log(data);
       this.users = data;
       this.config = {
         currentPage: 1,
-        itemsPerPage: 3,
+        itemsPerPage: 6,
         totalItems:0
       };
       this.route.queryParams.subscribe(
@@ -77,39 +118,7 @@ export class RecruiterComponent implements OnInit {
     })
   }
 
-  places: Task = {
-    name: 'Location',
-    completed: false,
-    color: 'primary',
-    subtasks: [
-      {name: 'Gurgaon', completed: false, color: 'primary'},
-      {name: 'Faridabad', completed: false, color: 'primary'},
-      {name: 'noida', completed: false, color: 'primary'}
-    ]
-  };
-
-  categories: Task = {
-    name: 'category',
-    completed: false,
-    color: 'primary',
-    subtasks: [
-      {name: 'It services', completed: false, color: 'primary'},
-      {name: 'Food services', completed: false, color: 'primary'},
-      {name: 'Manufactoring', completed: false, color: 'primary'}
-    ]
-  };
-
-  tags: Task = {
-    name: 'Tags',
-    completed: false,
-    color: 'primary',
-    subtasks: [
-      {name: 'java', completed: false, color: 'primary'},
-      {name: 'Sql', completed: false, color: 'primary'},
-      {name: 'html', completed: false, color: 'primary'}
-    ]
-  };
-
+  
   allComplete: boolean = false;
 
   updateLocation(name:string){
@@ -203,15 +212,31 @@ export class RecruiterComponent implements OnInit {
 
   filterProfiles()
   {
-    debugger;
+    alert("filtering");
     var postData = {};
-    if(this.selectedLocations.length>0)
+    if(this.selectedLocations && this.selectedLocations.length>0)
     {
       postData['locations'] = this.selectedLocations;
     }
-    if(this.jobTags.length>0)
+    if(this.jobTags && this.jobTags.length>0)
     {
       postData['tags'] = this.searchJobTags;
+    }
+    // if(this.min)
+    // {
+    //   postData['minExperience'] = this.min;
+    // }
+    // if(this.max)
+    // {
+    //   postData['maxExperience'] = this.max;
+    // }
+    if(this.value)
+    {
+      postData['minSalary'] = this.value;
+    }
+    if(this.value)
+    {
+      postData['maxSalary'] = this.highValue;
     }
     this.userService.getRecruitersByParams(JSON.stringify(postData)).subscribe((data)=>{
       console.log(data);
@@ -228,6 +253,24 @@ export class RecruiterComponent implements OnInit {
 
   }
 
+
+  saveProfile(userId: any)
+  {
+    debugger;
+    let currentUser = this.authenticationService.currentUserValue;
+    if (currentUser && currentUser.id) {
+      let recruiterId = currentUser.id;
+      this.userService.getSaveProfile(userId,recruiterId).subscribe((data)=>{
+        // console.log(data);
+        this.notifyService.showInfo("Ezynaukari says!","Profile has been saved!");
+      },(err)=>{
+        debugger;
+        this.notifyService.showError("Ezynaukari says!",err)
+      });
+    }
+  }
+
+  
 
 
   // updateAllComplete() {

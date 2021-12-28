@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { NotificationService } from '../notification.service';
 import { AuthenticationService } from '../_services';
 
 @Component({
@@ -8,13 +10,21 @@ import { AuthenticationService } from '../_services';
 })
 export class RecruiterHeaderComponent implements OnInit {
 
-  constructor(private authenticationService: AuthenticationService) { }
+  constructor(private authenticationService: AuthenticationService,private router: Router,private notification:NotificationService) { }
   recruiterId:any;
   ngOnInit() {
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
       this.recruiterId = currentUser.id;
   }
+}
+
+logout() {
+  // remove user from local storage and set current user to null
+  localStorage.removeItem('currentUser');
+  this.notification.showSuccess("Ezynaukri Says!","You have been logged out!")
+  this.router.navigate(['/login']);
+  // this.currentUserSubject.next(null);
 }
 
 }

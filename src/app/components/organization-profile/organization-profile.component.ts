@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/notification.service';
 import { AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-organization-profile',
@@ -21,6 +22,7 @@ export class OrganizationProfileComponent implements OnInit {
      private authenticationService: AuthenticationService,private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    this.url = environment.apiUrl;
     // this.locationUrl = this.sanitizer.bypassSecurityTrustResourceUrl("https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed&amp;q=gurgaon");
     let orgId = this.route.snapshot.queryParamMap.get("orgId");
     if (orgId) {

@@ -9,6 +9,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { JobService } from 'src/app/_services/job.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Options } from '@angular-slider/ngx-slider';
+import { environment } from 'src/environments/environment';
 
 export interface JobTag {
   name: string;
@@ -43,6 +44,8 @@ export class BrowseJobsComponent implements OnInit {
   locations = [];
   selectedLocations;
 
+  
+
 
 
 
@@ -57,12 +60,14 @@ export class BrowseJobsComponent implements OnInit {
     ceil: 100
   };
 
+  url:any;
+
+  min:any;
+  max:any;
+
 
 
   category: Category[] = [
-    { name: 'Steak' },
-    { name: 'Pizza' },
-    { name: 'Tacos' }
   ];
   selectedCategory: string;
 
@@ -70,7 +75,7 @@ export class BrowseJobsComponent implements OnInit {
 
   organization = new FormControl();
 
-  organizations = ["Wipro", "Flybunch", "Capegemini"];
+  organizations = [];
   selectedOrg;
 
   constructor(private router: Router, private userService: UserService, private notifyService: NotificationService,
@@ -79,6 +84,7 @@ export class BrowseJobsComponent implements OnInit {
 
 
   ngOnInit() {
+    this.url = environment.apiUrl;
     this.userService.getLocations().subscribe((data) => {
       console.log(data);
       Object.keys(data).forEach((key) => {
@@ -180,6 +186,39 @@ export class BrowseJobsComponent implements OnInit {
       postData['tags'] = tagArray;
     }
 
+    if(this.min)
+    {
+      postData['minExperience'] = this.min;
+    }
+    if(this.max)
+    {
+      postData['maxExperience'] = this.max;
+    }
+    if(this.value)
+    {
+      postData['minSalary'] = this.value;
+    }
+    if(this.value)
+    {
+      postData['maxSalary'] = this.highValue;
+    }
+    if(this.value)
+    {
+      postData['minSalary'] = this.value;
+    }
+    if(this.value)
+    {
+      postData['maxSalary'] = this.highValue;
+    }
+    if(this.selectedCategory)
+    {
+      postData['category'] = this.selectedCategory;
+    }
+    if(this.selectedOrg)
+    {
+      postData['organization'] = this.selectedOrg;
+    }
+
     this.jobService.getFilterByTags(JSON.stringify(postData)).subscribe((data) => {
       let jobListData = data['pagesJob'].content;
       // console.log(jobListData);
@@ -193,7 +232,7 @@ export class BrowseJobsComponent implements OnInit {
         }
       })
       this.jobData = jobListData;
-      console.log(this.jobData);
+      this.notifyService.showInfo("Ezynaukri says!","Refined results has been posted!");
       this.loading = false;
       this.config = {
         currentPage: 1,

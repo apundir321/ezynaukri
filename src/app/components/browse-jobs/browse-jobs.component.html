@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-1 col-md-1 col-xs-12">
-                                    <button type="submit" class="btn btn-common" (click)="onSubmit()"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Filter</button>
+                                    <button type="submit" id="custom-filter-button" class="btn btn-common" (click)="onSubmit()"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Filter</button>
                                 </div>
                             </div>
                         <!-- </form> -->
@@ -226,7 +226,7 @@
                 
                 
                 <div class="col-12 text-center mt-4">
-                    <a class="btn btn-common" (click)="onSubmit()">Refine</a>
+                    <a class="btn btn-common"  style="color: white;" (click)="onSubmit()">Refine</a>
                 </div>
             </section>
             <section id="products">
@@ -235,7 +235,7 @@
                         <div class="col-lg-12 col-md-12 col-xs-12">
                             <div *ngFor="let job of jobData | paginate: config" class="job-listings">
                                 <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
-                                <div class="row">
+                                <!-- <div class="row">
                                     <div class="col-lg-4 col-md-4 col-xs-12">
                                         <div class="job-company-logo">
                                             <img src="/assets/images/find-job.png" alt="">
@@ -262,6 +262,39 @@
                                     </div>
                                     <div class="col-lg-2 col-md-2 col-xs-12 text-right">
                                         <span class="btn-apply" style="padding: 7px 10px;">Apply Now</span>
+                                    </div>
+                                </div> -->
+
+                                <div class="row set-color-inrow">
+                                    <div class="col-lg-2 ">
+                                        <div class="box-comp-image">
+                                            <a href="">
+                                                <!-- <img src="../../../assets/images/comp-1.png" alt=""> -->
+                                                <img [src]="url ? url + 'getProfilePic'+'/'+job['organization']['orgProfileImage'] : '/assets/images/find-job.png'">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 " style="padding-left: 5%;">
+                                        <div class="box-comp-det">
+                                            <div>
+                                            <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                                        </div><br/>
+                                        <h4>{{job.organization.name}}</h4>
+                                            <!-- <div class="row">
+                                                gaurav
+                                            </div> -->
+                                            <ul id="icon-box">
+                                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>{{job.jobName}}</span></li>
+                                        <li class="shadow"><i class="fa fa-briefcase" aria-hidden="true"></i> {{job.minExperience}} - {{ job.maxExperience}}
+                                            yrs</li>
+                                        <li class="shadow"><i class="fa fa-map-marker" aria-hidden="true"></i> {{job.jobLocation}}</li>
+                                    </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="box-comp-det-btn">
+                                            <button class="btn">Apply Now</button>
+                                        </div>
                                     </div>
                                 </div>
                             </a>

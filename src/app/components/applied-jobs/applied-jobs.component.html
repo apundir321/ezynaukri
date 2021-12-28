@@ -38,27 +38,40 @@
                     <div class="job-alerts-item candidates">
                         <h3 class="alerts-title">Jobs Applied By You</h3>
                         <div class="manager-resumes-item" *ngFor="let job of savedJobs | paginate: config" >
-                            <div class="manager-content">
-                                <a href="resume.html"><img class="resume-thumb" src="img/jobs/avatar-1.jpg" alt=""></a>
-                                <div class="manager-info">
-                                    <div class="manager-name">
-                                        <h4><a [routerLink]="['/job-details']" [queryParams]="{jobId: job.job.id}">{{job.job.jobName}}</a></h4>
-                                        <h5>{{job.job.organization.name}}</h5>
+                            <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.job.id}">
+                                <div class="row set-color-inrow">
+                                    <div class="col-lg-3 ">
+                                        <div class="box-comp-image">
+                                            <a href="">
+                                                <!-- <img src="../../../assets/images/comp-1.png" alt=""> -->
+                                                <img [src]="url ? url + 'getProfilePic'+'/'+job.job['organization']['orgProfileImage'] : '/assets/images/find-job.png'">
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div class="manager-meta">
-                                        <span class="location"><i class="lni-map-marker"></i> {{job.job.location}}</span>
-                                        <span class="rate" *ngIf="job.job.maxSalary"><i class="fa fa-rupee"></i>Upto {{job.job.maxSalary}} LPA</span>
+                                    <div class="col-lg-5 " style="padding-left: 5%;">
+                                        <div class="box-comp-det">
+                                            <div>
+                                            <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                                        </div><br/>
+                                        <h4>{{job.job.organization.name}}</h4>
+                                            <!-- <div class="row">
+                                                gaurav
+                                            </div> -->
+                                            <ul id="icon-box">
+                                                <li class="shadow"><i class="fas fa-shopping-bag"></i><span>{{job.job.jobName}}</span></li>
+                                                <li class="shadow"><i class="fa fa-briefcase" aria-hidden="true"></i> {{job.job.minExperience}} - {{ job.job.maxExperience}}
+                                                    yrs</li>
+                                                <li class="shadow"><i class="fa fa-map-marker" aria-hidden="true"></i> {{job.job.jobLocation}}</li>
+                                            </ul>
+                                        </div>
                                     </div>
+                                    <!-- <div class="col-lg-6">
+                                        <div class="box-comp-det-btn">
+                                            <button class="btn">Apply Now</button>
+                                        </div>
+                                    </div> -->
                                 </div>
-                            </div>
-                            <div class="update-date">
-                                <p class="status">
-                                    <strong>Posted on:</strong> {{job.job.jobPublished | date:'fullDate'}}
-                                </p>
-                                <!-- <div class="action-btn">
-                                    <a class="btn btn-xs btn-danger" href="#">Delete</a>
-                                </div> -->
-                            </div>
+                            </a>
                         </div>
                         
                         <!-- <a class="btn btn-common btn-sm" href="add-resume.html">Add new resume</a> -->

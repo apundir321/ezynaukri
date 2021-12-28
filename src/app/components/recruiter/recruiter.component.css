@@ -241,3 +241,6 @@ li a:hover {
 .filter-rec-btn {
   margin-top: 11px;
 }
+#custom-filter-button{
+margin: 6px -13px;
+}

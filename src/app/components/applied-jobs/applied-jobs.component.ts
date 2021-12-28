@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/notification.service';
 import { AuthenticationService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-applied-jobs',
@@ -18,12 +19,13 @@ export class AppliedJobsComponent implements OnInit {
   config: any;
   totalPages:any;
   findJobsCount:number =0;
-
+  url : any;
 
   constructor(private jobService: JobService, private authenticationService: AuthenticationService,
     private notifyService : NotificationService,private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.url = environment.apiUrl;
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
     this.jobService.getAppliedJobs(currentUser.id).subscribe((data) => {

@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/notification.service';
 import { AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 export interface JobTag {
   name: string;
 }
@@ -34,7 +35,8 @@ export class IndexComponent implements OnInit {
 
   location = new FormControl();
 
-  locations = ["Gurgaon","Mumbai","Bangalore","Chennai","Delhi","Faridabad","Mangalore","Hyedrabad","Secundrabad","Noida","Greater Noida"];
+  locations = [];
+  
   selectedLocations;
 
   url: any;
@@ -45,7 +47,7 @@ export class IndexComponent implements OnInit {
 
 
   ngOnInit() {
-
+    this.url = environment.apiUrl;
     // const target = document.querySelector('.tw');
     // const writer = new Typewriter(target, {
     //   loop: true,
@@ -69,10 +71,21 @@ export class IndexComponent implements OnInit {
 
     this.jobService.getAll().subscribe((data) => {
       console.log(data);
-
+      let filteredData = [];
       let jobListData = data['pagesJob'].content;
       
-        this.allJobs = jobListData;
+
+        if (jobListData.length > 5) {
+          for (let index = 0; index < 5; index++) {
+            const element = jobListData[index];
+            filteredData.push(element);
+
+          }
+          this.allJobs = filteredData;
+        } else {
+          this.allJobs = jobListData;
+        }
+
       
       // this.notifyService.showInfo("Ezynaukari says!", "Refined results has been posted");
     },(err)=>{
@@ -106,12 +119,13 @@ export class IndexComponent implements OnInit {
   }
 
   filterJobs() {
+    debugger;
     var postData = {};
     let filteredData = [];
-    if (this.selectedLocations.length > 0) {
+    if (this.selectedLocations && this.selectedLocations.length > 0) {
       postData['locations'] = this.selectedLocations;
     }
-    if (this.jobTags.length > 0) {
+    if (this.jobTags && this.jobTags.length > 0) {
       postData['tags'] = this.searchJobTags;
     }
     this.jobService.getFilterByTags(JSON.stringify(postData)).subscribe((data) => {

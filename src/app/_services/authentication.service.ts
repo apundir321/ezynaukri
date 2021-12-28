@@ -20,7 +20,7 @@ export class AuthenticationService {
         return this.currentUserSubject.value;
     }
 
-    login(username, password) {
+    login(username, password): Observable<any> {
         const headers = { 'Content-Type': 'application/json'}  
         // let data = {"username":"anuragpundir621@gmail.com","password":"OURINDIA12"};
         // let dataString = JSON.stringify(data);

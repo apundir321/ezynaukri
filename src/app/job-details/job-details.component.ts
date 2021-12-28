@@ -35,7 +35,7 @@ export class JobDetailsComponent implements OnInit {
 
   getJobDetail(jobId: any) {
     this.jobService.getJobDetail(jobId).subscribe(data => {
-      console.log(data);
+      // console.log(data);
       debugger;
       let jobData = data['job'];
       let organization = jobData['organization'];
@@ -53,6 +53,15 @@ export class JobDetailsComponent implements OnInit {
       }
       this.job=jobData;
       console.log(data)
+      let postData = {};
+      let categoryId = data['job']['category']['id'];
+      if(categoryId)
+      {
+      postData['category'] = categoryId;
+      } 
+      this.jobService.getFilterByTags(JSON.stringify(postData)).subscribe((data) => {
+        debugger;
+      });
     }
       , error => {
         this.notifyService.showError("Error in loading the page please try again later", "EzyNaukari says!!");

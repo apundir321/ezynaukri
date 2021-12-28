@@ -231,3 +231,60 @@ li a:hover {
   z-index: 3;
   border-radius: 16px;
 }
+.box-comp-image {
+  width: 100%;
+}
+.box-comp-image img {
+  width: 100%;
+}
+.box-comp-det h4 {
+  font-size: 22px !important;
+}
+
+.box-comp-det-btn .btn {
+  background: brown;
+}
+.box-comp-det-btn {
+  text-align: end;
+}
+
+.box-comp-det i {
+  padding-right: 10px;
+}
+.box-comp-det p {
+  color:#94CA7D;
+  font-size: 12px;
+  border-radius: 10px;
+}
+.box-comp-det h4 {
+  color: #696984;
+  font-size: 12px;
+}
+
+.box-comp-det li {
+ margin-right: 18px;
+padding: 5px;
+color: #C4C4C4;
+border-radius: 11px;
+font-size: 12px;
+display: ruby-text;
+}
+
+.set-color-inrow {
+  background: #fff;
+  padding: 3%;
+}
+.box-comp-det p {
+  background: #E0F5D7;
+  width: 40%;
+text-align: center;
+
+}
+
+#icon-box i {
+  color: #468ACA !important;
+}
+
+#custom-filter-button{
+  margin: 6px -13px;
+  }

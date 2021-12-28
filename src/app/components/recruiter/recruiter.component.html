@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<app-header></app-header>
+    <app-header></app-header>
 
 <body>
-    <div class="page-header page-recruiter">
+    <div class="page-header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="inner-header">
-                        <h3 class="find-ur-rec">Find Your Recruiter</h3>
+                        <h3>Find Recruiters</h3>
                     </div>
                     <div class="job-search-form bg-cyan job-featured-search">
                         <form>
                             <div class="row justify-content-center">
-                                <div class="col-lg-5 col-md-5 col-xs-12 job-tag-recruiter">
+                                <div class="col-lg-5 col-md-5 col-xs-12">
                                     <div class="form-group">
                                         <!-- <input class="form-control" type="text" placeholder="Job Title or Company Name"> -->
                                         <mat-form-field class="example-chip-list" style="width: 100%;">
-                                            <mat-label>Job Tags</mat-label>
+                                            <mat-label>Skill Tags</mat-label>
                                             <mat-chip-list #chipList aria-label="Fruit selection">
                                                 <mat-chip *ngFor="let jobTag of jobTags" [selectable]="selectable"
                                                     [removable]="removable" (removed)="remove(jobTag)">
@@ -54,8 +54,8 @@
                                         <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     </div>
                                 </div>
-                                <div class="col-lg-2 col-md-1 col-xs-12 filter-rec-btn">
-                                    <button type="submit" class="btn btn-common" (click)="filterProfiles()">Filter</button>
+                                <div class="col-lg-1 col-md-1 col-xs-12">
+                                    <button type="submit" id="custom-filter-button" class="btn btn-common" (click)="filterProfiles()">Filter</button>
                                 </div>
                             </div>
                         </form>
@@ -74,8 +74,8 @@
             
             <section id="sidebar" class="job-featured" style="margin-top: 2%;">
                 <div>
-                    <h6 class="p-1 border-bottom">Recruiter Location</h6>
-                    <section class="example-section">
+                    <h6 class="p-1 border-bottom">Filter By</h6>
+                    <!-- <section class="example-section">
                         <span class="example-list-section">
                           <ul>
                             <li *ngFor="let subtask of places.subtasks">
@@ -87,86 +87,127 @@
                             </li>
                           </ul>
                         </span>
-                      </section>
+                      </section> -->
+                      <div>
+                        <p class="mb-2">Profile location</p>
+                        <section class="example-section">
+                            <span class="example-list-section">
+                              <!-- <ul>
+                                <li *ngFor="let subtask of places.subtasks">
+                                  <mat-checkbox [(ngModel)]="subtask.completed"
+                                                [color]="subtask.color"
+                                                (ngModelChange)="updateLocation(subtask.name)">
+                                    {{subtask.name}}
+                                  </mat-checkbox>
+                                </li>
+                              </ul> -->
+                              <div>
+                              <mat-form-field style="width: 100%;">
+                                <mat-select placeholder="Location" [formControl]="location" [(value)]="selectedLocations" multiple>
+                                  <mat-option *ngFor="let loc of locations" [value]="loc">{{loc}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                          </div>
+                          
+                            </span>
+                          </section>
+                    </div>
                 </div>
-                <div>
-                    <h6 class="p-1 border-bottom">Filter By</h6>
+                <div >
                     <p class="mb-2">Categories</p>
                     <section class="example-section">
                         <span class="example-list-section">
-                          <ul>
-                            <li *ngFor="let subtask of categories.subtasks">
-                              <mat-checkbox [(ngModel)]="subtask.completed"
-                                            [color]="subtask.color"
-                                            (ngModelChange)="updateCategory(subtask.name)">
-                                {{subtask.name}}
-                              </mat-checkbox>
-                            </li>
-                          </ul>
+                            <mat-form-field style="width: 100%;">
+                                <mat-select placeholder="Select Category" [formControl]="category" [(value)]="selectCategory" multiple>
+                                  <mat-option *ngFor="let cat of categories" [value]="org">{{cat}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
                         </span>
                       </section>
-                </div>
-                <div>
-                    <p class="mb-2">Categories</p>
+                </div> 
+                <!-- <section class="example-section">
+                    <p class="mb-2">Experience</p>
+                    <mat-form-field class="example-margin">
+                      <mat-label>Min Experience</mat-label>
+                      <input matInput type="number" [(ngModel)]="min">
+                    </mat-form-field>
+                    <mat-form-field class="example-margin">
+                      <mat-label>Max Experience</mat-label>
+                      <input matInput type="number" [(ngModel)]="max">
+                    </mat-form-field>
+                  </section> -->
+
+                  <!-- <div>
+                    <p class="mb-2">Salary (in lakhs)</p>
                     <section class="example-section">
                         <span class="example-list-section">
-                          <ul>
-                            <li *ngFor="let subtask of tags.subtasks">
-                              <mat-checkbox [(ngModel)]="subtask.completed"
-                                            [color]="subtask.color"
-                                            (ngModelChange)="updateTags(subtask.name)">
-                                {{subtask.name}}
-                              </mat-checkbox>
-                            </li>
-                          </ul>
+                            <ngx-slider [(value)]="value" [(highValue)]="highValue" [options]="options"></ngx-slider>
                         </span>
                       </section>
-                </div>
+                </div> -->
+                <div >
+                    <p class="mb-2">Organization</p>
+                    <section class="example-section">
+                        <span class="example-list-section">
+                            <mat-form-field style="width: 100%;">
+                                <mat-select placeholder="Select Organization" [formControl]="organization" [(value)]="selectedOrg" multiple>
+                                  <mat-option *ngFor="let org of organizations" [value]="org">{{org}}</mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                        </span>
+                      </section>
+                </div> 
                 <div class="col-12 text-center mt-4">
-                    <!-- <a class="btn btn-common" (click)="submit()">Refine</a> -->
-                    <button class="btn refine-btn" (click)="submit()">Refine</button>
+                    <a class="btn btn-common" style="color: white;" (click)="filterProfiles()">Refine</a>
                 </div>
             </section>
             <section id="products">
                 <div class="container">
                     <div class="row">
 
-                
                         <div class="col-lg-4 col-md-6 col-xs-12" *ngFor="let user of users | paginate: config" >
-                            <a [routerLink]="['/recruiterProfile']" [queryParams]="{recruiterId: user.id}">
-                            <div class="job-featured">
-                                <div class="icon">
-                                    <img src="images/asa.jpg" alt="">
-                                </div>
-                                <div class="content">
-                                    <h3><a href="job-details.html">{{user.firstName}} {{user.lastFirstName}}</a></h3>
-                                    <p class="brand">{{user.currentJobRole}}</p>
-                                    <h3><a href="#">{{user.currentOrganization}}</a></h3>
-                                    <div class="tags">
-                                        <span><i class="fa fa-map-marker"></i> Noida</span>
+                           
+                                <div class="job-featured">
+                                    <a [routerLink]="['/employeeProfile']" [queryParams]="{employeeId: user.id}">
+                                    <div class="icon">
+                                        <img [src]="user.profilePicName ? serverUrl+'getProfilePicByProfileId/'+user.profilePicName+'/'+user.id : 'https://www.w3schools.com/howto/img_avatar.png'" style="width: 70px;height: 70px;">
                                     </div>
-                                </div>
-        
-                                <div class="req-scells">
-                                    <small>Skills :</small>
-        
-                                    <p> cum Graphic Designer, PSD to HTML, HTML5, CSS3, Jquery, PHP, WordPress, Web
-                                        Designing, Team Leader, Website Designing, Templates Designing</p>
-        
-                                    <p class="activejob">19 active jobs | Last active on 27-Feb-2015</p>
-                                </div>
-                                <!-- <div class="followrow">
-                                    <div class="follow">
-                                        <span>
-                                            <a href="#" class="btn-apply">Follow</a><br>
-                                            <em>1835 Followers</em></span>
-        
-                                        <div class="sendbtn"><a href="#">Send Message</a></div>
+                                    <div class="content">
+                                        <h3><a href="job-details.html">{{user.firstName}} {{user.lastFirstName}}</a></h3>
+                                        <p class="brand">Senior Recruiter</p>
+                                        <!-- <h3>Wipro Pvt LTD</h3> -->
+                                        <div class="tags">
+                                            <span><i class="fa fa-map-marker"></i> Noida</span>
+                                        </div>
                                     </div>
-        
-                                </div> -->
-                            </div>
-                        </a>
+                                    
+                                    <div class="req-scells"  style="margin-top: 10%;">
+                                        <div *ngIf="user.tags.length >0">
+                                        <small>Skills what i hire for:</small>
+            
+                                        <p><span *ngFor="let tag of user.tags">   {{tag.name}},</span></p>
+                                    </div>
+                                        <span ><small>Phone Number :</small><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="user.workExperience">    {{user.workExperience}} years </span><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="!user.workExperience">Not Defined</span></span>
+                                        <br/>
+                                        <span><small>Email Id :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.currentCtc">    {{user.currentCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.currentCtc">Not Defined</span></span>
+                                        <br/>
+                                        <span><small>Current Organization :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.expectedCtc">    {{user.expectedCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.expectedCtc">Not Defined</span></span>
+                                        <br/>
+                                        
+                                    </div>
+                                </a>
+                                    <div class="add-post-btn" style="margin-top: 4%;">
+                                        <div class="float-left">
+                                            <a (click)="saveProfile(user.id)"  class="btn-added" style="    position: absolute;
+                                            bottom: 2%;
+                                            left: 10%;"><i class="ti-plus"></i> Send Message</a>
+                                            
+                                            </div>
+                                        </div>
+                                   
+                                </div>
+                                
+                            
                         </div>
                         <div class="col-12 text-center mt-4">
                             <pagination-controls (pageChange)="pageChange($event)" class="my-pagination"></pagination-controls>

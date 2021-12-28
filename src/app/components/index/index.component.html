@@ -182,7 +182,7 @@
                 <div class="col-12">
                     <div class="box-ezy-1 slideInUp" data-animation="slideInUp" data-animation-delay="40ms"  data-animated="true">
                         <h1 class="tw">Find jobs <span>Software Developer</span> </h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu.  </p>
+                        <p>Experience the joy of finding the right job for you. </p>
                     </div>
                 </div>
             </div>
@@ -244,7 +244,7 @@
                      </div> -->
                      <div class="col-lg-4 col-4">
                         <div class="box-ezy-input-1-btn">
-                           <button class="btn">SEARCH JOBS</button>
+                           <button class="btn" (click)="filterJobs()">SEARCH JOBS</button>
                         </div> 
                      </div>
                 
@@ -261,7 +261,7 @@
                 <div class="col-lg-12 col-md-12 col-xs-12">
                     <div *ngFor="let job of jobData" class="job-listings">
                         <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
-                        <div class="row">
+                        <!-- <div class="row">
                             <div class="col-lg-4 col-md-4 col-xs-12">
                                 <div class="job-company-logo">
                                     <img src="/assets/images/find-job.png" alt="">
@@ -289,6 +289,39 @@
                             <div class="col-lg-2 col-md-2 col-xs-12 text-right">
                                 <span class="btn-apply" style="padding: 7px 10px;">Apply Now</span>
                             </div>
+                        </div> -->
+
+                        <div class="row set-color-inrow">
+                            <div class="col-lg-1 ">
+                                <div class="box-comp-image">
+                                    <a href="">
+                                        <!-- <img src="../../../assets/images/comp-1.png" alt=""> -->
+                                        <img [src]="url ? url + 'getProfilePic'+'/'+job['organization']['orgProfileImage'] : '/assets/images/find-job.png'">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 " style="padding-left: 5%;">
+                                <div class="box-comp-det">
+                                    <div>
+                                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                                </div><br/>
+                                <h4>{{job.organization.name}}</h4>
+                                    <!-- <div class="row">
+                                        gaurav
+                                    </div> -->
+                                    <ul id="icon-box">
+                                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>{{job.jobName}}</span></li>
+                                        <li class="shadow"><i class="fa fa-briefcase" aria-hidden="true"></i> {{job.minExperience}} - {{ job.maxExperience}}
+                                            yrs</li>
+                                        <li class="shadow"><i class="fa fa-map-marker" aria-hidden="true"></i> {{job.jobLocation}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="box-comp-det-btn">
+                                    <button class="btn">Apply Now</button>
+                                </div>
+                            </div>
                         </div>
                     </a>
                     </div>
@@ -313,7 +346,7 @@
                 </div>
             </div>
         </div>
-        <div class="row new-p">
+        <!-- <div class="row new-p">
          
                 <div class="col-12">
                     <div class="box-new-p">
@@ -321,7 +354,7 @@
                     </div>
                 </div>
          
-        </div>
+        </div> -->
         <div class="row mt-4">
             
                 <div class="col-lg-4">
@@ -335,7 +368,7 @@
                 <div class="col-lg-4">
                     <div class="box-chart shadow response">
                         <img src="../../../assets/images/chart.png" alt="">
-                        <h4>Finance</h4>
+                        <h4>IT/Technology</h4>
                         <p>8917 Jobs</p>
                         <p id="openings">21 Openings</p>
                     </div>
@@ -343,7 +376,7 @@
                 <div class="col-lg-4">
                     <div class="box-chart shadow response">
                         <img src="../../../assets/images/chart.png" alt="">
-                        <h4>Finance</h4>
+                        <h4>Manufactoring</h4>
                         <p>8917 Jobs</p>
                         <p id="openings">21 Openings</p>
                     </div>
@@ -356,7 +389,7 @@
             <div class="col-lg-4">
                 <div class="box-chart shadow">
                     <img src="../../../assets/images/chart.png" alt="">
-                    <h4>Finance</h4>
+                    <h4>Human resources</h4>
                     <p>8917 Jobs</p>
                     <p id="openings">21 Openings</p>
                 </div>
@@ -364,7 +397,7 @@
             <div class="col-lg-4">
                 <div class="box-chart shadow response">
                     <img src="../../../assets/images/chart.png" alt="">
-                    <h4>Finance</h4>
+                    <h4>Insurance</h4>
                     <p>8917 Jobs</p>
                     <p id="openings">21 Openings</p>
                 </div>
@@ -372,7 +405,7 @@
             <div class="col-lg-4">
                 <div class="box-chart shadow response">
                     <img src="../../../assets/images/chart.png" alt="">
-                    <h4>Finance</h4>
+                    <h4>Automobile</h4>
                     <p>8917 Jobs</p>
                     <p id="openings">21 Openings</p>
                 </div>
@@ -399,142 +432,52 @@
          
                 <div class="col-12">
                     <div class="box-new-p">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu. Scelerisque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu. Scelerisque </p>
+                        <p>As the world's #1 job site, with over 200 million unique visitors every month from over 60 different
+                            countries. </p>
                     </div>
                 </div>
          
         </div>
-        <div class="row set-color-inrow">
-            <div class="col-lg-1 ">
-                <div class="box-comp-image">
-                    <a href=""><img src="../../../assets/images/comp-1.png" alt=""></a>
+        <div class="row set-color-inrow" *ngFor="let job of allJobs" class="job-listings">
+            <!-- <div > -->
+                <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
+               
+                <div class="row set-color-inrow">
+                    <div class="col-lg-1 ">
+                        <div class="box-comp-image">
+                            <a href="">
+                                <!-- <img src="../../../assets/images/comp-1.png" alt=""> -->
+                                <img [src]="url ? url + 'getProfilePic'+'/'+job['organization']['orgProfileImage'] : '/assets/images/find-job.png'">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 " style="padding-left: 5%;">
+                        <div class="box-comp-det">
+                            <div>
+                            <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                        </div><br/>
+                        <h4>{{job.organization.name}}</h4>
+                            <!-- <div class="row">
+                                gaurav
+                            </div> -->
+                            <ul id="icon-box">
+                                <li class="shadow"><i class="fas fa-shopping-bag"></i><span>{{job.jobName}}</span></li>
+                                <li class="shadow"><i class="fa fa-briefcase" aria-hidden="true"></i> {{job.minExperience}} - {{ job.maxExperience}}
+                                    yrs</li>
+                                <li class="shadow"><i class="fa fa-map-marker" aria-hidden="true"></i> {{job.jobLocation}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="box-comp-det-btn">
+                            <button class="btn">Apply Now</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-5 ">
-                <div class="box-comp-det">
-                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
-                    <h4>Full Stack Developer</h4>
-                    <!-- <div class="row">
-                        gaurav
-                    </div> -->
-                    <ul id="icon-box">
-                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>Java Developer</span></li>
-                        <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
-                        <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="box-comp-det-btn">
-                    <button class="btn">Apply Now</button>
-                </div>
-            </div>
+            </a>
+            <!-- </div> -->
         </div>
-        <div class="row mt-4 comp-det-1 set-color-inrow">
-            <div class="col-lg-1">
-                <div class="box-comp-image">
-                    <img src="../../../assets/images/comp-1.png" alt="">
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="box-comp-det">
-                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
-                    <h4>Full Stack Developer</h4>
-                    <!-- <div class="row">
-                        gaurav
-                    </div> -->
-                    <ul id="icon-box">
-                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>Java Developer</span></li>
-                        <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
-                        <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="box-comp-det-btn">
-                    <button class="btn">Apply Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4 comp-det-1 set-color-inrow">
-            <div class="col-lg-1">
-                <div class="box-comp-image">
-                    <img src="../../../assets/images/comp-1.png" alt="">
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="box-comp-det">
-                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
-                    <h4>Full Stack Developer</h4>
-                    <!-- <div class="row">
-                        gaurav
-                    </div> -->
-                    <ul id="icon-box">
-                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>Java Developer</span></li>
-                        <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
-                        <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="box-comp-det-btn">
-                    <button class="btn">Apply Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4 comp-det-1 set-color-inrow" *ngIf="isshow">
-            <div class="col-lg-1">
-                <div class="box-comp-image">
-                    <img src="../../../assets/images/comp-1.png" alt="">
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="box-comp-det">
-                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
-                    <h4>Full Stack Developer</h4>
-                    <!-- <div class="row">
-                        gaurav
-                    </div> -->
-                    <ul id="icon-box">
-                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>Java Developer</span></li>
-                        <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
-                        <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="box-comp-det-btn">
-                    <button class="btn">Apply Now</button>
-                </div>
-            </div>
-        </div>
-        <div class="row mt-4 comp-det-1 set-color-inrow" *ngIf="isshow">
-            <div class="col-lg-1">
-                <div class="box-comp-image">
-                    <img src="../../../assets/images/comp-1.png" alt="">
-                </div>
-            </div>
-            <div class="col-lg-5" >
-                <div class="box-comp-det">
-                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
-                    <h4>Full Stack Developer</h4>
-                    <!-- <div class="row">
-                        gaurav
-                    </div> -->
-                    <ul id="icon-box">
-                        <li class="shadow"><i class="fas fa-shopping-bag"></i><span>Java Developer</span></li>
-                        <li class="shadow"><i class="fas fa-money-bill"></i><span>35k-50k Per Month</span></li>
-                        <li class="shadow"><i class="fas fa-clock"></i><span>10 Min Ago</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="box-comp-det-btn">
-                    <button class="btn">Apply Now</button>
-                </div>
-            </div>
-        </div>
-
+       
         <div class="row text-center mt-4 view">
             <div class="col-12">
                 <div class="box-view-btn" >
@@ -569,7 +512,7 @@
          
                 <div class="col-12">
                     <div class="box-new-p">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu. Scelerisque Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu. Scelerisque </p>
+                        <p>You know what you are looking for We’re just making it easier for you.</p>
                     </div>
                 </div>
          
@@ -579,21 +522,21 @@
                 <div class="box-work">
                     <img src="../../../assets/images/work-1.png" alt="">
                     <a href="" [routerLink]="['/signup']"><h4>Create an Account</h4></a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing  </p>
+                    <p>Create an account-  Got a working email address? That’s all required. Set up your account and build your profile.</p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="box-work">
                     <img src="../../../assets/images/work-2.png" alt="">
                     <a href="" [routerLink]="['/login']"><h4>Search Jobs</h4></a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing  </p>
+                    <p>Search Jobs- Add title, description, and preferred location and leave rest to us. Scroll through various options and you’re all set to go.  </p>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="box-work">
                     <img src="../../../assets/images/work-3.png" alt="">
                     <a href="" [routerLink]="['/login']"><h4>Apply and Get Job</h4></a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing  </p>
+                    <p>Apply- Found the dream job that exactly matches your need? Apply it with one click without any hassles.</p>
                 </div>
             </div>
         </div>
@@ -606,7 +549,7 @@
             <div class="col-lg-6">
                <div class="box-news">
                    <h4>Subscribe to Our Newsletter!</h4>
-                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing  </p>
+                   
                </div>
             </div>
             <div class="col-lg-6">
