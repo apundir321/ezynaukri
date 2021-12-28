@@ -20,9 +20,11 @@ body {
   float: right
 }
 
+
 ul {
   list-style: none;
-  padding: 5px
+  padding: 5px;
+  display: -webkit-inline-box;
 }
 
 li a {

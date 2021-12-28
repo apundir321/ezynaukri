@@ -2377,7 +2377,7 @@ button:focus {
   border-bottom-right-radius: 30px;
 }
 .job-detail .content-area {
-  padding: 15px 20px;
+  padding: 5%;
   box-shadow: 0 0 14px rgba(191, 191, 191, 0.24);
 }
 .job-detail .content-area h4 {

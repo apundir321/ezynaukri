@@ -83,7 +83,7 @@
                         <div class="about-me item">
                             <h3>About Me</h3>
                             <div *ngIf="userProfile; else aboutTemplate">
-                                <p>{{userProfile.aboutMe}} </p>
+                                <p>{{userProfile.aboutMe}} No Desciption added yet</p>
                             </div>
                             <ng-template #aboutTemplate>
                                 <p>No Desciption added yet</p>
@@ -91,66 +91,90 @@
 
                         </div>
 
-                        <div class="work-experence item">
-                            <h3>Work Experience</h3>
-                            <div *ngIf="workExperiences; else workExperienceTemplate">
-                                <div *ngFor="let workExperience of workExperiences">
-                                    <h4>{{workExperience.jobDesignation}}</h4>
-                                    <h5>{{workExperience.companyName}}</h5>
-                                    <span class="date">{{workExperience.startDate |
-                                        date:'fullDate'}}-{{workExperience.endDate | date:'fullDate'}}</span>
-                                    <p>{{workExperience.description}}</p>
-                                    <br>
+                        <div class="row work-experence item">
+                            <div class="col-lg-6">
+                                <h3>Work Experience</h3>
+                                <div *ngIf="workExperiences; else workExperienceTemplate">
+                                    <div *ngFor="let workExperience of workExperiences">
+                                        <h4>{{workExperience.jobDesignation}}</h4>
+                                        <h5>{{workExperience.companyName}}</h5>
+                                        <span class="date">{{workExperience.startDate |
+                                            date:'fullDate'}}-{{workExperience.endDate | date:'fullDate'}}</span>
+                                        <p>{{workExperience.description}}</p>
+                                        <br>
+                                    </div>
+                                </div>
+                                <ng-template #workExperienceTemplate>
+                                    <p>No work experience configured yet</p>
+                                </ng-template>
+                            </div>
+                           
+                            <div class="col-lg-6">
+                                <div class="box-experience-btn">
+                                    <a href="" [routerLink]="['/work-experience']"><button class="btn">Edit</button></a>
                                 </div>
                             </div>
-                            <ng-template #workExperienceTemplate>
-                                <p>No work experience configured yet</p>
-                            </ng-template>
-
 
 
 
                         </div>
-                        <div class="education item">
-                            <h3>Education</h3>
-                            <div *ngIf="educations; else educationTemplate">
-                                <div *ngFor="let education of educations">
-                                    <h4>{{education.universityName}}</h4>
-                                    <p>{{education.degree}}</p>
-                                    <span class="date">{{education.startYear |
-                                        date:'fullDate'}}-{{education.endYear |
-                                        date:'fullDate'}}</span>
+                        <div class=" row education item">
+                            <div class="col-lg-6">
+                                <h3>Education</h3>
+                                <div *ngIf="educations; else educationTemplate">
+                                    <div *ngFor="let education of educations">
+                                        <h4>{{education.universityName}}</h4>
+                                        <p>{{education.degree}}</p>
+                                        <span class="date">{{education.startYear |
+                                            date:'fullDate'}}-{{education.endYear |
+                                            date:'fullDate'}}</span>
+                                    </div>
+                                </div>
+                                <ng-template #educationTemplate>
+                                    <p>No Education configured yet</p>
+                                </ng-template>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="box-experience-btn">
+                                    <a href="" [routerLink]="['/education']"><button class="btn">Edit</button></a>
                                 </div>
                             </div>
-                            <ng-template #educationTemplate>
-                                <p>No Education configured yet</p>
-                            </ng-template>
+                           
                             <br>
 
                         </div>
 
-                        <div class="skills item">
-                            <h3>Skills</h3>
-                            <!-- <div *ngIf="educations; else educationTemplate">
-                            <div *ngFor="let education of educations">
-                                <h4>{{education.universityName}}</h4>
-                                <p>{{education.degree}}</p>
-                                <span class="date">{{education.startYear  |
-                                    date:'fullDate'}}-{{education.endYear  |
-                                        date:'fullDate'}}</span>
+                        <div class=" row skills item">
+                            <div class="col-lg-6">
+                                <h3>Skills</h3>
+                                <!-- <div *ngIf="educations; else educationTemplate">
+                                <div *ngFor="let education of educations">
+                                    <h4>{{education.universityName}}</h4>
+                                    <p>{{education.degree}}</p>
+                                    <span class="date">{{education.startYear  |
+                                        date:'fullDate'}}-{{education.endYear  |
+                                            date:'fullDate'}}</span>
+                                </div>
                             </div>
-                        </div>
-                        <ng-template #educationTemplate>
-                            <p>No Education configured yet</p>
-                        </ng-template> -->
-                            <div class="popular_search d-flex align-items-center">
-                                <ul>
-                                    <div *ngFor="let tag of tags">
-                                    </div>
-                                    <li *ngFor="let tag of tags"><a href="#">{{tag.name}}</a></li>
+                            <ng-template #educationTemplate>
+                                <p>No Education configured yet</p>
+                            </ng-template> -->
+                                <div class="popular_search d-flex align-items-center">
+                                    <ul>
+                                        <div *ngFor="let tag of tags">
+                                        </div>
+                                        <li *ngFor="let tag of tags"><a href="#">{{tag.name}}</a></li>
+    
+                                    </ul>
+                                </div>
+                            </div>
 
-                                </ul>
+                            <div class="col-lg-6">
+                                <div class="box-experience-btn">
+                                    <a href="" [routerLink]="['/skills']"><button class="btn">Edit</button></a>
+                                </div>
                             </div>
+                       
                             <br>
 
                         </div>

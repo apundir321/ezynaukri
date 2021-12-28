@@ -132,3 +132,6 @@ text-align: center;
 .row{
   margin-right: 0px;
 }
+#icon-box {
+  display: -webkit-inline-box;
+}
