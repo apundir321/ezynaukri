@@ -14,24 +14,33 @@
     <div style="clear:both"></div>
     <div class="page-header">
         <div class="container">
-            <div class="row">
+            <div class="row apllied-org">
                 <div class="col-lg-8 col-md-6 col-xs-12">
-                    <div class="breadcrumb-wrapper">
-                        <div class="img-wrapper">
-                            <label class="hoverable" for="fileInput">
-                                <img [src]="url ? url : '/assets/images/find-job.png'" style="width: 100%;"> 
-                                <div class="background"></div>
-                              </label>
+                    <div style="padding: 2%;" class="row shadow">
+                        <div class="col-lg-2">
+                            <div style="width: 100%;" class="img-wrapper">
+                                <label style="width: 100%;" class="hoverable" for="fileInput">
+                                    <img [src]="url ? url : '/assets/images/find-job.png'" style="width: 100%;"> 
+                                    <div class="background"></div>
+                                  </label>
+                            </div>
                         </div>
-                        <div class="content">
-                            <h3 class="product-title">Hiring {{job.jobName}}</h3>
-                            <a [routerLink]="['/org-profile']" [queryParams]="{orgId: job.organization.id}" ><p class="brand"><span><i class="fa fa-building"></i> &nbsp; &nbsp;{{job.organization.name}}</span> </p></a>
-                            <div class="tags">
-                                <span><i class="fa fa-map-marker"></i> {{job.jobLocation}}</span>
-                                <span><i class="fa fa-calendar"></i> Posted &nbsp;{{job.jobPublished | date:'fullDate'}}</span>
+                        <div class="col-lg-10">
+                            <div class="content">
+                                <h5 class="product-title">Hiring {{job.jobName}}</h5>
+                                <a [routerLink]="['/companies']" [queryParams]="{orgId: job.organization.id}" ><p style="padding-bottom: 5px;" class="brand"><span><i class="fa fa-building"></i> &nbsp; &nbsp;{{job.organization.name}}</span> </p></a>
+                                <div class="tags">
+                                    <ul class="applied-job-1" style="display: -webkit-inline-box;">
+                                        <li class="shadow" style="list-style: none;"><i style="color: #468ACA;" class="fa fa-map-marker"></i> {{job.jobLocation}}</li>
+                                        <li class="shadow" style="list-style: none;"><i style="color: #468ACA;" class="fa fa-calendar"></i> Posted &nbsp;{{job.jobPublished | date:'fullDate'}}</li>
+                                    </ul>
+                                    <!-- <span></span>
+                                    <span></span> -->
+                                </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="col-lg-4 col-md-6 col-xs-12">
                     <div class="month-price">

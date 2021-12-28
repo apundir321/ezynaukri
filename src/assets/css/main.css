@@ -2452,7 +2452,7 @@ button:focus {
 .sideber .subscribe-form .form-group .form-control {
   border-radius: 30px;
   background: 0 0;
-  color: #fff;
+  color: #000;
   padding: 8px 15px;
 }
 .sideber .subscribe-form .form-group .form-control:focus {
