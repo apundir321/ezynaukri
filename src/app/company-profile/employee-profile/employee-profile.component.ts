@@ -30,7 +30,7 @@ export class EmployeeProfileComponent implements OnInit {
   ngOnInit() {
     let employeeId = this.route.snapshot.queryParamMap.get("employeeId");
     debugger;
-    this.userService.getProfile(employeeId).subscribe((data)=>{
+    this.userService.getProfileById(employeeId).subscribe((data)=>{
       console.log(data);
       this.user = data;
       if(data){

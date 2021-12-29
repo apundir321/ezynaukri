@@ -65,6 +65,10 @@ export class UserService {
         return this.http.get(environment.apiUrl+`getProfile?userId=`+userId);
     }
 
+    getProfileById(userId: any) {
+        return this.http.get(environment.apiUrl+`getProfileById?userId=`+userId);
+    }
+
     getRecruiter(userId: number) {
         return this.http.get(environment.apiUrl+`getRecruiterProfile?recruiterId=`+userId);
     }

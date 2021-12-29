@@ -101,7 +101,8 @@
             <div class="col-12">
               <div class="row">
                 <div class="col-lg-2 company-img-name">
-                  <img src="../../assets/images/company.png" alt="">
+                  <!-- <img src="../../assets/images/company.png" alt=""> -->
+                  <img [src]="job['organization']['orgProfileImage'] ? serverUrl + 'getProfilePic'+'/'+job['organization']['orgProfileImage'] : '../../assets/images/company.png'">
                 </div>
                 <div class="col-lg-10">
                   <a [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">

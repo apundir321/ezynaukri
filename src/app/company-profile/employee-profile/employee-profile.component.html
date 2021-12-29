@@ -84,18 +84,18 @@
                             <div *ngIf="user.tags.length>0">
                             <li *ngFor="let tag of user.tags">- {{tag.name}}</li>
                         </div>
-                        <div *ngIf="user.tags || user.tags.length>0">
+                        <div *ngIf="user.tags && user.tags.length==0">
                             Not configured by the user yet.
                         </div>
 
                         </ul>
-
+                        <hr>
                         <div class="work-experence item">
-                            <h5>Work Experience</h5>
+                            <h4>Work Experience</h4>
                             <div *ngIf="workExperiences; else workExperienceTemplate">
                                 <div *ngFor="let workExperience of workExperiences">
                                      <h5><i class="lni lni-apartment"></i> {{workExperience.jobDesignation}}</h5>
-                                    <h5>{{workExperience.companyName}}</h5>
+                                    <p>{{workExperience.companyName}}</p>
                                     <span class="date"><i class="lni lni-briefcase"></i> {{workExperience.startDate |
                                         date:'fullDate'}}   -   {{workExperience.endDate | date:'fullDate'}}</span>
                                     <br/>
@@ -111,8 +111,9 @@
 
 
                         </div>
+                        <hr>
                         <div class="education item">
-                            <h5>Education</h5>
+                            <h4>Education</h4>
                             <div *ngIf="educations; else educationTemplate">
                                 <div *ngFor="let education of educations">
                                     <h5>{{education.universityName}}</h5>

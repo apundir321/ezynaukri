@@ -41,6 +41,7 @@ export class JoblandingComponent implements OnInit {
   selectedLocations;
 
   url:any;
+  serverUrl:any;
   
   
 
@@ -51,6 +52,7 @@ export class JoblandingComponent implements OnInit {
     private notifyService : NotificationService,private formBuilder:FormBuilder,private userService:UserService) { }
 
   ngOnInit() {
+    this.serverUrl = environment.apiUrl;
     this.userService.getLocations().subscribe((data)=>{
       console.log(data);
       Object.keys(data).forEach((key)=>{

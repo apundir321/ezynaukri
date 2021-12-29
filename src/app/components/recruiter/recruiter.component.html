@@ -170,7 +170,7 @@
                                 <div class="job-featured">
                                     <a [routerLink]="['/recruiterProfile']" [queryParams]="{recruiterId: user.id}">
                                     <div class="icon">
-                                        <img [src]="user.profilePicName ? serverUrl+'getProfilePicByProfileId/'+user.profilePicName+'/'+user.id : 'https://www.w3schools.com/howto/img_avatar.png'" style="width: 70px;height: 70px;">
+                                        <img [src]="user.recruiterProfile ? serverUrl+'getProfilePicByProfileId/'+user.recruiterProfile.profilePic+'/'+user.id : 'https://www.w3schools.com/howto/img_avatar.png'" style="width: 70px;height: 70px;">
                                     </div>
                                     <div class="content">
                                         <h3><a href="job-details.html">{{user.firstName}} {{user.lastFirstName}}</a></h3>

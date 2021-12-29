@@ -51,7 +51,7 @@ export class RecruiterProfileComponent implements OnInit {
         postData['posted_by'] = profileId;
       }
       this.jobService.getJobsById(JSON.stringify(postData)).subscribe(jobsData => {
-        console.log(jobsData);
+        // console.log(jobsData);
         if(jobsData['jobs'])
         {
           this.jobs = jobsData['jobs'];
