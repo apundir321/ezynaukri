@@ -122,3 +122,19 @@ text-align: center;
 #custom-filter-button{
   margin: 6px -13px;
   }
+#icon-box {
+  display: -webkit-inline-box;
+}
+.set-row-rp {
+  margin-top: 4%;
+}
+.job-detail {
+  padding: 35px 0;
+}
+.product-title {
+  padding-bottom: 5px;
+}
+.post-prof {
+  padding: 1%;
+  border-radius: 15px;
+}

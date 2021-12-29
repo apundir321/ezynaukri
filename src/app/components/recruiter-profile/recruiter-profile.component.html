@@ -9,7 +9,7 @@
     <div style="clear:both"></div>
     <div class="page-header">
         <div class="container">
-            <div class="row">
+            <div class="row set-row-rp">
                 <div class="col-lg-8 col-md-6 col-xs-12">
                     <div class="breadcrumb-wrapper">
                         <div class="job-company-logo">
@@ -27,7 +27,7 @@
                             <!-- <input id="fileInput" type='file' (change)="onSelectFile($event)"> -->
                           </div>
                         <div class="content" *ngIf="user">
-                            <h3 class="product-title">{{user.firstName}} {{user.lastName}}</h3>
+                            <h3  class="product-title">{{user.firstName}} {{user.lastName}}</h3>
                             <!-- <div class="tags"><i class="fa fa-building-o" aria-hidden="true"></i>{{user.recruiterProfile.currentOrganization}}</div> -->
                             <div class="tags" *ngIf="user.recruiterProfile.currentOrganization">
                                 <span><i class="lni lni-apartment" ></i>{{user.recruiterProfile.currentOrganization}}</span>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="tags">
                                 <span  *ngIf="user.recruiterProfile.currentLocation"><i class="lni lni-map-marker"></i> {{user.recruiterProfile.currentLocation}}</span>
-                                <span><i class="lni lni-calendar"></i> Posted &nbsp;Wednesday, May 26, 2021</span>
+                                <span class="shadow post-prof"><i class="lni lni-calendar"></i> Posted &nbsp;Wednesday, May 26, 2021</span>
                             </div>
                         </div>
                     </div>

@@ -189,7 +189,7 @@
                                     </div>
                                         <span ><small>Phone Number :</small><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="user.phoneNo">    {{user.phoneNo}} </span><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="!user.phoneNo">Not Defined</span></span>
                                         <br/>
-                                        <span><small>Email Id :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.email">{{user.email}}</span><span style="color: gray;margin-left: 5%;" *ngIf="!user.email">Not Defined</span></span>
+                                        <span><small>Email Id :</small><p class="text-ellipse" style="color: gray;margin-left: 5%;" *ngIf="user.email">{{user.email}}</p><span style="color: gray;margin-left: 5%;" *ngIf="!user.email">Not Defined</span></span>
                                         <br/>
                                         <span *ngIf="user.recruiterProfile"><small>Current Organization :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.recruiterProfile.currentOrganization">    {{user.recruiterProfile.currentOrganization}} </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.recruiterProfile.currentOrganization">Not Defined</span></span>
                                         <br/>
@@ -197,7 +197,7 @@
                                     </div>
                                 </a>
                                     <div class="add-post-btn" style="margin-top: 4%;">
-                                        <div class="float-left">
+                                        <div class="float-left set-send-msg">
                                             <a (click)="saveProfile(user.id)"  class="btn-added" style="    position: absolute;
                                             bottom: 2%;
                                             left: 10%;"><i class="ti-plus"></i> Send Message</a>

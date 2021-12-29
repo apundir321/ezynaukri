@@ -244,3 +244,22 @@ li a:hover {
 #custom-filter-button{
 margin: 6px -13px;
 }
+.icon img {
+  border-radius: 50%;
+}
+.set-send-msg a:hover {
+  color: #a51d2b;
+}
+.set-send-msg a {
+  cursor: pointer;
+}
+.text-ellipse {
+  color: gray;
+    margin-left: 5%;
+    max-width: 70%;
+    display: inline-block;
+    float: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
