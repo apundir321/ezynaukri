@@ -37,7 +37,8 @@ export class OrganizationComponent implements OnInit {
       website:[''],
       organizationDescription: [''],
       profile:[''],
-      categoryName:['']
+      categoryName:[''],
+      location:['',Validators.required]
     });
 
     this.jobService.getCategories().subscribe((data)=>{
@@ -50,9 +51,9 @@ export class OrganizationComponent implements OnInit {
   get f() { return this.orgForm.controls; }
 
   onOrgSubmit() {
-    debugger;
+    
     this.submitted = true;
-    this.loading = true;
+   
     let organization = {};
     let category = {};
     // reset alerts on submit
@@ -63,10 +64,13 @@ export class OrganizationComponent implements OnInit {
     if (this.orgForm.invalid) {
       return;
     }
+    this.loading = true;
     let orgData = {};
     let categoryId = this.orgForm.controls.categoryName.value;
     orgData['name'] = this.orgForm.controls.organizationName.value;
     orgData['description'] = this.orgForm.controls.organizationDescription.value;
+    orgData['location'] = this.orgForm.controls.location.value;
+    // orgData['description'] = this.orgForm.controls.organizationDescription.value;
     const formData = new FormData();
     formData.append('file', this.orgForm.get('profile').value);
     formData.append('orgData',JSON.stringify(orgData));

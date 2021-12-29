@@ -192,7 +192,7 @@
                         <div class="content">
                             <h3>{{org.name}}</h3>
                             <p class="brand">{{org.description}}</p>
-                            <div class="tags">
+                            <div class="tags" *ngIf="org.location">
                                 <span><i class="lni lni-map-marker"></i>{{org.location}}</span>
                                 <!-- <span><i class="lni lni-user"></i>John Smith</span> -->
                             </div>

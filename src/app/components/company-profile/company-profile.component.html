@@ -85,7 +85,8 @@
                         <a [routerLink]="['/org-profile']" [queryParams]="{orgId: org.id}" >
                             <div class="job-featured">
                                 <div class="org-featured" style="padding-top: 5%;">
-                                    <img src="/assets/images/company.png" alt="" style="width: 45%;">
+                                    <img [src]="url ? url + 'getProfilePic'+'/'+org['orgProfileImage'] : '/assets/images/company.png'" style="width: 45%;">
+                                    <!-- <img src="" alt="" style="width: 45%;"> -->
                                 </div>
                                 <div class="org-content">
                                     <!-- <h3><a href="job-details.html">ANurag Pundir</a></h3>

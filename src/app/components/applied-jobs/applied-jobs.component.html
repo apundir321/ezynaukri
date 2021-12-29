@@ -65,6 +65,14 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    <div class="update-date">
+                                        <p class="status">
+                                            <strong>Posted on:</strong> {{job.job.jobPublished | date:'fullDate'}}
+                                        </p>
+                                        <div class="action-btn">
+                                            <a class="btn btn-xs btn-danger" style="color:white" (click)="deleteSavedJob(job.id)">Delete</a>
+                                        </div>
+                                    </div>
                                     <!-- <div class="col-lg-6">
                                         <div class="box-comp-det-btn">
                                             <button class="btn">Apply Now</button>

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NotificationService } from 'src/app/notification.service';
 import { AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-recruiter-profile',
@@ -20,6 +21,7 @@ export class RecruiterProfileComponent implements OnInit {
      private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
+    this.url = environment.apiUrl;
     let recruiterId = this.route.snapshot.queryParamMap.get("recruiterId");
     debugger;
     let currentUser = this.authenticationService.currentUserValue;

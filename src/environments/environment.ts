@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  // apiUrl : "http://ezynaukri-env.eba-xfvstnqk.us-east-2.elasticbeanstalk.com/"
-   apiUrl : "http://localhost:8080/"
+  apiUrl : "http://ezynaukri-env.eba-xfvstnqk.us-east-2.elasticbeanstalk.com/"
+  //  apiUrl : "http://localhost:8080/"
 
 };
 

@@ -8,6 +8,7 @@ import { NotificationService } from 'src/app/notification.service';
 import { ModalService } from 'src/app/_modal';
 import { AlertService, AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 export interface Task {
   name: string;
   completed: boolean;
@@ -50,6 +51,7 @@ export class CompanyProfileComponent implements OnInit {
   ];
   config:any;
   searchJobTags: string[] = [];
+  url :any;
   
   constructor(private route: ActivatedRoute, private notifyService: NotificationService,
     private jobService: JobService,private router:Router,private userService: UserService,
@@ -58,6 +60,7 @@ export class CompanyProfileComponent implements OnInit {
      private alertService:AlertService) { }
 
   ngOnInit() {
+    this.url = environment.apiUrl;
     this.userService.getLocations().subscribe((data)=>{
       console.log(data);
       Object.keys(data).forEach((key)=>{

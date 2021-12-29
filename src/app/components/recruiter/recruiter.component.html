@@ -177,7 +177,7 @@
                                         <p class="brand">Senior Recruiter</p>
                                         <!-- <h3>Wipro Pvt LTD</h3> -->
                                         <div class="tags">
-                                            <span><i class="fa fa-map-marker"></i> Noida</span>
+                                            <span *ngIf="user.recruiterProfile"><span *ngIf="user.recruiterProfile.currentLocation"><i class="fa fa-map-marker"></i> {{user.recruiterProfile.currentLocation}}</span></span>
                                         </div>
                                     </div>
                                     
@@ -187,11 +187,11 @@
             
                                         <p><span *ngFor="let tag of user.tags">   {{tag.name}},</span></p>
                                     </div>
-                                        <span ><small>Phone Number :</small><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="user.workExperience">    {{user.workExperience}} years </span><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="!user.workExperience">Not Defined</span></span>
+                                        <span ><small>Phone Number :</small><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="user.phoneNo">    {{user.phoneNo}} </span><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="!user.phoneNo">Not Defined</span></span>
                                         <br/>
-                                        <span><small>Email Id :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.currentCtc">    {{user.currentCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.currentCtc">Not Defined</span></span>
+                                        <span><small>Email Id :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.email">{{user.email}}</span><span style="color: gray;margin-left: 5%;" *ngIf="!user.email">Not Defined</span></span>
                                         <br/>
-                                        <span><small>Current Organization :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.expectedCtc">    {{user.expectedCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.expectedCtc">Not Defined</span></span>
+                                        <span *ngIf="user.recruiterProfile"><small>Current Organization :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.recruiterProfile.currentOrganization">    {{user.recruiterProfile.currentOrganization}} </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.recruiterProfile.currentOrganization">Not Defined</span></span>
                                         <br/>
                                         
                                     </div>

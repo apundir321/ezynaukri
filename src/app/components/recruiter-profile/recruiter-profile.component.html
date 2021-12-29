@@ -29,14 +29,14 @@
                         <div class="content" *ngIf="user">
                             <h3 class="product-title">{{user.firstName}} {{user.lastName}}</h3>
                             <!-- <div class="tags"><i class="fa fa-building-o" aria-hidden="true"></i>{{user.recruiterProfile.currentOrganization}}</div> -->
-                            <div class="tags">
-                                <span><i class="lni lni-apartment"></i>{{user.recruiterProfile.currentOrganization}}</span>
+                            <div class="tags" *ngIf="user.recruiterProfile.currentOrganization">
+                                <span><i class="lni lni-apartment" ></i>{{user.recruiterProfile.currentOrganization}}</span>
                             </div>
-                            <div class="tags">
+                            <div class="tags" *ngIf="user.recruiterProfile.currentJobRole">
                                 <span><i class="lni lni-briefcase"></i>{{user.recruiterProfile.currentJobRole}}</span>
                             </div>
                             <div class="tags">
-                                <span><i class="lni lni-map-marker"></i> Gurgaon</span>
+                                <span  *ngIf="user.recruiterProfile.currentLocation"><i class="lni lni-map-marker"></i> {{user.recruiterProfile.currentLocation}}</span>
                                 <span><i class="lni lni-calendar"></i> Posted &nbsp;Wednesday, May 26, 2021</span>
                             </div>
                         </div>
@@ -77,9 +77,8 @@
                                 <div *ngIf="jobs; else jobsTemplate">
                                     <div class="manager-resumes-item" *ngFor="let job of jobs">
                                        <a [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
-                                        <div class="manager-content">
-                                            <!-- <a href="resume.html"><img class="resume-thumb" src="img/jobs/avatar-1.jpg"
-                                                    alt=""></a> -->
+                                        <!-- <div class="manager-content">
+                                            
                                             <div class="manager-info">
                                                 <div class="manager-name">
                                                     <h4><a href="#">{{job.organization.name}}</a></h4>
@@ -90,6 +89,39 @@
                                                     <span class="location"><i class="lni lni-map-marker" ></i> {{job.jobLocation}}</span>
                                                     <span class="rate"><i class="lni lni-rupee"></i> {{job.minSalary}} LPA - {{job.maxSalary}} LPA</span>
                                                     <span class="rate"><i class="lni lni-library"></i> {{job.minExperience}} years - {{job.maxExperience}} years</span>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+                                        <div class="row set-color-inrow">
+                                            <div class="col-lg-2 ">
+                                                <div class="box-comp-image">
+                                                    <a href="">
+                                                        <!-- <img src="../../../assets/images/comp-1.png" alt=""> -->
+                                                        <img [src]="url ? url + 'getProfilePic'+'/'+job['organization']['orgProfileImage'] : '/assets/images/find-job.png'">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5 " style="padding-left: 5%;">
+                                                <div class="box-comp-det">
+                                                    <div>
+                                                    <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                                                </div><br/>
+                                                <h4>{{job.organization.name}}</h4>
+                                                    <!-- <div class="row">
+                                                        gaurav
+                                                    </div> -->
+                                                    <ul id="icon-box">
+                                                <li class="shadow"><i class="fas fa-shopping-bag"></i><span>{{job.jobName}}</span></li>
+                                                <li class="shadow"><i class="fa fa-briefcase" aria-hidden="true"></i> {{job.minExperience}} - {{ job.maxExperience}}
+                                                    yrs</li>
+                                                <li class="shadow"><i class="fa fa-map-marker" aria-hidden="true"></i> {{job.jobLocation}}</li>
+                                            </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5">
+                                                <div class="box-comp-det-btn">
+                                                    <button class="btn">Apply Now</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -112,87 +144,7 @@
 
                             </mat-tab>
                             <mat-tab label="Jobs Completed in Past">
-                                <div class="manager-resumes-item">
-                                    <div class="manager-content">
-                                        <a href="resume.html"><img class="resume-thumb" src="img/jobs/avatar-1.jpg"
-                                                alt=""></a>
-                                        <div class="manager-info">
-                                            <div class="manager-name">
-                                                <h4><a href="#">Zane Joyner</a></h4>
-                                                <h5>Front-end developer</h5>
-                                            </div>
-                                            <div class="manager-meta">
-                                                <span class="location"><i class="lni-map-marker"></i> Cupertino, CA,
-                                                    USA</span>
-                                                <span class="rate"><i class="lni-alarm-clock"></i> $55 per hour</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="update-date">
-                                        <p class="status">
-                                            <strong>Updated on:</strong> Fab 22, 2020
-                                        </p>
-                                        <div class="action-btn">
-                                            <a class="btn btn-xs btn-gray" href="#">Hide</a>
-                                            <a class="btn btn-xs btn-gray" href="#">Edit</a>
-                                            <a class="btn btn-xs btn-danger" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="manager-resumes-item">
-                                    <div class="manager-content">
-                                        <a href="resume.html"><img class="resume-thumb" src="img/jobs/avatar-1.jpg"
-                                                alt=""></a>
-                                        <div class="manager-info">
-                                            <div class="manager-name">
-                                                <h4><a href="#">Zane Joyner</a></h4>
-                                                <h5>Front-end developer</h5>
-                                            </div>
-                                            <div class="manager-meta">
-                                                <span class="location"><i class="lni-map-marker"></i> Cupertino, CA,
-                                                    USA</span>
-                                                <span class="rate"><i class="lni-alarm-clock"></i> $55 per hour</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="update-date">
-                                        <p class="status">
-                                            <strong>Updated on:</strong> Fab 22, 2020
-                                        </p>
-                                        <div class="action-btn">
-                                            <a class="btn btn-xs btn-gray" href="#">Hide</a>
-                                            <a class="btn btn-xs btn-gray" href="#">Edit</a>
-                                            <a class="btn btn-xs btn-danger" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="manager-resumes-item">
-                                    <div class="manager-content">
-                                        <a href="resume.html"><img class="resume-thumb" src="img/jobs/avatar-1.jpg"
-                                                alt=""></a>
-                                        <div class="manager-info">
-                                            <div class="manager-name">
-                                                <h4><a href="#">Zane Joyner</a></h4>
-                                                <h5>Front-end developer</h5>
-                                            </div>
-                                            <div class="manager-meta">
-                                                <span class="location"><i class="lni-map-marker"></i> Cupertino, CA,
-                                                    USA</span>
-                                                <span class="rate"><i class="lni-alarm-clock"></i> $55 per hour</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="update-date">
-                                        <p class="status">
-                                            <strong>Updated on:</strong> Fab 22, 2020
-                                        </p>
-                                        <div class="action-btn">
-                                            <a class="btn btn-xs btn-gray" href="#">Hide</a>
-                                            <a class="btn btn-xs btn-gray" href="#">Edit</a>
-                                            <a class="btn btn-xs btn-danger" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                
 
                             </mat-tab>
                         </mat-tab-group>
@@ -213,7 +165,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="widghet">
+                        <!-- <div class="widghet">
                             <h3>Share This Job</h3>
                             <div class="share-job">
                                 <form method="post" class="subscribe-form">
@@ -238,7 +190,7 @@
                                     <span class="meta-part"><a href="#"><i class="lni-share"></i> Share</a></span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -246,7 +198,7 @@
     </section>
 
 
-    <section id="featured" class="section bg-gray pb-45">
+    <!-- <section id="featured" class="section bg-gray pb-45">
         <div class="container">
             <h4 class="small-title text-left">Similar Jobs</h4>
             <div class="row">
@@ -300,7 +252,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </body>
 <app-footer></app-footer>
 
