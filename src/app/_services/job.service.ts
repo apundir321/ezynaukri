@@ -10,7 +10,7 @@ export class JobService {
     constructor(private http: HttpClient) { }
 
     getAll() {
-        return this.http.get<any>(environment.apiUrl+`getAllJobs?pageItem=0&pageSize=6`);
+        return this.http.get<any>(environment.apiUrl+`getAllJobs?pageItem=0&pageSize=1000`);
     }
 
     // delete(id: number) {
@@ -36,6 +36,12 @@ export class JobService {
     {
         return this.http.get(environment.apiUrl+'deleteSaveJob?savedJobId='+savedJobId);
     }
+
+    deleteAppliedJob(appliedJobId:any)
+    {
+        return this.http.get(environment.apiUrl+'deleteAppliedJob?appliedJobId='+appliedJobId);
+    }
+
 
 
     postJob(job: any,userId: number,categoryId: number,organizationId: number)

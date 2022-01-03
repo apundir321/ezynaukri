@@ -84,7 +84,7 @@ onSubmit() {
       return;
   }
   let currentUser = this.authenticationService.currentUserValue;
-  debugger;
+  // debugger;
   this.loading = true;
   console.log(this.workExperienceForm.value);
   this.userService.addWorkExperience(this.workExperienceForm.value,currentUser.id)

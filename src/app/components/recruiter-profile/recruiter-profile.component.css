@@ -22,7 +22,6 @@
     cursor: pointer;
     height: 100%;
     width: 100%;
-    border: 3px solid #000;
     border-radius: 50%;
   }
   .hoverable .hover-text{

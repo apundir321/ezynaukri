@@ -5,6 +5,7 @@ import { Autocomplete } from './autocomplete';
 import { NotificationService } from './notification.service';
 import {MatChipInputEvent} from '@angular/material/chips';
 import { ThemePalette } from '@angular/material/core';
+import { NavigationEnd, Router } from '@angular/router';
 
 export interface Task {
   name: string;
@@ -26,10 +27,16 @@ export class AppComponent implements OnInit{
   public text : String;
 
 
-  constructor() { 
+  constructor(private router: Router) { 
    }
 
   ngOnInit() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+  });
    
   }
 

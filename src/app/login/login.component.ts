@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    localStorage.clear();
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    debugger;
+    
     // reset alerts on submit
     // this.alertService.clear();
 
@@ -53,7 +54,7 @@ export class LoginComponent implements OnInit {
       ((data) => {
                 
                 
-          debugger;
+          // debugger;
           console.log("data recieved from authenticate service with data=")
           console.log(data);
           let role = data['roles'][0];
@@ -64,9 +65,9 @@ export class LoginComponent implements OnInit {
           }
         },
         (error) => {
-          alert("error="+error);
-          debugger;
-          this.notificationService.showError("Ezynaukri says!", JSON.stringify(error));
+          // alert("error="+error);
+         
+          this.notificationService.showError("Ezynaukri says!", "Invalid Credentials!");
           this.loading = false;this.submitted= false;
           this.router.navigate(['/login']);
         });

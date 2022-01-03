@@ -49,11 +49,11 @@ export class SavedJobsComponent implements OnInit {
   }
 
   deleteSavedJob(savedJobId: string) {
-    debugger;
+    // debugger;
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
       this.jobService.deleteSavedJob(savedJobId).subscribe((data)=>{
-        debugger;
+        // debugger;
         console.log("Saved Job Deleted Successfully");
         
         this.notifyService.showSuccess("Saved Job Deleted","EzyNaukri Says!!")

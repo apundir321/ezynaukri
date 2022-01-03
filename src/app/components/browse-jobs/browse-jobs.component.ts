@@ -113,7 +113,7 @@ export class BrowseJobsComponent implements OnInit {
       this.config = {
         currentPage: 1,
         itemsPerPage: 5,
-        totalItems: 10
+        totalItems: 0
       };
       this.route.queryParams.subscribe(
         params => this.config.currentPage = params['page'] ? params['page'] : 1);
@@ -165,7 +165,7 @@ export class BrowseJobsComponent implements OnInit {
   get f() { return this.browseForm.controls; }
 
   onSubmit() {
-    debugger;
+    // debugger;
     let tagArray = [];
     this.loading = true;
 

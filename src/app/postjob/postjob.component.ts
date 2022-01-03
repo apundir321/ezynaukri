@@ -61,7 +61,7 @@ export class PostjobComponent implements OnInit {
   getJobDetail(jobId: any) {
     this.jobService.getJobDetail(jobId).subscribe(data => {
       console.log(data);
-      debugger;
+      // debugger;
       let tagsString = "";
       let jobData = data['job'];
       let tagsArray = jobData['tags'];

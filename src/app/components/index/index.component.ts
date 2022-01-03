@@ -42,6 +42,7 @@ export class IndexComponent implements OnInit {
   url: any;
 
 
+
   constructor(private route: ActivatedRoute, private router: Router, private jobService: JobService, private authenticationService: AuthenticationService,
     private notifyService: NotificationService, private formBuilder: FormBuilder, private userService: UserService) { }
 
@@ -59,7 +60,6 @@ export class IndexComponent implements OnInit {
     //   .rest(500)
     //   .start()
     
-     
 
     this.userService.getLocations().subscribe((data) => {
       console.log(data);
@@ -119,7 +119,7 @@ export class IndexComponent implements OnInit {
   }
 
   filterJobs() {
-    debugger;
+    // debugger;
     var postData = {};
     let filteredData = [];
     if (this.selectedLocations && this.selectedLocations.length > 0) {

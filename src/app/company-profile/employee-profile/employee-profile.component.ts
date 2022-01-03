@@ -4,6 +4,7 @@ import { NotificationService } from 'src/app/notification.service';
 import { Tag } from 'src/app/skills/skills.component';
 import { AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-employee-profile',
   templateUrl: './employee-profile.component.html',
@@ -22,6 +23,7 @@ export class EmployeeProfileComponent implements OnInit {
   ];
 
   url:any;
+  resumeUrl : any;
 
   constructor(private route: ActivatedRoute, private notifyService: NotificationService,
     private userService: UserService,private jobService: JobService,private router:Router,
@@ -29,13 +31,16 @@ export class EmployeeProfileComponent implements OnInit {
 
   ngOnInit() {
     let employeeId = this.route.snapshot.queryParamMap.get("employeeId");
-    debugger;
+    // debugger;
     this.userService.getProfileById(employeeId).subscribe((data)=>{
       console.log(data);
       this.user = data;
       if(data){
       let userProfile = data;
       this.userProfile = userProfile;
+      if(userProfile['resume']){
+      this.resumeUrl = environment.apiUrl+'getProfilePicByProfileId/'+userProfile['resume']+'/'+userProfile['id'];
+      }
         Object.keys(userProfile['tags']).forEach((key)=>{
          
           let skillName = userProfile['tags'][key];

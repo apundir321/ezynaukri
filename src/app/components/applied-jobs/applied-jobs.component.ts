@@ -30,7 +30,7 @@ export class AppliedJobsComponent implements OnInit {
     if (currentUser && currentUser.id) {
     this.jobService.getAppliedJobs(currentUser.id).subscribe((data) => {
       console.log("Applied Jobs data");
-      debugger;
+      // debugger;
       console.log(data);
       this.savedJobs = data['pagesJob']['content'];
       this.totalPages= new Array(data['pagesJob']['totalPages']);
@@ -49,5 +49,21 @@ export class AppliedJobsComponent implements OnInit {
   pageChange(newPage: number) {
     this.router.navigate(['applied-jobs'], { queryParams: { page: newPage } });
   }
+
+  deleteAppliedJob(appliedJobId: string) {
+    // debugger;
+    let currentUser = this.authenticationService.currentUserValue;
+    if (currentUser && currentUser.id) {
+      this.jobService.deleteAppliedJob(appliedJobId).subscribe((data)=>{
+        // debugger;
+        localStorage.removeItem("appliedJobs");
+        console.log("Applied Job Deleted Successfully");
+        
+        this.notifyService.showSuccess("Applied Job Deleted","EzyNaukri Says!!")
+        this.ngOnInit();
+      })
+    }
+  }
+
 
 }

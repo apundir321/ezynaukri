@@ -71,7 +71,7 @@
                                 <!-- <a href="#" class="btn btn-common">Upload Resume</a> -->
                                 <label class="btn btn-common">
                                     <input type="file" style="display: none;" (change)="uploadResume($event)"/>
-                                    Upload Resume
+                                    <div *ngIf="resumeUrl">Update Resume</div><div *ngIf="!resumeUrl">Upload Resume</div>
                                 </label>
                                 
                             </div>
@@ -290,6 +290,31 @@
         <div class="form-group">
             <label class="control-label">Description</label>
             <textarea class="form-control" formControlName="aboutMe" rows="7"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Linkedin URL </label>
+            <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
+            <input type="text" formControlName="linkedinUrl" class="form-control"
+                 placeholder="Linkedin Url" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Facebook URL </label>
+            <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
+            <input type="text" formControlName="twitterUrl" class="form-control"
+                 placeholder="Twitter Url" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Facebook URL </label>
+            <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
+            <input type="text" formControlName="faceBookUrl" class="form-control"
+                 placeholder="Facebook Url" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Google Plus URL </label>
+            <!-- <input type="text" class="form-control" placeholder="e.g.London"> -->
+            <input type="text" formControlName="googlePlusUrl" class="form-control"
+                 placeholder="Google Plus Url" />
         </div>
 
 

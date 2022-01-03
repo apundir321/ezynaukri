@@ -54,7 +54,7 @@ export class SignupComponent implements OnInit {
         if (this.registerForm.invalid) {
             return;
         }
-        debugger;
+        // debugger;
         this.loading = true;
         this.userService.register(this.registerForm.value,this.f.isRecruiter.value)
             .pipe(first())

@@ -16,7 +16,7 @@
                             <!-- <img src="/assets/images/blog/img2.jpg" alt=""> -->
               
                             <label class="hoverable" for="fileInput">
-                              <img [src]="user.recruiterProfile.profilePic ? url+'getProfilePicByProfileId/'+user.recruiterProfile.profilePic+'/'+user.id : 'https://www.w3schools.com/howto/img_avatar.png'"> 
+                              <img [src]="user.recruiterProfile.profilePic ? url+'getRecruiterProfilePicById/'+user.recruiterProfile.profilePic+'/'+user.recruiterProfile.id : 'https://www.w3schools.com/howto/img_avatar.png'"> 
                               <!-- <div class="hover-text">
                                 Choose file
                                 <h4 class="success-message" *ngIf="url"> Uploaded Successfully </h4>
@@ -33,25 +33,25 @@
                                 <span><i class="lni lni-apartment" ></i>{{user.recruiterProfile.currentOrganization}}</span>
                             </div>
                             <div class="tags" *ngIf="user.recruiterProfile.currentJobRole">
-                                <span><i class="lni lni-briefcase"></i>{{user.recruiterProfile.currentJobRole}}</span>
+                                <span class="shadow post-prof"><i class="lni lni-briefcase"></i>{{user.recruiterProfile.currentJobRole}}</span>
                             </div>
                             <div class="tags">
-                                <span  *ngIf="user.recruiterProfile.currentLocation"><i class="lni lni-map-marker"></i> {{user.recruiterProfile.currentLocation}}</span>
-                                <span class="shadow post-prof"><i class="lni lni-calendar"></i> Posted &nbsp;Wednesday, May 26, 2021</span>
+                                <span  class="shadow post-prof" *ngIf="user.recruiterProfile.currentLocation"><i style="color: #468ACA;" class="fa fa-map-marker"></i>{{user.recruiterProfile.currentLocation}}</span>
+                                <span class="shadow post-prof"><i style="color: #468ACA;" class="fa fa-calendar"></i> Posted &nbsp;Wednesday, May 26, 2021</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-xs-12">
+                <div class="col-lg-4 col-md-6 col-xs-12" *ngIf="user">
                     <!-- <div class="month-price">
                         <span class="year">Yearly</span>
                         <div class="price">$65,000</div>
                     </div> -->
                     <ul class="mt-3 footer-social">
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a class="google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li *ngIf="user.recruiterProfile.faceBookUrl"><a class="facebook" href="{{user.recruiterProfile.faceBookUrl}}"><i class="fa fa-facebook"></i></a></li>
+                        <li><a *ngIf="user.recruiterProfile.twitterUrl" class="twitter" href="{{user.recruiterProfile.twitterUrl}}"><i class="fa fa-twitter"></i></a></li>
+                        <li><a *ngIf="user.recruiterProfile.linkedinUrl" class="linkedin" href="{{user.recruiterProfile.linkedinUrl}}"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a *ngIf="user.recruiterProfile.googlePlusUrl" class="google-plus" href="{{user.recruiterProfile.googlePlusUrl}}"><i class="fa fa-google-plus"></i></a></li>
                     </ul>
                 </div>
             </div>

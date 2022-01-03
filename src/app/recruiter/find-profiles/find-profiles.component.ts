@@ -26,7 +26,7 @@ export class FindProfilesComponent implements OnInit {
   categoryArray : string[] = [];
   
   location = new FormControl();
-  locations = [""];
+  locations = [];
   selectedLocations;
 
   serverUrl:string = environment.apiUrl;
@@ -189,7 +189,7 @@ export class FindProfilesComponent implements OnInit {
 
   filterProfiles()
   {
-    alert("filtering");
+    // alert("filtering");
     var postData = {};
     if(this.selectedLocations && this.selectedLocations.length>0)
     {
@@ -233,7 +233,7 @@ export class FindProfilesComponent implements OnInit {
 
   saveProfile(userId: any)
   {
-    debugger;
+    // debugger;
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
       let recruiterId = currentUser.id;
@@ -241,7 +241,7 @@ export class FindProfilesComponent implements OnInit {
         // console.log(data);
         this.notifyService.showInfo("Ezynaukari says!","Profile has been saved!");
       },(err)=>{
-        debugger;
+        // debugger;
         this.notifyService.showError("Ezynaukari says!",err)
       });
     }

@@ -50,7 +50,7 @@ export class RecruiterUserProfileComponent implements OnInit {
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
       this.userService.getUser(currentUser.id).subscribe((data) => {
-        debugger;
+        // debugger;
         console.log(data);
         this.user = data;
         if (data['recruiterProfile']) {
@@ -82,7 +82,11 @@ export class RecruiterUserProfileComponent implements OnInit {
         maxQualification: ['', Validators.required],
         workExperience: [''],
         currentLocation: [''],
-        aboutMe: ['']
+        aboutMe: [''],
+        faceBookUrl:[''],
+        twitterUrl:[''],
+        linkedinUrl:[''],
+        googlePlusUrl:['']
       });
 
       // this.userService.getUser(currentUser.id).subscribe((data)=>{
@@ -127,7 +131,7 @@ export class RecruiterUserProfileComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    alert("submitting");
+    // alert("submitting");
     // reset alerts on submit
     this.alertService.clear();
 
@@ -136,7 +140,7 @@ export class RecruiterUserProfileComponent implements OnInit {
       return;
     }
     let currentUser = this.authenticationService.currentUserValue;
-    debugger;
+    // debugger;
     this.loading = true;
     this.userService.saveRecruiterProfile(this.userForm.value, currentUser.id)
       .pipe(first())

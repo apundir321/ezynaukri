@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="col-lg-10">
-        <div class="row ready-line">
+        <div class="row ready-line" *ngIf="!isLoggedIn">
           <div class="col-lg-9">
             <div class="box-ready">
               <p>Ready to get started?</p>
@@ -16,7 +16,7 @@
           </div>
           <div class="col-lg-3">
             <div class="box-ready-btn">
-              <button class="btn shadow">Get started</button>
+              <a class="btn shadow" style="color: white;" [routerLink]="['/login']">Get started</a>
             </div>
           </div>
         </div>
@@ -25,11 +25,11 @@
             <div class="box-list">
               <ul>
                 <li><strong>Job Category</strong></li>
-                <a href="" [routerLink]="['/browse-jobs']"><li>Designing</li></a>
-                <a href="" [routerLink]="['/browse-jobs']"><li>Marketing</li></a>
-                <a href="" [routerLink]="['/browse-jobs']"><li>Development</li></a>
-                <a href="" [routerLink]="['/browse-jobs']"><li>Data Analytics</li></a>
-                <a href="" [routerLink]="['/browse-jobs']"><li>Post New Job </li></a>
+                <a href="" [routerLink]="['/browse-jobs']"><li>Die Casting</li></a>
+                <a href="" [routerLink]="['/browse-jobs']"><li>Sheet Metal</li></a>
+                <a href="" [routerLink]="['/browse-jobs']"><li>Manufactoring</li></a>
+                <a href="" [routerLink]="['/browse-jobs']"><li>Manufactoring Automotive</li></a>
+                <a href="" [routerLink]="['/browse-jobs']"><li>Fastner line</li></a>
               </ul>
             </div>
             
@@ -51,11 +51,11 @@
             <div class="box-list">
               <ul>
                 <li><strong>RESOURCES</strong></li>
-                <a href="" [routerLink]="['/profile']"><li>My Account </li></a>
-                <a href="#"><li>Support</li></a>
-                <a href="#"><li>How It Works</li></a>
-                <a href="#"><li>Underwriting</li></a>
-                <a href="#"><li>Employers</li></a>
+                <a [routerLink]="['/profile']"><li>My Account </li></a>
+                <a [routerLink]="['/']"><li>Support</li></a>
+                <a [routerLink]="['/']"><li>How It Works</li></a>
+                <a [routerLink]="['/']"><li>Underwriting</li></a>
+                <a [routerLink]="['/']"><li>Employers</li></a>
               </ul>
             </div>
             
@@ -64,11 +64,11 @@
             <div class="box-list">
               <ul>
                 <li><strong>QUICK LINKS</strong></li>
-                <a href="" [routerLink]="['/browse-jobs']"><li>Jobs Listing</li></a>
-                <a href="" [routerLink]="['/about']"><li>About Us</li></a>
-                <a href=""><li>Contact Us</li></a>
-                <a href="#"><li>Privacy Policy</li></a>
-                <a href="#"><li>Term & Condition</li></a>
+                <a  [routerLink]="['/browse-jobs']"><li>Jobs Listing</li></a>
+                <a  [routerLink]="['/about']"><li>About Us</li></a>
+                <a [routerLink]="['/contact']"><li>Contact Us</li></a>
+                <a [routerLink]="['/']"><li>Privacy Policy</li></a>
+                <a [routerLink]="['/']"><li>Terms & Condition</li></a>
               </ul>
             </div>
             

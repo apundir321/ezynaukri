@@ -72,7 +72,7 @@ export class EducationComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    alert("submitting");
+    // alert("submitting");
     // reset alerts on submit
     this.alertService.clear();
 
@@ -81,7 +81,7 @@ export class EducationComponent implements OnInit {
       return;
     }
     let currentUser = this.authenticationService.currentUserValue;
-    debugger;
+    // debugger;
     this.loading = true;
     console.log(this.educationForm.value);
     this.userService.addEducation(this.educationForm.value, currentUser.id)

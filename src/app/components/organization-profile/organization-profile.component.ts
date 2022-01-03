@@ -59,7 +59,7 @@ export class OrganizationProfileComponent implements OnInit {
       } 
       let filteredData = [];
       this.jobService.getOrgsByCriteria(JSON.stringify(postData)).subscribe((orgData) => {
-        debugger;
+        // debugger;
        
         let recomendedOrgsArray = [];
        

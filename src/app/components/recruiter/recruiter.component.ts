@@ -96,14 +96,14 @@ export class RecruiterComponent implements OnInit {
     })
 
     this.jobService.getOrgs().subscribe((data)=>{
-      console.log(data);
+      // console.log(data);
       Object.keys(data).forEach((key)=>{
         
         this.organizations.push(data[key]['name']);
       })
     })
     this.userService.getRecruitersByParams(JSON.stringify({})).subscribe((data) => {
-      // console.log(data);
+      console.log(data);
       this.users = data;
       this.config = {
         currentPage: 1,
@@ -212,7 +212,7 @@ export class RecruiterComponent implements OnInit {
 
   filterProfiles()
   {
-    alert("filtering");
+    // alert("filtering");
     var postData = {};
     if(this.selectedLocations && this.selectedLocations.length>0)
     {
@@ -256,7 +256,7 @@ export class RecruiterComponent implements OnInit {
 
   saveProfile(userId: any)
   {
-    debugger;
+    // debugger;
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
       let recruiterId = currentUser.id;
@@ -264,7 +264,7 @@ export class RecruiterComponent implements OnInit {
         // console.log(data);
         this.notifyService.showInfo("Ezynaukari says!","Profile has been saved!");
       },(err)=>{
-        debugger;
+        // debugger;
         this.notifyService.showError("Ezynaukari says!",err)
       });
     }

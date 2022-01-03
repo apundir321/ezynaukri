@@ -160,7 +160,7 @@ export class CompanyProfileComponent implements OnInit {
 
   submit()
   {
-    debugger;
+    // debugger;
     var postData = {};
     if(this.locationArray.length>0)
     {
@@ -207,7 +207,7 @@ export class CompanyProfileComponent implements OnInit {
 
   filterCompany()
   {
-    debugger;
+    // debugger;
     var postData = {};
     if(this.selectedLocations)
     {

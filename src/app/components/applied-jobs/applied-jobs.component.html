@@ -38,8 +38,9 @@
                     <div class="job-alerts-item candidates">
                         <h3 class="alerts-title">Jobs Applied By You</h3>
                         <div class="manager-resumes-item" *ngFor="let job of savedJobs | paginate: config" >
-                            <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.job.id}">
+                            
                                 <div class="row set-color-inrow">
+                                    <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.job.id}">
                                     <div class="col-lg-3 ">
                                         <div class="box-comp-image">
                                             <a href="">
@@ -65,12 +66,13 @@
                                             </ul>
                                         </div>
                                     </div>
+                                    </a>
                                     <div class="update-date">
                                         <p class="status">
                                             <strong>Posted on:</strong> {{job.job.jobPublished | date:'fullDate'}}
                                         </p>
                                         <div class="action-btn">
-                                            <a class="btn btn-xs btn-danger" style="color:white" (click)="deleteSavedJob(job.id)">Delete</a>
+                                            <a class="btn btn-xs btn-danger" style="color:white" (click)="deleteAppliedJob(job.id)">Delete</a>
                                         </div>
                                     </div>
                                     <!-- <div class="col-lg-6">
@@ -79,7 +81,7 @@
                                         </div>
                                     </div> -->
                                 </div>
-                            </a>
+                            
                         </div>
                         
                         <!-- <a class="btn btn-common btn-sm" href="add-resume.html">Add new resume</a> -->

@@ -52,8 +52,10 @@ export class UserProfileComponent implements OnInit {
         this.url = environment.apiUrl+"getProfilePic"+"/"+profilePic+"/"+currentUser.id;
       }
       this.userProfile = userProfile;
-      this.resumeUrl = this.serverUrl+'getProfilePicByProfileId/'+userProfile.resume+'/'+userProfile.id;
-        Object.keys(userProfile['tags']).forEach((key)=>{
+      if(userProfile.resume){
+        this.resumeUrl = this.serverUrl+'getProfilePicByProfileId/'+userProfile.resume+'/'+userProfile.id;
+      }
+      Object.keys(userProfile['tags']).forEach((key)=>{
          
           let skillName = userProfile['tags'][key];
           console.log(skillName);
@@ -83,7 +85,11 @@ export class UserProfileComponent implements OnInit {
             expectedCtc:['',Validators.required],
             aboutMe:[''],
             currentLocation:['',Validators.required],
-            currentOrganization:['',Validators.required]
+            currentOrganization:['',Validators.required],
+        faceBookUrl:[''],
+        twitterUrl:[''],
+        linkedinUrl:[''],
+        googlePlusUrl:['']
     });
 
     this.jobService.getUserProfile(currentUser.id).subscribe((data)=>{
@@ -148,7 +154,7 @@ export class UserProfileComponent implements OnInit {
 
 onSubmit() {
   this.submitted = true;
-  alert("submitting");
+  // alert("submitting");
   // reset alerts on submit
   this.alertService.clear();
 
@@ -157,7 +163,7 @@ onSubmit() {
       return;
   }
   let currentUser = this.authenticationService.currentUserValue;
-  debugger;
+  // debugger;
   this.loading = true;
   this.userService.saveProfile(this.userForm.value,currentUser.id)
       .pipe(first())

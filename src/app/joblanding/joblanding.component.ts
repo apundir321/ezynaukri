@@ -78,7 +78,7 @@ export class JoblandingComponent implements OnInit {
           }
         }
       })
-      debugger;
+      // debugger;
 
       this.jobData = jobListData;
       console.log(this.jobData);
@@ -137,7 +137,7 @@ export class JoblandingComponent implements OnInit {
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
       this.jobService.save(jobId, currentUser.id).subscribe((data)=>{
-        debugger;
+        // debugger;
         console.log("Job saved Successfully");
         if(data['message']==="Job Already Saved")
         {
@@ -193,7 +193,7 @@ export class JoblandingComponent implements OnInit {
 
   filterJobs()
   {
-    debugger;
+    // debugger;
     var postData = {};
     if(this.selectedLocations && this.selectedLocations.length>0)
     {

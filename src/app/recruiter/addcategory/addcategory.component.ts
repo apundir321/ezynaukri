@@ -43,7 +43,7 @@ export class AddcategoryComponent implements OnInit {
   get f() { return this.categoryForm.controls; }
 
   onCategorySubmit() {
-    debugger;
+    // debugger;
     this.submitted = true;
     this.loading = true;
     

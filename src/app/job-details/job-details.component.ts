@@ -39,7 +39,7 @@ export class JobDetailsComponent implements OnInit {
   getJobDetail(jobId: any) {
     this.jobService.getJobDetail(jobId).subscribe(data => {
       // console.log(data);
-      debugger;
+      // debugger;
       let jobData = data['job'];
       let organization = jobData['organization'];
       if(organization)
@@ -64,7 +64,7 @@ export class JobDetailsComponent implements OnInit {
       } 
       let filteredData = [];
       this.jobService.getFilterByTags(JSON.stringify(postData)).subscribe((data) => {
-        debugger;
+        // debugger;
         let jobs = data['pagesJob']['content'];
         let recomendedJobsArray = [];
         console.log(this.recomendedJobs);
@@ -95,7 +95,7 @@ export class JobDetailsComponent implements OnInit {
   }
 
   applyJob(jobId: string) {
-    debugger;
+    // debugger;
     let currentUser = this.authenticationService.currentUserValue;
     if (currentUser && currentUser.id) {
       this.jobService.applyJob(jobId, currentUser.id).subscribe((data) => {

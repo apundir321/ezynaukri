@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../_services';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
-  constructor() { }
+  isLoggedIn : boolean = false;
+  constructor( private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
+    const currentUser = this.authenticationService.currentUserValue;
+    if (currentUser) {
+      this.isLoggedIn = true;
+    }
   }
 
 }

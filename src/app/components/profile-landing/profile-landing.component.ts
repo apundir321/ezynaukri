@@ -21,7 +21,7 @@ export class ProfileLandingComponent implements OnInit {
   countryValue = '';
   // locations:any;
   myControl = new FormControl();
-  options: string[] = ['Gurgaon', 'Delhi', 'Banglore'];
+  options: string[] = [];
   visible = true;
   selectable = true;
   removable = true;
@@ -34,7 +34,7 @@ export class ProfileLandingComponent implements OnInit {
 
 
   location = new FormControl();
-  locations = ["Gurgaon"];
+  locations = [];
   selectedLocations;
 
 
@@ -68,7 +68,7 @@ export class ProfileLandingComponent implements OnInit {
       })
 
       this.userService.getEmployeesByParams(JSON.stringify({})).subscribe((data) => {
-        debugger;
+        // debugger;
         console.log(data);
         this.users = data;
         
@@ -115,7 +115,7 @@ export class ProfileLandingComponent implements OnInit {
 
   filterJobs()
   {
-    alert("filtering");
+    // alert("filtering");
     var postData = {};
     if(this.selectedLocations && this.selectedLocations.length>0)
     {

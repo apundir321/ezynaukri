@@ -23,7 +23,7 @@ export class RecruiterProfileComponent implements OnInit {
   ngOnInit() {
     this.url = environment.apiUrl;
     let recruiterId = this.route.snapshot.queryParamMap.get("recruiterId");
-    debugger;
+    
     let currentUser = this.authenticationService.currentUserValue;
     if (recruiterId) {
       this.getRecruiterDetail(recruiterId);
@@ -40,7 +40,7 @@ export class RecruiterProfileComponent implements OnInit {
   }
 
   getRecruiterDetail(recruiterId: any) {
-    debugger;
+    
     this.userService.getRecruiterByProfileId(recruiterId).subscribe(data => {
       console.log(data);
       this.user = data;

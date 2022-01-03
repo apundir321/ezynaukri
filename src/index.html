@@ -20,7 +20,6 @@
 // animation==============js===//
 
 var Animation = function({ offset } = { offset: 10 }) {
-  debugger;
     var _elements;
   
     // Define a dobra superior, inferior e laterais da tela
@@ -61,33 +60,32 @@ var Animation = function({ offset } = { offset: 10 }) {
     }
   
     // Percorre o array de elementos, verifica se o elemento está na tela e inicia animação
-    function checkElementsOnScreen(els = _elements) {
-      for (var i = 0, len = els.length; i < len; i++) {
-        // Passa para o proximo laço se o elemento ja estiver animado
-        if (els[i].dataset.animated) continue;
+    // function checkElementsOnScreen(els = _elements) {
+    //   for (var i = 0, len = els.length-1  ; i < len; i++) {
+    //     // Passa para o proximo laço se o elemento ja estiver animado
+    //     if (els[i].dataset.animated) continue;
   
-        isElementOnScreen(els[i]) && start(els[i]);
-      }
-    }
+    //     isElementOnScreen(els[i]) && start(els[i]);
+    //   }
+    // }
   
     // Atualiza a lista de elementos a serem animados
-    function update() {
-      _elements = document.querySelectorAll(
-        "[data-animation]:not([data-animated])"
-      );
-      checkElementsOnScreen(_elements);
-    }
+    // function update() {
+    //   _elements = document.querySelectorAll(
+    //     "[data-animation]:not([data-animated])"
+    //   );
+    //   checkElementsOnScreen(_elements);
+    // }
   
     // Inicia os eventos
-    window.addEventListener("load", update, false);
-    window.addEventListener("scroll", () => checkElementsOnScreen(_elements), { passive: true });
-    window.addEventListener("resize", () => checkElementsOnScreen(_elements), false);
+    // window.addEventListener("load", update, false);
+    // window.addEventListener("scroll", () => checkElementsOnScreen(_elements), { passive: true });
+    // window.addEventListener("resize", () => checkElementsOnScreen(_elements), false);
   
     // Retorna funcoes publicas
     return {
       start,
-      isElementOnScreen,
-      update
+      isElementOnScreen
     };
   };
   

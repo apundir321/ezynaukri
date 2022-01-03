@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     // remove user from local storage and set current user to null
-    localStorage.removeItem('currentUser');
+    localStorage.clear();
     this.notification.showSuccess("Ezynaukri Says!","You have been logged out!")
     this.router.navigate(['/login']);
     // this.currentUserSubject.next(null);
