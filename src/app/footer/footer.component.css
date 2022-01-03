@@ -1,5 +1,5 @@
 #footer-update {
-    background-color: #393838;
+    background-color: #fff;
     padding-top: 8%;
     padding-bottom: 8%;
 }
@@ -26,7 +26,7 @@
 }
 .ready-line {
     padding-bottom: 25px;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #464242;
 }
 .box-list ul {
     line-height: 28px;
@@ -36,16 +36,17 @@
     float: right;
 }
 .box-list li {
-    color: #F6F5F4;
+    color: #464242;
 }
 .box-list strong {
-    color: #fff;
+    color: #464242;
 }
 .box-ready p {
-    color: #fff;
+    color: #464242;
 }
 .box-logo-image p {
-    color: #D9D8D8;
+    color: #464242;
+    margin-top: 20%;
 }
 
 @media (max-width:767px) {

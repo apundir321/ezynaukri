@@ -151,7 +151,7 @@
     <button [disabled]="loading" type="submit" class="btn btn-common log-btn"><span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Submit</button>
     </form>
     <ul class="form-links">
-        <li class="text-center"><a href="/signup">Don't have an account?</a></li>
+        <li class="text-center"><a [routerLink]="['/signup']">Don't have an account?</a></li>
     </ul>
     </div>
     </div>

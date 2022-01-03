@@ -181,7 +181,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="box-ezy-1 slideInUp" data-animation="slideInUp" data-animation-delay="40ms"  data-animated="true">
-                        <h1 class="tw">Find jobs  </h1>
+                        <h1 class="tw" style="font-weight: 400;">Find jobs <span style="font-weight: 600;">Software Developer</span>  </h1>
                         <p>Experience the joy of finding the right job for you. </p>
                     </div>
                 </div>
@@ -200,7 +200,7 @@
                                         {{jobTag.name}}
                                         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                                     </mat-chip>
-                                    <input placeholder="Job Tags" [matChipInputFor]="chipList"
+                                    <input placeholder= "&#xf002; Job Tags" [matChipInputFor]="chipList"
                                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                                         [matChipInputAddOnBlur]="addOnBlur"
                                         (matChipInputTokenEnd)="add($event)">
@@ -292,7 +292,7 @@
                         </div> -->
 
                         <div class="row set-color-inrow">
-                            <div class="col-lg-1 ">
+                            <div class="col-lg-2 ">
                                 <div class="box-comp-image">
                                     <a href="">
                                         <!-- <img src="../../../assets/images/comp-1.png" alt=""> -->
@@ -304,20 +304,20 @@
                                 <div class="box-comp-det">
                                     <div>
                                     <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
-                                </div><br/>
+                                </div>
                                 <h4>{{job.jobName}}</h4>
                                     <!-- <div class="row">
                                         gaurav
                                     </div> -->
                                     <ul id="icon-box">
                                         <li class="shadow"><i class="fas fa-shopping-bag"></i><span>{{job.organization.name}}</span></li>
-                                        <li class="shadow"><i class="fa fa-briefcase" aria-hidden="true"></i> {{job.minExperience}} - {{ job.maxExperience}}
-                                            yrs</li>
-                                        <li class="shadow"><i class="fa fa-map-marker" aria-hidden="true"></i> {{job.jobLocation}}</li>
+                                        <li class="shadow"><i class="fa fa-briefcase" aria-hidden="true"></i> <span>{{job.minExperience}} - {{ job.maxExperience}}
+                                            yrs</span> </li>
+                                        <li class="shadow"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>{{job.jobLocation}}</span> </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-lg-6">
+                            <div class="col-lg-5">
                                 <div class="box-comp-det-btn">
                                     <button class="btn">Apply Now</button>
                                 </div>
@@ -358,34 +358,28 @@
         <div class="row mt-4">
             
                 <div class="col-lg-4">
-                    <a [routerLink]="['browse-jobs']">
-                    <div class="box-chart shadow">
-                        <img src="../../../assets/images/chart.png" alt="">
-                        <h4>Finance</h4>
-                        <!-- <p>8917 Jobs</p> -->
-                        <!-- <p id="openings">21 Openings</p> -->
-                    </div>
-                </a>
+                   <a href="" [routerLink]="['/browse-jobs']"><div class="box-chart box-chart1 shadow">
+                    <img src="../../../assets/images/moni-1.png" alt="">
+                    <h4>Finance</h4>
+                    <!-- <p>8917 Jobs</p>
+                    <p id="openings">21 Openings</p> -->
+                </div></a> 
                 </div>
                 <div class="col-lg-4">
-                    <a [routerLink]="['browse-jobs']">
-                    <div class="box-chart shadow response">
-                        <img src="../../../assets/images/chart.png" alt="">
+                    <a href="" [routerLink]="['/browse-jobs']"><div class="box-chart box-chart2 shadow response">
+                        <img src="../../../assets/images/moni-2.png" alt="">
                         <h4>IT/Technology</h4>
-                        <!-- <p>8917 Jobs</p> -->
-                        <!-- <p id="openings">21 Openings</p> -->
-                    </div>
-                    </a>
+                        <!-- <p>8917 Jobs</p>
+                        <p id="openings">21 Openings</p> -->
+                    </div></a>
                 </div>
                 <div class="col-lg-4">
-                    <a [routerLink]="['browse-jobs']">
-                    <div class="box-chart shadow response">
-                        <img src="../../../assets/images/chart.png" alt="">
+                    <a href="" [routerLink]="['/browse-jobs']"><div class="box-chart box-chart3 shadow response">
+                        <img src="../../../assets/images/moni-3.png" alt="">
                         <h4>Manufactoring</h4>
-                        <!-- <p>8917 Jobs</p> -->
-                        <!-- <p id="openings">21 Openings</p> -->
-                    </div>
-                </a>
+                        <!-- <p>8917 Jobs</p>
+                        <p id="openings">21 Openings</p> -->
+                    </div></a>
                 </div>
             
         </div>
@@ -393,34 +387,28 @@
         <div class="row mt-4">
             
             <div class="col-lg-4">
-                <a [routerLink]="['browse-jobs']">
-                <div class="box-chart shadow">
-                    <img src="../../../assets/images/chart.png" alt="">
-                    <h4>Human resources</h4>
-                    <!-- <p>8917 Jobs</p> -->
-                    <!-- <p id="openings">21 Openings</p> -->
-                </div>
-            </a>
+                <a href="" [routerLink]="['/browse-jobs']"><div class="box-chart box-chart4 shadow">
+                    <img src="../../../assets/images/moni-4.png" alt="">
+                    <h4>Human Resources</h4>
+                    <!-- <p>8917 Jobs</p>
+                    <p id="openings">21 Openings</p> -->
+                </div></a>
             </div>
             <div class="col-lg-4">
-                <a [routerLink]="['browse-jobs']">
-                <div class="box-chart shadow response">
-                    <img src="../../../assets/images/chart.png" alt="">
+                <a href="" [routerLink]="['/browse-jobs']"><div class="box-chart box-chart5 shadow response">
+                    <img src="../../../assets/images/moni-5.png" alt="">
                     <h4>Insurance</h4>
-                    <!-- <p>8917 Jobs</p> -->
-                    <!-- <p id="openings">21 Openings</p> -->
-                </div>
-                </a>
+                    <!-- <p>8917 Jobs</p>
+                    <p id="openings">21 Openings</p> -->
+                </div></a>
             </div>
             <div class="col-lg-4">
-                <a [routerLink]="['browse-jobs']">
-                <div class="box-chart shadow response">
-                    <img src="../../../assets/images/chart.png" alt="">
+                <a href="" [routerLink]="['/browse-jobs']"><div class="box-chart box-chart6 shadow response">
+                    <img src="../../../assets/images/moni-6.png" alt="">
                     <h4>Automobile</h4>
-                    <!-- <p>8917 Jobs</p> -->
-                    <!-- <p id="openings">21 Openings</p> -->
-                </div>
-                </a>
+                    <!-- <p>8917 Jobs</p>
+                    <p id="openings">21 Openings</p> -->
+                </div></a>
             </div>
         
     </div>
@@ -465,18 +453,18 @@
                     </div>
                     <div class="col-lg-5 " style="padding-left: 5%;">
                         <div class="box-comp-det">
-                            <div>
-                            <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
-                        </div><br/>
-                        <h4>{{job.jobName}}</h4>
+                            <div >
+                            <p class="full-fix"><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
+                        </div>
+                        <h4>{{job.organization.name}}</h4>
                             <!-- <div class="row">
                                 gaurav
                             </div> -->
                             <ul id="icon-box">
-                                <li class="shadow"><i class="fa fa-building"></i><span>{{job.organization.name}}</span></li>
-                                <li class="shadow"><i class="fa fa-briefcase" aria-hidden="true"></i> {{job.minExperience}} - {{ job.maxExperience}}
-                                    yrs</li>
-                                <li class="shadow"><i class="fa fa-map-marker" aria-hidden="true"></i> {{job.jobLocation}}</li>
+                                <li class="shadow"><i class="fas fa-shopping-bag"></i><span>{{job.organization.name}}</span></li>
+                                <li class="shadow"><i class="fa fa-briefcase" aria-hidden="true"></i> <span>{{job.minExperience}} - {{ job.maxExperience}}yrs</span> 
+                                    </li>
+                                <li class="shadow"><i class="fa fa-map-marker" aria-hidden="true"></i> <span>{{job.jobLocation}}</span> </li>
                             </ul>
                         </div>
                     </div>
@@ -555,7 +543,7 @@
     </div>
    </section>
 
-   <section id="newsletter">
+   <section style="background-color: #EEEEEE;" id="newsletter">
     <div class="container">
         <div class="row subscribe">
             <div class="col-lg-6">

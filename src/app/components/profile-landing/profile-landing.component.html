@@ -7,7 +7,15 @@
     <div class="page-header">
         <div class="inner-header top-header">
             <div class="container">
-                <div class="row jobserch" style="padding-left: 5%;">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <div class="box-rec-cand">
+                            <h1>Find your <span style="font-weight: 600;">Candidate</span> </h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Eu in sed in eu.  </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row jobserch" style="padding-left: 5%; padding-top: 1px;">
 
                     <div class="job-search-form bg-cyan job-featured-search"
                         style="width: 100%; background-color: white;">
@@ -173,13 +181,13 @@
         
                                     <p><span *ngFor="let tag of user.tags">   {{tag.name}},</span></p>
                                 </div>
-                                    <span ><small>Work Experience :</small><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="user.workExperience">    {{user.workExperience}} years </span><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="!user.workExperience">Not Defined</span></span>
+                                    <span ><small style="color: grey; font-weight: 600; font-size: 15px;">Work Experience :</small><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="user.workExperience">    {{user.workExperience}} years </span><span class="profile" style="color: gray; margin-left: 5%;" *ngIf="!user.workExperience">Not Defined</span></span>
                                     <br/>
-                                    <span><small>Current CTC :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.currentCtc">    {{user.currentCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.currentCtc">Not Defined</span></span>
+                                    <span><small style="color: grey; font-weight: 600; font-size: 15px;">Current CTC :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.currentCtc">    {{user.currentCtc}} LPA </span><span style="color: gray;margin-left: 20%;" *ngIf="!user.currentCtc">Not Defined</span></span>
                                     <br/>
-                                    <span><small>Expected CTC :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.expectedCtc">    {{user.expectedCtc}} LPA </span><span style="color: gray;margin-left: 5%;" *ngIf="!user.expectedCtc">Not Defined</span></span>
+                                    <span><small style="color: grey; font-weight: 600; font-size: 15px;">Expected CTC :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.expectedCtc">    {{user.expectedCtc}} LPA </span><span style="color: gray;margin-left: 16%;" *ngIf="!user.expectedCtc">Not Defined</span></span>
                                     <br/>
-                                    <span><small>Notice Period :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.noticePeriod">    90 Days </span> <span style="color: gray;margin-left: 5%;" *ngIf="!user.noticePeriod">Not Defined</span></span>
+                                    <span><small style="color: grey; font-weight: 600; font-size: 15px;">Notice Period :</small><span style="color: gray;margin-left: 5%;" *ngIf="user.noticePeriod">    90 Days </span> <span style="color: gray;margin-left: 17%;" *ngIf="!user.noticePeriod">Not Defined</span></span>
                                     
                                     
         

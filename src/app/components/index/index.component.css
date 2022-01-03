@@ -12,7 +12,7 @@
         margin-top: 75px;
     }
     .box-ezy-1 span {
-        color: #B62230;
+        color: #fff;
     }
     .box-ezy-1 h1 {
         color: #fff;
@@ -117,9 +117,9 @@
     background: #EEEAEA;
     }
     .box-chart img {
-        border: 12px solid #fff;
+        /* border: 12px solid #fff;
     border-radius: 50%;
-    background: #fff;
+    background: #fff; */
     margin-bottom: 10px;
     }
     .box-chart h4 {
@@ -138,7 +138,7 @@
     }
     .box-comp-det h4 {
         color: #696984;
-        font-size: 12px;
+        font-size: 15px;
     }
     .box-comp-det ul {
         display: inline-flex;
@@ -152,13 +152,22 @@
     }
     #icon-box i {
         color: #468ACA !important;
-    }
+        padding-left: 8px;
+}
+#icon-box span {
+    padding-right: 8px;
+}
+    
     .box-comp-image {
-        width: 100%;
+        width: 70%;
         height: 100%;
+        border: 1px solid #BDB5B2;
+    border-radius: 50%;
     }
     .box-comp-image img {
         width: 100%;
+        height: 100%;
+        border-radius: 50%;
         /* height: 80%; */
     }
     .comp-det-1 {
@@ -327,7 +336,10 @@
         color: #fff !important;
     }
     .design-fly a {
-        color: blue !important;
+        color: #fff !important;
+    }
+    .design-fly a:hover {
+        color:aquamarine !important;
     }
     #recent-job {
         background: #EEEEEE;
@@ -342,6 +354,9 @@
     text-align: center;
     
     }
+    .box-comp-det h4 {
+        margin-top: 2%;
+    }
     .box-comp-det-btn .btn {
         background: #A51D2B;
         text-transform: capitalize;
@@ -351,4 +366,40 @@
     }
     .box-comp-det-btn {
         line-height: 100px;
+    }
+    .box-chart1:hover {
+        background-image: url("../../../assets/images/trend-1.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .box-chart2:hover {
+        background-image: url("../../../assets/images/trend-2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .box-chart3:hover {
+        background-image: url("../../../assets/images/trend-3.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .box-chart4:hover {
+        background-image: url("../../../assets/images/trend-4.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .box-chart5:hover {
+        background-image: url("../../../assets/images/trend-5.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .box-chart6:hover {
+        background-image: url("../../../assets/images/trend-6.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .box-chart:hover h4{
+        color: #fff !important;
+    }
+    .full-fix {
+        border-radius: 5px !important;
     }
