@@ -55,7 +55,7 @@
     }
     .box-ezy-input-1-btn {
         text-align: center;
-        margin-top: 4%;
+        margin-top: 3%;
     }
     .box-top-cateogry {
         width: 50%;
@@ -221,12 +221,16 @@
         height: 50px;
     }
     .box-news .btn {
-        float: right;
-    border-radius: 0 !important;
-    background-color: #B62230;
-    color: #fff;
-    margin-top: -13%;
-    height: 51px;
+        border-radius: 7px !important;
+        background-color: #B62230;
+        color: #fff;
+        /* margin-top: -13%; */
+        height: 51px;
+        /* margin-left: 0px; */
+        position: absolute;
+        right: 14%;
+        bottom: 0;
+        top: 33%;
     }
     .sign-in-btn .btn {
         background: #B62230 !important;
@@ -402,4 +406,7 @@
     }
     .full-fix {
         border-radius: 5px !important;
+    }
+    .typewrite {
+        color: #f03647;
     }
