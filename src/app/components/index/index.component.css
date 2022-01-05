@@ -410,3 +410,6 @@
     .typewrite {
         color: #f03647;
     }
+    .box-news input {
+        border-radius: 7px;
+    }
