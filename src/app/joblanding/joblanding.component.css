@@ -118,7 +118,7 @@ font-size: 10px;
 }
 .company-img-name img {
   width: 100%;
-  height: auto !important;
+  /* height: auto !important; */
 }
 .job-details {
   margin-top: 10px;
@@ -130,13 +130,20 @@ font-size: 10px;
 }
 .box-rec-cand h1 {
   font-size: 31px;
-  color: #fff;
+  color: #a51d2b;
   font-weight: 400;
 }
 .box-rec-cand p {
-  font-size: 11px;
-  color: #fff;
+  font-size: 15px;
+  color: #a51d2b;
 }
 .box-rec-cand {
   padding-top: 6%;
+}
+.company-img-name {
+  width: 100px !important;
+    height: 100px !important;
+}
+.company-img-name img {
+  /* height: 0 !important; */
 }

@@ -6,10 +6,11 @@
     padding: 60px 0 80px;
     }
     #ezy-1 {
-        background-image: url("../../../assets/images/ezy-1.png");
+        background-image: url("../../../assets/images/haeder_banner_3.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         margin-top: 75px;
+        background-color: rgba(0, 0, 0, 0.5);
     }
     .box-ezy-1 span {
         color: #fff;
@@ -20,7 +21,7 @@
     }
     .box-ezy-1 p {
         color: #fff;
-        font-size: 11px;
+        font-size: 15px;
     }
     .box-ezy-1 {
         width: 50%;
@@ -29,7 +30,7 @@
     }
     .filter {
         background-color: #fff;
-        border: 3px solid;
+        border: 3px;
     border-radius: 40px;
     margin-top: 20px !important;
     width: 85%;
@@ -159,8 +160,8 @@
 }
     
     .box-comp-image {
-        width: 70%;
-        height: 100%;
+        width: 100px;
+        height: 100px;
         border: 1px solid #BDB5B2;
     border-radius: 50%;
     }
@@ -241,6 +242,22 @@
             display: none !important;
         } */
 
+        /* .box-comp-det ul{
+            display:-webkit-inline-box;
+        } */
+
+        .box-comp-det-btn{
+            line-height: 0 !important;
+            text-align: center !important;
+        }
+        .full-fix {
+            margin: 0 auto;
+            width: 50% !important;
+        }
+        .org_name h4 {
+            text-align: center !important;
+        } 
+
        .box-ezy-1 h1 {
             font-size: 18px !important;
         }
@@ -265,9 +282,9 @@
         .response {
             margin-top: 5%;
         }
-        .box-comp-image img {
+        /* .box-comp-image img {
             width: 50px;
-        }
+        } */
         .box-news {
             text-align: center;
         }
@@ -371,37 +388,65 @@
     .box-comp-det-btn {
         line-height: 100px;
     }
-    .box-chart1:hover {
+    .box-chart1 {
         background-image: url("../../../assets/images/trend-1.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
-    .box-chart2:hover {
+    .box-chart1:hover {
+        background-image: none;
+        background-color: #A51D2B;
+    }
+    .box-chart2 {
         background-image: url("../../../assets/images/trend-2.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
-    .box-chart3:hover {
+    .box-chart2:hover {
+        background-image: none;
+        background-color: #A51D2B;
+    }
+    .box-chart3 {
         background-image: url("../../../assets/images/trend-3.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
-    .box-chart4:hover {
+    .box-chart3:hover {
+        background-image: none;
+        background-color: #A51D2B;
+    }
+    .box-chart4 {
         background-image: url("../../../assets/images/trend-4.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
-    .box-chart5:hover {
+    .box-chart4:hover {
+        background-image: none;
+        background-color: #A51D2B;
+    }
+    .box-chart5 {
         background-image: url("../../../assets/images/trend-5.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
-    .box-chart6:hover {
+    .box-chart5:hover {
+        background-image: none;
+        background-color: #A51D2B;
+    }
+    .box-chart6 {
         background-image: url("../../../assets/images/trend-6.png");
         background-repeat: no-repeat;
         background-size: cover;
     }
+    .box-chart6:hover {
+        background-image: none;
+        background-color: #A51D2B;
+        
+    }
     .box-chart:hover h4{
+        color: #fff !important;
+    }
+    .box-chart h4{
         color: #fff !important;
     }
     .full-fix {

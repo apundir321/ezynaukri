@@ -37,11 +37,12 @@
                 <div class="col-lg-8 col-md-12 col-xs-12">
                     <div class="job-alerts-item candidates">
                         <h3 class="alerts-title">Jobs Applied By You</h3>
-                        <div class="manager-resumes-item" *ngFor="let job of savedJobs | paginate: config" >
-                            
+                        <div class="manager-resumes-item" *ngFor="let job of savedJobs | paginate: config">
+                        
                                 <div class="row set-color-inrow">
+                                    
                                     <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.job.id}">
-                                    <div class="col-lg-3 ">
+                                    <div class="col-lg-3">
                                         <div class="box-comp-image">
                                             <a href="">
                                                 <!-- <img src="../../../assets/images/comp-1.png" alt=""> -->
@@ -49,11 +50,11 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="col-lg-5 " style="padding-left: 5%;">
+                                    <div class="col-lg-5" style="padding-left: 5%;">
                                         <div class="box-comp-det">
                                             <div>
                                             <p><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
-                                        </div><br/>
+                                        </div>
                                         <h4>{{job.job.organization.name}}</h4>
                                             <!-- <div class="row">
                                                 gaurav

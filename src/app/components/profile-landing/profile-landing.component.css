@@ -25,18 +25,18 @@
   border-radius: 50%;
 }
 .top-header {
-  background-image: url("../../../assets/images/rec-head-img.png") !important;
+  background-image: url("../../../assets/images/haeder_banner_4.jpg") !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
 }
 .box-rec-cand h1 {
   font-size: 31px;
-  color: #fff;
+  color: #a51d2b;
   font-weight: 400;
 }
 .box-rec-cand p {
-  font-size: 11px;
-  color: #fff;
+  font-size: 15px;
+  color: #a51d2b;
 }
 .box-rec-cand {
   padding-top: 6%;
@@ -44,3 +44,5 @@
 .typewrite {
   color: #f03647;
 }
+
+/* profile-landing */

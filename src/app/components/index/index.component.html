@@ -206,7 +206,7 @@
                                         {{jobTag.name}}
                                         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                                     </mat-chip>
-                                    <input placeholder= "&#xf2b6; Job Tags" [matChipInputFor]="chipList"
+                                    <input  placeholder= "Job Tags" [matChipInputFor]="chipList"
                                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
                                         [matChipInputAddOnBlur]="addOnBlur"
                                         (matChipInputTokenEnd)="add($event)">
@@ -364,12 +364,14 @@
         <div class="row mt-4">
             
                 <div class="col-lg-4">
-                   <a href="" [routerLink]="['/browse-jobs']"><div class="box-chart box-chart1 shadow">
+                   <a href="" [routerLink]="['/browse-jobs']">
+                    <div class="box-chart box-chart1 shadow">
                     <img src="../../../assets/images/moni-1.png" alt="">
                     <h4>Finance</h4>
                     <!-- <p>8917 Jobs</p>
                     <p id="openings">21 Openings</p> -->
-                </div></a> 
+                </div>
+            </a> 
                 </div>
                 <div class="col-lg-4">
                     <a href="" [routerLink]="['/browse-jobs']"><div class="box-chart box-chart2 shadow response">
@@ -449,7 +451,7 @@
                 <a  [routerLink]="['/job-details']" [queryParams]="{jobId: job.id}">
                
                 <div class="row set-color-inrow">
-                    <div class="col-lg-2 ">
+                    <div class="col-lg-2 col-2">
                         <div class="box-comp-image">
                             <a href="">
                                 <!-- <img src="../../../assets/images/comp-1.png" alt=""> -->
@@ -457,9 +459,9 @@
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-5 " style="padding-left: 5%;">
+                    <div class="col-lg-5 col-5 org_name" style="padding-left: 5%;">
                         <div class="box-comp-det">
-                            <div >
+                            <div>
                             <p class="full-fix"><i class="fas fa-shopping-bag"></i><span>Full Time</span></p>
                         </div>
                         <h4>{{job.organization.name}}</h4>
@@ -474,7 +476,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-5">
+                    <div class="col-lg-5 col-5">
                         <div class="box-comp-det-btn">
                             <button class="btn">Apply Now</button>
                         </div>
