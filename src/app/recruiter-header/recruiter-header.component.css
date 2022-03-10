@@ -13,3 +13,6 @@
 #nav-app {
     margin-right: 5px;
 }
+.logOut {
+    cursor: pointer;
+}
