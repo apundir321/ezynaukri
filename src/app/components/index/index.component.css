@@ -2,16 +2,35 @@
     padding: 150px 0 80px;
 } */
 
-.container {
+    .container {
     padding: 60px 0 80px;
     }
     #ezy-1 {
+
         background-image: url("../../../assets/images/haeder_banner_3.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         margin-top: 75px;
-        background-color: rgba(0, 0, 0, 0.5);
+        position: relative;
+
     }
+    #ezy-1::before{
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0,0, 0.5);
+        top: 0;
+        position: absolute;
+         
+    }
+    .ezy1-change{
+        position: relative;
+    }
+
+    /* ::ng-deep .filter{
+        z-index: 999999 !important;
+    } */
+
     .box-ezy-1 span {
         color: #fff;
     }
@@ -24,7 +43,7 @@
         font-size: 15px;
     }
     .box-ezy-1 {
-        width: 50%;
+    width: 50%;
     margin: 0 auto;
     text-align: center;
     }
@@ -458,3 +477,45 @@
     .box-news input {
         border-radius: 7px;
     }
+
+    /* navbar */
+
+    nav.shift ul li a {
+        position:relative;
+        z-index: 1;
+      }
+      nav.shift ul li a:hover {
+        color: #fff;
+      }
+      nav.shift ul li a:after {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        width: 100%;
+        height: 1px;
+        content: '.';
+        color: transparent;
+        background: #A51D2B;
+        visibility: none;
+        opacity: 0;
+        z-index: -1;
+      }
+      nav.shift ul li a:hover:after {
+        opacity: 1;
+        visibility: visible;
+        height: 100%;
+      }
+      .shift-update:after{
+          background: #fff !important;
+      } 
+      nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+  transition: all .5s;
+}
+      
+     

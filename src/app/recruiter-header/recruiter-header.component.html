@@ -23,7 +23,7 @@
   
   <header id="home" class="hero-area">
   
-    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar " id="rec-head">
+    <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar shift" id="rec-head">
       <div class="container">
         <div class="theme-header clearfix">
   
@@ -76,7 +76,7 @@
               <li class="button-group">
                 <a [routerLink]="['/postjob']" class="button btn btn-common">Post a Job</a>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown icon-cls">
                 <a class="nav-link dropdown-toggle" [routerLink]="['/postjob']" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false"><i class="fa-solid fa-user-tie" id="rec-icon" aria-hidden="true" style="display: inline-block;
                     
@@ -87,7 +87,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" [routerLink]="['/recruiterUserProfile']" [queryParams]="{recruiterId: recruiterId}">My Profile</a></li>
                         <li><a class="dropdown-item" [routerLink]="['/changepassword']">Password Change </a></li>
-                        <li><a class="dropdown-item" (click)="logout()">Log Out</a></li>
+                        <li><a class="dropdown-item logOut" (click)="logout()">Log Out</a></li>
                       </ul>
 
                     

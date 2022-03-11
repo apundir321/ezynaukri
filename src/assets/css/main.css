@@ -497,7 +497,7 @@ button:focus {
   color: #333 !important;
 }
 .top-nav-collapse .navbar-nav .nav-link:hover {
-  color: #a51d2b !important;
+  color: #fff !important;
 }
 .top-nav-collapse .navbar-nav li.active a.nav-link {
   color: #a51d2b !important;

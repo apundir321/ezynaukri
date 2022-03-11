@@ -24,6 +24,7 @@
     "@angular/router": "~8.1.0",
     "@ng-select/ng-select": "^2.16.0",
     "angular-ng-autocomplete": "^2.0.5",
+    "aos": "^2.3.4",
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
     "ngx-pagination": "^3.2.1",

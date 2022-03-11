@@ -25,7 +25,7 @@
       
       <header id="home" class="hero-area">
       
-        <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar">
+        <nav class="navbar navbar-expand-lg fixed-top scrolling-navbar shift">
           <div class="container" style="padding: 0px 0 0px;">
             <div class="theme-header clearfix">
       
@@ -79,7 +79,7 @@
                   </li>
                   
                   <li class="nav-item sign-in-btn">
-                    <a class="nav-link dropdown-toggle" [routerLink]="['/login']" data-toggle="dropdown" aria-haspopup="true"
+                    <a class="nav-link dropdown-toggle shift-update" [routerLink]="['/login']" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">
                       <button class="btn shadow">Sign in</button>
                     </a>
@@ -177,7 +177,7 @@
 
     </div> -->
     <section id="ezy-1">
-        <div class="container">
+        <div class="container ezy1-change">
             <div class="row">
                 <div class="col-12">
                     <div class="box-ezy-1 ">
@@ -188,11 +188,11 @@
                                 </a>
                             </span>
                         </h1>
-                        <p>Experience the joy of finding the right job for you. </p>
+                        <p data-aos="fade-up" style="transition: 0.9s;">Experience the joy of finding the right job for you. </p>
                     </div>
                 </div>
             </div>
-            <div class="row filter">
+            <div class="row filter" data-aos="fade-right" style="transition: 0.9s;">
                 
                     <div class="col-lg-4 col-4 left-design">
                        <div class="box-ezy-input-1">
@@ -373,7 +373,7 @@
                 </div>
             </a> 
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4" >
                     <a href="" [routerLink]="['/browse-jobs']"><div class="box-chart box-chart2 shadow response">
                         <img src="../../../assets/images/moni-2.png" alt="">
                         <h4>IT/Technology</h4>

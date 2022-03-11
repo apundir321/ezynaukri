@@ -28,7 +28,21 @@
   background-image: url("../../../assets/images/haeder_banner_4.jpg") !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
+  /* position: relative; */
 }
+
+/* .top-header::before{
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0,0, 0.2);
+  top: 0;
+  position: absolute;
+}
+.top_head_cont {
+  position: relative;
+} */
+
 .box-rec-cand h1 {
   font-size: 31px;
   color: #a51d2b;

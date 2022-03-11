@@ -7,6 +7,7 @@ import { NotificationService } from 'src/app/notification.service';
 import { AuthenticationService, UserService } from 'src/app/_services';
 import { JobService } from 'src/app/_services/job.service';
 import { environment } from 'src/environments/environment';
+import AOS from 'aos';
 export interface JobTag {
   name: string;
 }
@@ -48,6 +49,8 @@ export class IndexComponent implements OnInit {
 
 
   ngOnInit() {
+
+    AOS.init();
 
 
 this.loadJS();
